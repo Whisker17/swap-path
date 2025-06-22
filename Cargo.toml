@@ -27,21 +27,21 @@ toml = "0.8.23"
 tracing = "0.1.41"
 typetag = "0.2.20"
 
-alloy-reth-provider = { git = "https://github.com/cakevm/alloy-reth-provider", rev = "4f0403b" }
+alloy-reth-provider = { git = "https://github.com/cakevm/alloy-reth-provider", rev = "549517b" }
 
 # alloy
 alloy-evm = "0.10.0"
 alloy-primitives = { version = "1.2.0", features = ["getrandom"] }
 alloy-sol-types = "1.2.0"
-alloy-transport = "1.0.9"
+alloy-transport = "1.0.12"
 
 # required for alloy-reth-provider
-alloy-provider = { version = "1.0.9", features = ["pubsub"] }
-alloy-rpc-client = { version = "1.0.9", features = ["pubsub"] }
+alloy-provider = { version = "1.0.12", features = ["pubsub"] }
+alloy-rpc-client = { version = "1.0.12", features = ["pubsub"] }
 
 # reth
-reth-errors = { git = "https://github.com/paradigmxyz/reth", tag = "v1.4.8" }
-reth-revm = { git = "https://github.com/paradigmxyz/reth", tag = "v1.4.8" }
+reth-errors = { git = "https://github.com/paradigmxyz/reth", rev = "55fdebd" }
+reth-revm = { git = "https://github.com/paradigmxyz/reth", rev = "55fdebd" }
 
 [dev-dependencies]
 lazy_static = "1.5.0"
