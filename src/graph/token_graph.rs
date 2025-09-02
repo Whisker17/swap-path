@@ -1,4 +1,4 @@
-use crate::constants::{NATIVE, WETH};
+use crate::constants::{NATIVE, WMNT};
 use crate::graph::path_builder::find_all_paths;
 use crate::pool_id::PoolId;
 use crate::swap_path_set::SwapPathSet;
@@ -126,12 +126,12 @@ impl TokenGraph {
                 return Err(eyre!("Token not found in graph: {:?}", to_token_address));
             };
 
-            // We do not want to search for paths with WETH in between
+            // We do not want to search for paths with WMNT in between
             if to_token.is_wrapped() {
                 continue;
             }
 
-            // CASE A: We search from weth token and back to the origin
+            // CASE A: We search from wmnt token and back to the origin
             if from_token.is_wrapped() {
                 let initial_swap_path = SwapPath::new_first(from_token.clone(), to_token.clone(), pool.clone());
                 let swap_paths = find_all_paths(self, initial_swap_path, *to_node_index, *from_node_index, max_hops, false)?;
@@ -146,7 +146,7 @@ impl TokenGraph {
                     total_swap_paths.extend(swap_paths.vec());
                 }
             }
-            // CASE A+: We search from native token and back to native and WETH (uniswap V4)
+            // CASE A+: We search from native token and back to native and WMNT (uniswap V4)
             else if from_token.is_native() {
                 // Search back to native
                 let native_node_index_opt = self.token_index.get(&NATIVE);
@@ -157,8 +157,8 @@ impl TokenGraph {
                     total_swap_paths.extend(swap_paths.vec());
                 }
 
-                // Search back to WETH
-                let wrapped_node_index_opt = self.token_index.get(&WETH);
+                // Search back to WMNT
+                let wrapped_node_index_opt = self.token_index.get(&WMNT);
                 if let Some(wrapped_node_index) = wrapped_node_index_opt {
                     let initial_swap_path = SwapPath::new_first(from_token.clone(), to_token.clone(), pool.clone());
                     let swap_paths = find_all_paths(self, initial_swap_path, *to_node_index, *wrapped_node_index, max_hops, false)?;
@@ -220,17 +220,17 @@ mod tests {
 
     #[test]
     fn test_serialize_token_graph() -> eyre::Result<()> {
-        let token_weth_arc = Arc::new(Token::new_with_data(WETH, Some("WETH".to_string()), None, Some(18)));
+        let token_wmnt_arc = Arc::new(Token::new_with_data(WMNT, Some("WMNT".to_string()), None, Some(18)));
         let token1_arc = Arc::new(Token::new_with_data(Address::repeat_byte(1), Some("token1".to_string()), None, Some(18)));
 
-        let token_weth = token_weth_arc.get_address();
+        let token_wmnt = token_wmnt_arc.get_address();
         let token1 = token1_arc.get_address();
 
-        let mock_pool = MockPool { address: Address::repeat_byte(2), token0: token_weth, token1 };
+        let mock_pool = MockPool { address: Address::repeat_byte(2), token0: token_wmnt, token1 };
         let wrapped_pool = PoolWrapper::new(Arc::new(mock_pool));
 
         let mut token_graph = TokenGraph::new();
-        token_graph.add_or_get_token_idx_by_token(token_weth_arc.clone());
+        token_graph.add_or_get_token_idx_by_token(token_wmnt_arc.clone());
         token_graph.add_or_get_token_idx_by_token(token1_arc.clone());
         token_graph.add_pool(wrapped_pool.clone())?;
 
@@ -247,19 +247,19 @@ mod tests {
 
     #[test]
     fn test_swap_path_two_hops() -> eyre::Result<()> {
-        let token_weth_arc = Arc::new(Token::new_with_data(WETH, Some("WETH".to_string()), None, Some(18)));
+        let token_wmnt_arc = Arc::new(Token::new_with_data(WMNT, Some("WMNT".to_string()), None, Some(18)));
         let token1_arc = Arc::new(Token::new_with_data(Address::repeat_byte(1), Some("token1".to_string()), None, Some(18)));
 
-        let token_weth = token_weth_arc.get_address();
+        let token_wmnt = token_wmnt_arc.get_address();
         let token1 = token1_arc.get_address();
 
-        let mock_pool = MockPool { address: Address::repeat_byte(2), token0: token_weth, token1 };
+        let mock_pool = MockPool { address: Address::repeat_byte(2), token0: token_wmnt, token1 };
         let wrapped_pool = PoolWrapper::new(Arc::new(mock_pool));
-        let mock_pool2 = MockPool { address: Address::repeat_byte(3), token0: token_weth, token1 };
+        let mock_pool2 = MockPool { address: Address::repeat_byte(3), token0: token_wmnt, token1 };
         let wrapped_pool2 = PoolWrapper::new(Arc::new(mock_pool2));
 
         let mut all_pair_graph = TokenGraph::default();
-        all_pair_graph.add_or_get_token_idx_by_token(token_weth_arc.clone());
+        all_pair_graph.add_or_get_token_idx_by_token(token_wmnt_arc.clone());
         all_pair_graph.add_or_get_token_idx_by_token(token1_arc.clone());
         all_pair_graph.add_pool(wrapped_pool.clone())?;
         all_pair_graph.add_pool(wrapped_pool2)?;
@@ -273,23 +273,23 @@ mod tests {
 
     #[test]
     fn test_swap_path_three_hops() -> eyre::Result<()> {
-        let token_weth_arc = Arc::new(Token::new_with_data(WETH, Some("WETH".to_string()), None, Some(18)));
+        let token_wmnt_arc = Arc::new(Token::new_with_data(WMNT, Some("WMNT".to_string()), None, Some(18)));
         let token1_arc = Arc::new(Token::new_with_data(Address::repeat_byte(1), Some("token1".to_string()), None, Some(18)));
         let token2_arc = Arc::new(Token::new_with_data(Address::repeat_byte(2), Some("token2".to_string()), None, Some(18)));
 
-        let token_weth = token_weth_arc.get_address();
+        let token_wmnt = token_wmnt_arc.get_address();
         let token1 = token1_arc.get_address();
         let token2 = token2_arc.get_address();
 
-        let mock_pool = MockPool { address: Address::repeat_byte(3), token0: token_weth, token1 };
+        let mock_pool = MockPool { address: Address::repeat_byte(3), token0: token_wmnt, token1 };
         let wrapped_pool = PoolWrapper::new(Arc::new(mock_pool));
         let mock_pool2 = MockPool { address: Address::repeat_byte(4), token0: token1, token1: token2 };
         let wrapped_pool2 = PoolWrapper::new(Arc::new(mock_pool2));
-        let mock_pool3 = MockPool { address: Address::repeat_byte(5), token0: token2, token1: token_weth };
+        let mock_pool3 = MockPool { address: Address::repeat_byte(5), token0: token2, token1: token_wmnt };
         let wrapped_pool3 = PoolWrapper::new(Arc::new(mock_pool3));
 
         let mut all_pair_graph = TokenGraph::default();
-        all_pair_graph.add_or_get_token_idx_by_token(token_weth_arc.clone());
+        all_pair_graph.add_or_get_token_idx_by_token(token_wmnt_arc.clone());
         all_pair_graph.add_or_get_token_idx_by_token(token1_arc.clone());
         all_pair_graph.add_or_get_token_idx_by_token(token2_arc.clone());
         all_pair_graph.add_pool(wrapped_pool.clone())?;
@@ -306,24 +306,24 @@ mod tests {
     #[test]
     #[ignore]
     fn test_swap_path_four_hops() -> eyre::Result<()> {
-        let token_weth_arc = Arc::new(Token::new_with_data(WETH, Some("WETH".to_string()), None, Some(18)));
+        let token_wmnt_arc = Arc::new(Token::new_with_data(WMNT, Some("WMNT".to_string()), None, Some(18)));
         let token1_arc = Arc::new(Token::new_with_data(Address::random(), Some("token1".to_string()), None, Some(18)));
         let token2_arc = Arc::new(Token::new_with_data(Address::random(), Some("token2".to_string()), None, Some(18)));
         let token3_arc = Arc::new(Token::new_with_data(Address::random(), Some("token3".to_string()), None, Some(18)));
 
-        let token_weth = token_weth_arc.get_address();
+        let token_wmnt = token_wmnt_arc.get_address();
         let token1 = token1_arc.get_address();
         let token2 = token2_arc.get_address();
         let token3 = token3_arc.get_address();
 
-        let mock_pool = MockPool { address: Address::random(), token0: token_weth, token1 };
+        let mock_pool = MockPool { address: Address::random(), token0: token_wmnt, token1 };
         let mock_pool2 = MockPool { address: Address::random(), token0: token1, token1: token2 };
         let mock_pool3 = MockPool { address: Address::random(), token0: token2, token1: token3 };
-        let mock_pool4 = MockPool { address: Address::random(), token0: token3, token1: token_weth };
+        let mock_pool4 = MockPool { address: Address::random(), token0: token3, token1: token_wmnt };
         let wrapped_pool4 = PoolWrapper::new(Arc::new(mock_pool4));
 
         let mut all_pair_graph = TokenGraph::default();
-        all_pair_graph.add_or_get_token_idx_by_token(token_weth_arc.clone());
+        all_pair_graph.add_or_get_token_idx_by_token(token_wmnt_arc.clone());
         all_pair_graph.add_or_get_token_idx_by_token(token1_arc.clone());
         all_pair_graph.add_or_get_token_idx_by_token(token2_arc.clone());
         all_pair_graph.add_or_get_token_idx_by_token(token3_arc.clone());
@@ -342,8 +342,8 @@ mod tests {
     #[test]
     fn test_swap_path_four_and_two_hops() -> eyre::Result<()> {
         let mut tokens = HashMap::new();
-        let token_weth_arc = Arc::new(Token::new_with_data(WETH, Some("WETH".to_string()), None, Some(18)));
-        tokens.insert(token_weth_arc.get_address(), token_weth_arc.clone());
+        let token_wmnt_arc = Arc::new(Token::new_with_data(WMNT, Some("WMNT".to_string()), None, Some(18)));
+        tokens.insert(token_wmnt_arc.get_address(), token_wmnt_arc.clone());
         let token1_arc = Arc::new(Token::new_with_data(Address::random(), Some("token1".to_string()), None, Some(18)));
         tokens.insert(token1_arc.get_address(), token1_arc.clone());
         let token2_arc = Arc::new(Token::new_with_data(Address::random(), Some("token2".to_string()), None, Some(18)));
@@ -351,20 +351,20 @@ mod tests {
         let token3_arc = Arc::new(Token::new_with_data(Address::random(), Some("token3".to_string()), None, Some(18)));
         tokens.insert(token3_arc.get_address(), token3_arc.clone());
 
-        let token_weth = token_weth_arc.get_address();
+        let token_wmnt = token_wmnt_arc.get_address();
         let token1 = token1_arc.get_address();
         let token2 = token2_arc.get_address();
         let token3 = token3_arc.get_address();
 
-        let mock_pool = MockPool { address: Address::random(), token0: token_weth, token1 };
+        let mock_pool = MockPool { address: Address::random(), token0: token_wmnt, token1 };
         let mock_pool2 = MockPool { address: Address::random(), token0: token1, token1: token2 };
         let mock_pool3 = MockPool { address: Address::random(), token0: token2, token1: token3 };
-        let mock_pool4 = MockPool { address: Address::random(), token0: token3, token1: token_weth };
+        let mock_pool4 = MockPool { address: Address::random(), token0: token3, token1: token_wmnt };
         let wrapped_pool4 = PoolWrapper::new(Arc::new(mock_pool4));
-        let mock_pool5 = MockPool { address: Address::random(), token0: token1, token1: token_weth };
+        let mock_pool5 = MockPool { address: Address::random(), token0: token1, token1: token_wmnt };
 
         let mut all_pair_graph = TokenGraph::default();
-        all_pair_graph.add_or_get_token_idx_by_token(token_weth_arc.clone());
+        all_pair_graph.add_or_get_token_idx_by_token(token_wmnt_arc.clone());
         all_pair_graph.add_or_get_token_idx_by_token(token1_arc.clone());
         all_pair_graph.add_or_get_token_idx_by_token(token2_arc.clone());
         all_pair_graph.add_or_get_token_idx_by_token(token3_arc.clone());

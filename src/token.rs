@@ -1,4 +1,4 @@
-use crate::constants::WETH;
+use crate::constants::WMNT;
 use alloy_primitives::utils::Unit;
 use alloy_primitives::{Address, I256, U256};
 use serde::{Deserialize, Serialize};
@@ -114,7 +114,7 @@ impl Token {
     }
 
     pub fn is_wrapped(&self) -> bool {
-        self.address == WETH
+        self.address == WMNT
     }
 
     pub fn is_native(&self) -> bool {
@@ -128,12 +128,12 @@ mod test {
 
     #[test]
     fn test_serialize() {
-        let weth_token = Token::new_with_data(WETH, Some("WETH".to_string()), None, Some(18));
+        let weth_token = Token::new_with_data(WMNT, Some("WMNT".to_string()), None, Some(18));
 
         let serialized = serde_json::to_string(&weth_token).unwrap();
         assert_eq!(
             serialized,
-            "{\"address\":\"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\"decimals\":18,\"name\":null,\"symbol\":\"WETH\"}"
+            "{\"address\":\"0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8\",\"decimals\":18,\"name\":null,\"symbol\":\"WMNT\"}"
         );
     }
 }

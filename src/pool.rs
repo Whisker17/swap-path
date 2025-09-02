@@ -1,4 +1,4 @@
-use crate::constants::EthFactoryAddress;
+use crate::constants::MantleFactoryAddress;
 use crate::db_error::FluxDBError;
 use crate::pool_id::PoolId;
 use alloy_evm::EvmEnv;
@@ -14,36 +14,14 @@ use std::sync::Arc;
 use strum_macros::{Display, EnumIter, EnumString, VariantNames};
 
 pub fn get_protocol_by_factory(factory_address: Address) -> PoolProtocol {
-    if factory_address == EthFactoryAddress::UNISWAP_V2 {
-        PoolProtocol::UniswapV2
-    } else if factory_address == EthFactoryAddress::UNISWAP_V3 {
+    if factory_address == MantleFactoryAddress::MerchantMoe_MoeLP {
+        PoolProtocol::MerchantMoeLP
+    } else if factory_address == MantleFactoryAddress::MerchantMoe_LBT {
+        PoolProtocol::MerchantMoeLBT
+    } else if factory_address == MantleFactoryAddress::Agni {
+        PoolProtocol::Agni
+    } else if factory_address == MantleFactoryAddress::UNISWAP_V3 {
         PoolProtocol::UniswapV3
-    } else if factory_address == EthFactoryAddress::PANCAKE_V3 {
-        PoolProtocol::PancakeV3
-    } else if factory_address == EthFactoryAddress::NOMISWAP {
-        PoolProtocol::NomiswapStable
-    } else if factory_address == EthFactoryAddress::SUSHISWAP_V2 {
-        PoolProtocol::Sushiswap
-    } else if factory_address == EthFactoryAddress::SUSHISWAP_V3 {
-        PoolProtocol::SushiswapV3
-    } else if factory_address == EthFactoryAddress::DOOARSWAP {
-        PoolProtocol::DooarSwap
-    } else if factory_address == EthFactoryAddress::SAFESWAP {
-        PoolProtocol::Safeswap
-    } else if factory_address == EthFactoryAddress::MINISWAP {
-        PoolProtocol::Miniswap
-    } else if factory_address == EthFactoryAddress::SHIBASWAP {
-        PoolProtocol::Shibaswap
-    } else if factory_address == EthFactoryAddress::MAVERICK {
-        PoolProtocol::Maverick
-    } else if factory_address == EthFactoryAddress::NFTX_V3 {
-        PoolProtocol::NftxV3
-    } else if factory_address == EthFactoryAddress::KYBERSWAP {
-        PoolProtocol::Kyberswap
-    } else if factory_address == EthFactoryAddress::SOLIDLY_V3 {
-        PoolProtocol::SolidlyV3
-    } else if factory_address == EthFactoryAddress::AERODROME_V3 {
-        PoolProtocol::AerodromeV3
     } else {
         PoolProtocol::Unknown
     }
@@ -57,13 +35,6 @@ pub enum PoolClass {
     Unknown,
     UniswapV2,
     UniswapV3,
-    UniswapV4,
-    Curve,
-    LidoStEth,
-    LidoWstEth,
-    RocketPool,
-    SushiBar,
-    Maverick,
 }
 
 #[derive(Copy, Clone, Debug, Display, PartialEq, Eq, Serialize, Deserialize)]
@@ -71,37 +42,10 @@ pub enum PoolClass {
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum PoolProtocol {
     Unknown,
-    UniswapV2,
-    UniswapV2Like,
-    NomiswapStable,
-    Sushiswap,
-    SushiswapV3,
-    DooarSwap,
-    OgPepe,
-    Safeswap,
-    Miniswap,
-    Shibaswap,
     UniswapV3,
-    UniswapV3Like,
-    PancakeV3,
-    Integral,
-    Maverick,
-    Curve,
-    LidoStEth,
-    LidoWstEth,
-    RocketEth,
-    NftxV3,
-    SushiBar,
-    Kyberswap,
-    MintySwapV3,
-    SolidlyV3,
-    UniswapV4,
-
-    // Bsc
-    UnchainXV3,
-
-    // Base
-    AerodromeV3,
+    MerchantMoeLP,
+    MerchantMoeLBT,
+    Agni,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -311,7 +255,9 @@ mod test {
         assert_eq!(format!("{}", PoolClass::UniswapV2), "UNISWAP_V2");
 
         assert_eq!(format!("{}", PoolProtocol::Unknown), "UNKNOWN");
-        assert_eq!(format!("{}", PoolProtocol::UniswapV2), "UNISWAP_V2");
+        assert_eq!(format!("{}", PoolProtocol::UniswapV3), "UNISWAP_V3");
+        assert_eq!(format!("{}", PoolProtocol::MerchantMoeLP), "MERCHANT_MOE_L_P");
+        assert_eq!(format!("{}", PoolProtocol::Agni), "AGNI");
     }
 
     #[test]

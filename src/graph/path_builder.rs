@@ -74,7 +74,7 @@ pub fn find_all_paths(
         }
         searched_path_counter += 1;
 
-        // If we reached the target node, add the path to results e.g. token=WETH
+        // If we reached the target node, add the path to results e.g. token=WMNT
         if node == end_node {
             if current_path.len() > 1 {
                 all_swap_paths.insert(current_path);
@@ -87,7 +87,7 @@ pub fn find_all_paths(
             continue;
         }
 
-        // We do not like to travel further after WETH token
+        // We do not like to travel further after WMNT token
         if reached_end {
             continue;
         }
@@ -115,7 +115,7 @@ pub fn find_all_paths(
                 let mut new_path = current_path.clone();
                 if new_path.push_swap_hop(to_token.clone(), pool.inner.clone()).is_ok() {
                     if to_token.is_wrapped() {
-                        // After WETH token, we can not go further
+                        // After WMNT token, we can not go further
                         stack.push_back(PathState { node: edge.target(), current_path: new_path, hops: hops + 1, reached_end: true });
                     } else {
                         stack.push_back(PathState { node: edge.target(), current_path: new_path, hops: hops + 1, reached_end: false });
