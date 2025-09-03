@@ -1,4 +1,4 @@
-use crate::SwapPath;
+use super::swap_path::SwapPath;
 use std::collections::HashSet;
 
 #[derive(Default)]

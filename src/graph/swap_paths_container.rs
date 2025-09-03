@@ -1,16 +1,17 @@
-use crate::pool_id::PoolId;
-use crate::swap_path_hash::SwapPathHash;
-use crate::{MarketWithoutLock, SwapPath};
+use crate::pools::pool_id::PoolId;
+use super::swap_path_hash::SwapPathHash;
+use crate::MarketWithoutLock;
+use super::swap_path::SwapPath;
 use ahash::HashMap;
 use dashmap::{DashMap, DashSet};
-use serde::{Deserialize, Serialize};
+
 use std::sync::Arc;
 /*
    This container allows to add any swap path and makes sure that the path is only added once.
    It also allows to get all swap paths for a specific pool.
    All swap paths are immutable and should not be altered after adding them to the container.
 */
-#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default)]
 pub struct SwapPathsContainer {
     // Used to check before inserting a new path if it already exists. It saves 1 lookup
     // (clippy would complain about mutable_key_type if the SwapPath is used directly)
@@ -127,8 +128,8 @@ pub fn remove_pool(market_without_lock: Arc<MarketWithoutLock>, pool_id: &PoolId
 
 #[cfg(test)]
 mod test {
-    use crate::swap_path::*;
-    use crate::swap_paths_container::SwapPathsContainer;
+    use crate::graph::swap_path::*;
+    use crate::graph::swap_paths_container::SwapPathsContainer;
     use crate::{MockPool, PoolWrapper, Token};
     use alloy_primitives::Address;
     use std::sync::Arc;
@@ -144,12 +145,8 @@ mod test {
         let mut swap_path_container = SwapPathsContainer::new();
         swap_path_container.add(swap_path.clone());
 
-        let serialized = serde_json::to_string(&swap_path_container).unwrap();
-        let deserialized: SwapPathsContainer = serde_json::from_str(&serialized).unwrap();
-
-        // There is no eq impl for SwapPathContainer, so we need to check the content
-        assert!(deserialized.swap_path_hashes.contains(&swap_path.swap_path_hash));
-        assert_eq!(deserialized.get_pool_paths_vec(&pool_1_2.get_pool_id()), vec![swap_path.clone()]);
+        // 序列化测试已移除，因为SwapPathsContainer不再支持序列化
+        assert!(swap_path_container.swap_path_hashes.contains(&swap_path.swap_path_hash));
     }
 
     #[test]

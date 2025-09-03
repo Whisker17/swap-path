@@ -1,10 +1,7 @@
-use crate::constants::MantleFactoryAddress;
-use crate::db_error::FluxDBError;
-use crate::pool_id::PoolId;
-use alloy_evm::EvmEnv;
+use crate::utils::constants::MantleFactoryAddress;
+use super::pool_id::PoolId;
 use alloy_primitives::{Address, Bytes, U256};
 use eyre::{Result, eyre};
-use revm::DatabaseRef;
 use serde::{Deserialize, Serialize};
 use std::cmp::Ordering;
 use std::fmt::{Debug, Display, Formatter};
@@ -14,11 +11,11 @@ use std::sync::Arc;
 use strum_macros::{Display, EnumIter, EnumString, VariantNames};
 
 pub fn get_protocol_by_factory(factory_address: Address) -> PoolProtocol {
-    if factory_address == MantleFactoryAddress::MerchantMoe_MoeLP {
+    if factory_address == MantleFactoryAddress::MERCHANT_MOE_MOE_LP {
         PoolProtocol::MerchantMoeLP
-    } else if factory_address == MantleFactoryAddress::MerchantMoe_LBT {
+    } else if factory_address == MantleFactoryAddress::MERCHANT_MOE_LBT {
         PoolProtocol::MerchantMoeLBT
-    } else if factory_address == MantleFactoryAddress::Agni {
+    } else if factory_address == MantleFactoryAddress::AGNI {
         PoolProtocol::Agni
     } else if factory_address == MantleFactoryAddress::UNISWAP_V3 {
         PoolProtocol::UniswapV3
@@ -48,7 +45,6 @@ pub enum PoolProtocol {
     Agni,
 }
 
-#[derive(Serialize, Deserialize)]
 pub struct PoolWrapper {
     pub pool: Arc<dyn Pool>,
 }
@@ -160,26 +156,7 @@ pub trait Pool: Sync + Send {
     }
 }
 
-pub trait PoolExt: Pool {
-    fn calculate_out_amount(
-        &self,
-        state: &dyn DatabaseRef<Error = FluxDBError>,
-        env: EvmEnv,
-        token_address_from: &Address,
-        token_address_to: &Address,
-        in_amount: U256,
-    ) -> Result<(U256, u64), CalculationError>;
 
-    // returns (in_amount, gas_used)
-    fn calculate_in_amount(
-        &self,
-        state: &dyn DatabaseRef<Error = FluxDBError>,
-        env: EvmEnv,
-        token_address_from: &Address,
-        token_address_to: &Address,
-        out_amount: U256,
-    ) -> Result<(U256, u64), CalculationError>;
-}
 
 pub struct DefaultAbiSwapEncoder {}
 
@@ -261,13 +238,13 @@ mod test {
     }
 
     #[test]
-    fn test_serialize_pool_wrapper() -> eyre::Result<()> {
+    fn test_pool_wrapper_creation() -> eyre::Result<()> {
+        use crate::pools::pool_id::PoolId;
+        
         let pool = MockPool::new(Address::repeat_byte(0), Address::repeat_byte(1), Address::repeat_byte(2));
         let pool_wrapper = PoolWrapper::new(Arc::new(pool));
-        let serialized = serde_json::to_string(&pool_wrapper)?;
-        let expected = "{\"pool\":{\"type\":\"MockPool\",\"token0\":\"0x0000000000000000000000000000000000000000\",\"token1\":\"0x0101010101010101010101010101010101010101\",\"address\":\"0x0202020202020202020202020202020202020202\"}}".to_string();
-        assert_eq!(serialized, expected);
-
+        // 序列化测试已移除，因为PoolWrapper不再支持序列化
+        assert_eq!(pool_wrapper.get_pool_id(), PoolId::Address(Address::repeat_byte(2)));
         Ok(())
     }
 }

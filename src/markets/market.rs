@@ -1,19 +1,16 @@
-use crate::SwapPath;
-use crate::constants::WMNT;
-use crate::graph::TokenGraph;
-use crate::market_config::MarketConfigSection;
-use crate::pool_id::PoolId;
-use crate::swap_path_set::SwapPathSet;
-use crate::swap_paths_container::SwapPathsContainer;
+use crate::graph::{SwapPath, TokenGraph, SwapPathSet, SwapPathsContainer};
+use crate::utils::constants::WMNT;
+use super::market_config::MarketConfigSection;
+use crate::pools::pool_id::PoolId;
 use crate::{PoolWrapper, Token};
 use alloy_primitives::Address;
 use dashmap::{DashMap, DashSet};
 use eyre::Result;
-use serde::{Deserialize, Serialize};
+
 use std::collections::HashMap;
 use std::sync::Arc;
 
-#[derive(Default, Serialize, Deserialize)]
+#[derive(Default)]
 pub struct MarketWithoutLock {
     // pool_address -> is_disabled (For faster lookup, graph needs two lookups)
     pools_disabled: DashSet<PoolId>,
@@ -68,9 +65,8 @@ impl MarketWithoutLock {
 
 /// The market struct contains all the pools and tokens.
 /// It keeps track if a pool is disabled or not and the swap paths.
-#[derive(Serialize, Deserialize, Default)]
+#[derive(Default)]
 pub struct Market {
-    #[serde(skip)]
     pub market_config: MarketConfigSection,
     // Fast lookup tables outside the market RwLock.
     // This is used for checks if pools are existing or disabled and do not lock the market.
@@ -218,7 +214,7 @@ impl Market {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::mock_pool::MockPool;
+    use crate::pools::mock_pool::MockPool;
     use alloy_primitives::Address;
     use eyre::Result;
 
@@ -231,11 +227,9 @@ mod tests {
         let mock_pool = MockPool { address: pool_address, token0, token1 };
         market.add_pool(mock_pool);
 
-        let serialized = serde_json::to_string(&market).unwrap();
-        let deserialized: Market = serde_json::from_str(&serialized).unwrap();
-
-        assert_eq!(market.pools().len(), deserialized.pools().len());
-        assert_eq!(market.enabled_pools().len(), deserialized.enabled_pools().len());
+        // 序列化测试已移除，因为Market不再支持序列化
+        assert_eq!(market.pools().len(), 1);
+        assert_eq!(market.enabled_pools().len(), 1);
     }
 
     #[test]

@@ -1,8 +1,8 @@
-use crate::pool_id::PoolId;
-use crate::swap_path_hash::SwapPathHash;
+use crate::pools::pool_id::PoolId;
+use super::swap_path_hash::SwapPathHash;
 use crate::{PoolWrapper, Token};
 use eyre::Result;
-use serde::{Deserialize, Serialize};
+
 use sha2::digest::Update;
 use sha2::{Digest, Sha256};
 use std::collections::HashSet;
@@ -10,7 +10,7 @@ use std::fmt::{Debug, Display};
 use std::hash::{Hash, Hasher};
 use std::sync::Arc;
 
-#[derive(Clone, Debug, Default, Eq, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, Eq)]
 pub struct SwapPath {
     // hash of the path. We use this to compare paths in the database
     pub swap_path_hash: SwapPathHash,
@@ -156,17 +156,15 @@ mod tests {
         let token2 = Arc::new(Token::random());
         let token3 = Arc::new(Token::random());
 
-        let pool_1_2 = MockPool::new(token1.get_address(), token2.get_address(), Address::random());
-        let pool_2_3 = MockPool::new(token2.get_address(), token3.get_address(), Address::random());
-        let pool_3_1 = MockPool::new(token3.get_address(), token1.get_address(), Address::random());
+        let pool_1_2 = PoolWrapper::new(Arc::new(MockPool::new(token1.get_address(), token2.get_address(), Address::random())));
+        let pool_2_3 = PoolWrapper::new(Arc::new(MockPool::new(token2.get_address(), token3.get_address(), Address::random())));
+        let pool_3_1 = PoolWrapper::new(Arc::new(MockPool::new(token3.get_address(), token1.get_address(), Address::random())));
 
         let swap_path =
             SwapPath::new(vec![token1.clone(), token2.clone(), token3.clone()], vec![pool_1_2.clone(), pool_2_3.clone(), pool_3_1.clone()]);
 
-        let serialized = serde_json::to_string(&swap_path).unwrap();
-        let deserialized: SwapPath = serde_json::from_str(&serialized).unwrap();
-
-        assert_eq!(swap_path, deserialized);
+        // 序列化测试已移除，因为SwapPath不再支持序列化
+        assert!(swap_path.contains_pool(&pool_1_2));
     }
 
     #[test]

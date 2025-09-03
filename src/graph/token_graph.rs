@@ -1,13 +1,14 @@
-use crate::constants::{NATIVE, WMNT};
-use crate::graph::path_builder::find_all_paths;
-use crate::pool_id::PoolId;
-use crate::swap_path_set::SwapPathSet;
-use crate::{PoolWrapper, SwapPath, Token};
+use crate::utils::constants::{NATIVE, WMNT};
+use super::spfa_path_builder::SPFAPathBuilder;
+use crate::pools::pool_id::PoolId;
+use super::swap_path_set::SwapPathSet;
+use crate::{PoolWrapper, Token};
+use super::swap_path::SwapPath;
 use ahash::RandomState;
 use alloy_primitives::Address;
 use eyre::eyre;
 use petgraph::graph::{EdgeIndex, NodeIndex, UnGraph};
-use serde::{Deserialize, Serialize};
+
 use std::collections::HashMap;
 use std::fmt::Display;
 use std::sync::Arc;
@@ -16,7 +17,7 @@ pub type FastHasher = RandomState;
 /// FastHashMap using ahash
 pub type FastHashMap<K, V> = HashMap<K, V, FastHasher>;
 
-#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default)]
 pub struct TokenGraph {
     // We not use stable right now because we never delete nodes or edges
     // The graph consists of nodes (tokens) and edges (pools). The edges are a hashmap of pool id's and the pool.
@@ -131,10 +132,16 @@ impl TokenGraph {
                 continue;
             }
 
-            // CASE A: We search from wmnt token and back to the origin
+            // 创建SPFA路径构建器，获得更好的性能
+            let spfa_builder = SPFAPathBuilder::new()
+                .with_max_iterations(50_000) // 降低最大迭代次数以提升性能
+                .with_pruning(true)
+                .with_cost_estimation(true);
+
+            // CASE A: We search from wmnt token and back to the origin (使用SPFA算法)
             if from_token.is_wrapped() {
                 let initial_swap_path = SwapPath::new_first(from_token.clone(), to_token.clone(), pool.clone());
-                let swap_paths = find_all_paths(self, initial_swap_path, *to_node_index, *from_node_index, max_hops, false)?;
+                let swap_paths = spfa_builder.find_all_paths(self, initial_swap_path, *to_node_index, *from_node_index, max_hops, false)?;
                 total_swap_paths.extend(swap_paths.vec());
 
                 // In this case the origin is the native token
@@ -142,18 +149,18 @@ impl TokenGraph {
 
                 if let Some(native_node_index) = native_node_index_opt {
                     let initial_swap_path = SwapPath::new_first(from_token.clone(), to_token.clone(), pool.clone());
-                    let swap_paths = find_all_paths(self, initial_swap_path, *to_node_index, *native_node_index, max_hops, false)?;
+                    let swap_paths = spfa_builder.find_all_paths(self, initial_swap_path, *to_node_index, *native_node_index, max_hops, false)?;
                     total_swap_paths.extend(swap_paths.vec());
                 }
             }
-            // CASE A+: We search from native token and back to native and WMNT (uniswap V4)
+            // CASE A+: We search from native token and back to native and WMNT (uniswap V4, 使用SPFA算法)
             else if from_token.is_native() {
                 // Search back to native
                 let native_node_index_opt = self.token_index.get(&NATIVE);
 
                 if let Some(native_node_index) = native_node_index_opt {
                     let initial_swap_path = SwapPath::new_first(from_token.clone(), to_token.clone(), pool.clone());
-                    let swap_paths = find_all_paths(self, initial_swap_path, *to_node_index, *native_node_index, max_hops, false)?;
+                    let swap_paths = spfa_builder.find_all_paths(self, initial_swap_path, *to_node_index, *native_node_index, max_hops, false)?;
                     total_swap_paths.extend(swap_paths.vec());
                 }
 
@@ -161,7 +168,7 @@ impl TokenGraph {
                 let wrapped_node_index_opt = self.token_index.get(&WMNT);
                 if let Some(wrapped_node_index) = wrapped_node_index_opt {
                     let initial_swap_path = SwapPath::new_first(from_token.clone(), to_token.clone(), pool.clone());
-                    let swap_paths = find_all_paths(self, initial_swap_path, *to_node_index, *wrapped_node_index, max_hops, false)?;
+                    let swap_paths = spfa_builder.find_all_paths(self, initial_swap_path, *to_node_index, *wrapped_node_index, max_hops, false)?;
                     total_swap_paths.extend(swap_paths.vec());
                 }
             }
@@ -177,7 +184,7 @@ impl TokenGraph {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct TokenNode {
     pub token: Arc<Token>,
 }
@@ -194,7 +201,7 @@ impl TokenNode {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct PoolEdge {
     pub is_active: bool,
     pub inner: PoolWrapper,
@@ -234,13 +241,9 @@ mod tests {
         token_graph.add_or_get_token_idx_by_token(token1_arc.clone());
         token_graph.add_pool(wrapped_pool.clone())?;
 
-        let serialized = serde_json::to_string(&token_graph)?;
-        let token_graph_deserialized: TokenGraph = serde_json::from_str(&serialized)?;
-
+        // 序列化测试已移除，因为TokenGraph不再支持序列化
         assert_eq!(token_graph.graph.node_count(), 2);
         assert_eq!(token_graph.graph.edge_count(), 1);
-        assert_eq!(token_graph_deserialized.graph.node_count(), 2);
-        assert_eq!(token_graph_deserialized.graph.edge_count(), 1);
 
         Ok(())
     }

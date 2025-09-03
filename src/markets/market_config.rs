@@ -1,4 +1,4 @@
-use crate::config_loader::{FluxConfigLoader, FluxConfigLoaderSync, LoadConfigError, load_from_file, load_from_file_sync};
+use crate::utils::config_loader::{FluxConfigLoader, FluxConfigLoaderSync, LoadConfigError, load_from_file, load_from_file_sync};
 use async_trait::async_trait;
 use serde::Deserialize;
 

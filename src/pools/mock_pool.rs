@@ -1,4 +1,4 @@
-use crate::pool_id::PoolId;
+use super::pool_id::PoolId;
 use crate::{AbiSwapEncoder, Pool, PoolClass, PoolProtocol};
 use alloy_primitives::{Address, U256};
 use serde::{Deserialize, Serialize};
@@ -23,7 +23,7 @@ impl Pool for MockPool {
     }
 
     fn get_protocol(&self) -> PoolProtocol {
-        PoolProtocol::UniswapV2
+        PoolProtocol::Unknown
     }
 
     fn get_address(&self) -> Address {
