@@ -1,4 +1,4 @@
-use crate::pools::pool_id::PoolId;
+use super::super::pools::pool_id::PoolId;
 use super::swap_path_hash::SwapPathHash;
 use crate::{PoolWrapper, Token};
 use eyre::Result;

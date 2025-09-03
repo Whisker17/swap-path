@@ -1,6 +1,6 @@
 use crate::utils::constants::{NATIVE, WMNT};
 use super::spfa_path_builder::SPFAPathBuilder;
-use crate::pools::pool_id::PoolId;
+use super::super::pools::pool_id::PoolId;
 use super::swap_path_set::SwapPathSet;
 use crate::{PoolWrapper, Token};
 use super::swap_path::SwapPath;

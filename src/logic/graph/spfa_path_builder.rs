@@ -339,7 +339,7 @@ pub fn find_all_paths_spfa(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::graph::TokenGraph;
+    use super::TokenGraph;
     use crate::{MockPool, PoolWrapper, Token};
     use alloy_primitives::Address;
     use std::sync::Arc;

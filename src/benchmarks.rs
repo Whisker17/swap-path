@@ -1,4 +1,4 @@
-use crate::graph::{TokenGraph, SwapPath, SPFAPathBuilder};
+use crate::logic::graph::{TokenGraph, SwapPath, SPFAPathBuilder};
 use crate::{PoolWrapper, Token, MockPool, CacheManager};
 use alloy_primitives::Address;
 use std::sync::Arc;

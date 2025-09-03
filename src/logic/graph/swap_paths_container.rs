@@ -1,4 +1,4 @@
-use crate::pools::pool_id::PoolId;
+use super::super::pools::pool_id::PoolId;
 use super::swap_path_hash::SwapPathHash;
 use crate::MarketWithoutLock;
 use super::swap_path::SwapPath;
@@ -128,8 +128,8 @@ pub fn remove_pool(market_without_lock: Arc<MarketWithoutLock>, pool_id: &PoolId
 
 #[cfg(test)]
 mod test {
-    use crate::graph::swap_path::*;
-    use crate::graph::swap_paths_container::SwapPathsContainer;
+    use crate::logic::graph::swap_path::*;
+    use crate::logic::graph::swap_paths_container::SwapPathsContainer;
     use crate::{MockPool, PoolWrapper, Token};
     use alloy_primitives::Address;
     use std::sync::Arc;

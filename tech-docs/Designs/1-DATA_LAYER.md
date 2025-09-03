@@ -55,7 +55,7 @@ sequenceDiagram
 
 2.  **数据准备 (Preparation):**
 
-      - 预先为所有 12 个目标池地址 (/data/)，ABI 编码好 `getReserves()` 函数的调用数据 (calldata)。
+      - 预先为所有 12 个目标池地址 (/data/selected/)，ABI 编码好 `getReserves()` 函数的调用数据 (calldata)。
 
 3.  **事件触发与聚合调用 (Event Trigger & Aggregation):**
 

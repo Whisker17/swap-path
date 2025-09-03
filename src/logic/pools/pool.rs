@@ -233,13 +233,13 @@ mod test {
 
         assert_eq!(format!("{}", PoolProtocol::Unknown), "UNKNOWN");
         assert_eq!(format!("{}", PoolProtocol::UniswapV3), "UNISWAP_V3");
-        assert_eq!(format!("{}", PoolProtocol::MerchantMoeLP), "MERCHANT_MOE_L_P");
+        assert_eq!(format!("{}", PoolProtocol::MerchantMoeLP), "MERCHANT_MOE_LP");
         assert_eq!(format!("{}", PoolProtocol::Agni), "AGNI");
     }
 
     #[test]
     fn test_pool_wrapper_creation() -> eyre::Result<()> {
-        use crate::pools::pool_id::PoolId;
+        use crate::logic::pools::pool_id::PoolId;
         
         let pool = MockPool::new(Address::repeat_byte(0), Address::repeat_byte(1), Address::repeat_byte(2));
         let pool_wrapper = PoolWrapper::new(Arc::new(pool));

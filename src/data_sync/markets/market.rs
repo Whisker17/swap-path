@@ -1,7 +1,7 @@
-use crate::graph::{SwapPath, TokenGraph, SwapPathSet, SwapPathsContainer};
+use crate::logic::graph::{SwapPath, TokenGraph, SwapPathSet, SwapPathsContainer};
 use crate::utils::constants::WMNT;
 use super::market_config::MarketConfigSection;
-use crate::pools::pool_id::PoolId;
+use crate::logic::pools::pool_id::PoolId;
 use crate::{PoolWrapper, Token};
 use alloy_primitives::Address;
 use dashmap::{DashMap, DashSet};
@@ -214,7 +214,7 @@ impl Market {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::pools::mock_pool::MockPool;
+    use crate::logic::pools::mock_pool::MockPool;
     use alloy_primitives::Address;
     use eyre::Result;
 
