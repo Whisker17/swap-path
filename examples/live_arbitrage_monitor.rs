@@ -584,17 +584,17 @@ fn create_live_arbitrage_engine(market: &Market) -> Result<ArbitrageEngine> {
     let min_profit_threshold = std::env::var("MIN_PROFIT_THRESHOLD_USD")
         .ok()
         .and_then(|s| s.parse().ok())
-        .unwrap_or(10.0);
+        .unwrap_or(0.02); // 降低到 0.02 USD ≈ 0.018 MNT
     
     let max_hops = std::env::var("MAX_HOPS")
         .ok()
         .and_then(|s| s.parse().ok())
-        .unwrap_or(3);
+        .unwrap_or(4);
     
     let gas_price_gwei = std::env::var("GAS_PRICE_GWEI")
         .ok()
         .and_then(|s| s.parse().ok())
-        .unwrap_or(20);
+        .unwrap_or(0.02); // Mantle 网络的 gas price 通常很低
     
     // 生产环境的配置
     let config = ArbitrageConfig {
