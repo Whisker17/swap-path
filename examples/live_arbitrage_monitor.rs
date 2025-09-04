@@ -9,6 +9,7 @@ use swap_path::logic::types::{ArbitrageConfig, MarketSnapshot};
 use swap_path::logic::pools::{MockPool};
 use swap_path::{PoolWrapper, Token};
 use swap_path::data_sync::markets::{Market, MarketConfigSection};
+use swap_path::logic::graph::SwapPathHash;
 use alloy_primitives::{Address, U256};
 use eyre::Result;
 use std::sync::Arc;
@@ -18,6 +19,7 @@ use tracing::{info, warn, error, debug};
 use std::fs;
 use serde::{Deserialize, Serialize};
 use std::path::Path;
+use std::collections::HashSet;
 
 
 // Mantle 主网配置
@@ -63,6 +65,60 @@ struct ArbitrageRecord {
     pool_addresses: String,
     hop_count: usize,
     execution_priority: String,
+}
+
+// 套利机会去重跟踪器
+#[derive(Debug)]
+struct ArbitrageOpportunityTracker {
+    /// 已处理的套利机会路径哈希集合
+    processed_opportunities: HashSet<SwapPathHash>,
+    /// 可选：设置最大缓存大小以避免内存无限增长
+    max_cache_size: usize,
+}
+
+impl ArbitrageOpportunityTracker {
+    fn new(max_cache_size: usize) -> Self {
+        Self {
+            processed_opportunities: HashSet::new(),
+            max_cache_size,
+        }
+    }
+
+    /// 检查套利机会是否已被处理，如果没有则标记为已处理
+    fn is_new_opportunity(&mut self, opportunity: &ArbitrageOpportunity) -> bool {
+        let hash = opportunity.path.swap_path_hash.clone();
+        
+        // 如果缓存太大，清理一半（简单的LRU策略）
+        if self.processed_opportunities.len() >= self.max_cache_size {
+            let keys_to_remove: Vec<_> = self.processed_opportunities
+                .iter()
+                .take(self.max_cache_size / 2)
+                .cloned()
+                .collect();
+            
+            for key in keys_to_remove {
+                self.processed_opportunities.remove(&key);
+            }
+            
+            debug!("清理套利机会缓存，当前大小: {}", self.processed_opportunities.len());
+        }
+
+        // 检查是否是新机会
+        self.processed_opportunities.insert(hash)
+    }
+
+    /// 过滤出新的套利机会
+    fn filter_new_opportunities(&mut self, opportunities: &[ArbitrageOpportunity]) -> Vec<ArbitrageOpportunity> {
+        opportunities.iter()
+            .filter(|opp| self.is_new_opportunity(opp))
+            .cloned()
+            .collect()
+    }
+
+    /// 获取统计信息
+    fn get_stats(&self) -> (usize, usize) {
+        (self.processed_opportunities.len(), self.max_cache_size)
+    }
 }
 
 #[tokio::main]
@@ -598,10 +654,15 @@ async fn run_live_monitoring(
     
     info!("📡 开始监听区块数据...");
     
+    // 初始化套利机会去重跟踪器
+    let mut opportunity_tracker = ArbitrageOpportunityTracker::new(10000); // 最多缓存10000个已处理的机会
+    info!("✅ 套利机会去重系统已启用，缓存大小: {}", opportunity_tracker.max_cache_size);
+    
     // 监控统计
     let mut blocks_processed = 0u64;
     let mut total_opportunities = 0u64;
     let mut total_profit_usd = 0.0f64;
+    let mut total_unique_opportunities = 0u64; // 新增：独特机会计数
     let start_time = std::time::Instant::now();
     
     // 主监控循环
@@ -618,21 +679,34 @@ async fn run_live_monitoring(
                             Ok(opportunities) => {
                                 if !opportunities.is_empty() {
                                     total_opportunities += opportunities.len() as u64;
-                                    let block_profit: f64 = opportunities.iter()
-                                        .map(|o| o.net_profit_usd)
-                                        .sum();
-                                    total_profit_usd += block_profit;
                                     
-                                    display_arbitrage_opportunities(&snapshot, &opportunities);
+                                    // 使用去重跟踪器过滤新的套利机会
+                                    let new_opportunities = opportunity_tracker.filter_new_opportunities(&opportunities);
+                                    
+                                    if !new_opportunities.is_empty() {
+                                        total_unique_opportunities += new_opportunities.len() as u64;
+                                        let block_profit: f64 = new_opportunities.iter()
+                                            .map(|o| o.net_profit_usd)
+                                            .sum();
+                                        total_profit_usd += block_profit;
+                                        
+                                        // 只显示和记录新的套利机会
+                                        display_arbitrage_opportunities(&snapshot, &new_opportunities);
+                                    } else {
+                                        debug!("区块 {} - 发现 {} 个套利机会，但都是重复的", 
+                                              snapshot.block_number, opportunities.len());
+                                    }
                                 }
                                 
                                 // 每10个区块显示统计信息
                                 if blocks_processed % 10 == 0 {
-                                    display_monitoring_stats(
+                                    display_monitoring_stats_with_dedup(
                                         blocks_processed,
                                         total_opportunities,
+                                        total_unique_opportunities,
                                         total_profit_usd,
                                         start_time.elapsed(),
+                                        &opportunity_tracker,
                                     );
                                 }
                             }
@@ -657,7 +731,14 @@ async fn run_live_monitoring(
     }
     
     // 显示最终统计
-    display_final_stats(blocks_processed, total_opportunities, total_profit_usd, start_time.elapsed());
+    display_final_stats_with_dedup(
+        blocks_processed, 
+        total_opportunities, 
+        total_unique_opportunities, 
+        total_profit_usd, 
+        start_time.elapsed(),
+        &opportunity_tracker
+    );
     
     Ok(())
 }
@@ -678,14 +759,14 @@ async fn analyze_arbitrage_opportunities(
     Ok(opportunities)
 }
 
-/// 显示发现的套利机会
+/// 显示发现的新套利机会（已去重）
 fn display_arbitrage_opportunities(
     snapshot: &MarketSnapshot,
     opportunities: &[swap_path::logic::ArbitrageOpportunity],
 ) {
-    info!("🎯 区块 {} - 发现 {} 个套利机会", snapshot.block_number, opportunities.len());
+    info!("🎯 区块 {} - 发现 {} 个新套利机会", snapshot.block_number, opportunities.len());
     
-    // 记录套利机会到CSV文件
+    // 记录新套利机会到CSV文件
     tokio::spawn({
         let opportunities = opportunities.to_vec();
         let snapshot = snapshot.clone();
@@ -777,6 +858,83 @@ fn display_final_stats(
         let avg_profit = total_profit_usd / total_opportunities as f64;
         info!("  平均单笔利润: ${:.2}", avg_profit);
     }
+}
+
+/// 显示带去重信息的监控统计信息
+fn display_monitoring_stats_with_dedup(
+    blocks_processed: u64,
+    total_opportunities: u64,
+    unique_opportunities: u64,
+    total_profit_usd: f64,
+    elapsed: Duration,
+    tracker: &ArbitrageOpportunityTracker,
+) {
+    let avg_opportunities_per_block = if blocks_processed > 0 {
+        total_opportunities as f64 / blocks_processed as f64
+    } else {
+        0.0
+    };
+    
+    let dedup_rate = if total_opportunities > 0 {
+        ((total_opportunities - unique_opportunities) as f64 / total_opportunities as f64) * 100.0
+    } else {
+        0.0
+    };
+    
+    let (cache_size, max_cache_size) = tracker.get_stats();
+    
+    info!("📊 监控统计 (已运行 {:?}):", elapsed);
+    info!("  已处理区块: {}", blocks_processed);
+    info!("  总套利机会: {} (去重后: {})", total_opportunities, unique_opportunities);
+    info!("  去重效率: {:.1}%", dedup_rate);
+    info!("  平均机会/区块: {:.2}", avg_opportunities_per_block);
+    info!("  累计潜在利润: ${:.2}", total_profit_usd);
+    info!("  缓存使用率: {}/{}", cache_size, max_cache_size);
+}
+
+/// 显示带去重信息的最终统计
+fn display_final_stats_with_dedup(
+    blocks_processed: u64,
+    total_opportunities: u64,
+    unique_opportunities: u64,
+    total_profit_usd: f64,
+    total_elapsed: Duration,
+    tracker: &ArbitrageOpportunityTracker,
+) {
+    let dedup_rate = if total_opportunities > 0 {
+        ((total_opportunities - unique_opportunities) as f64 / total_opportunities as f64) * 100.0
+    } else {
+        0.0
+    };
+    
+    let (cache_size, max_cache_size) = tracker.get_stats();
+    
+    info!("📋 最终统计报告 (带去重优化):");
+    info!("{}", "=".repeat(60));
+    info!("  总运行时间: {:?}", total_elapsed);
+    info!("  处理区块数: {}", blocks_processed);
+    info!("  发现套利机会: {} 个", total_opportunities);
+    info!("  独特套利机会: {} 个", unique_opportunities);
+    info!("  去重节省率: {:.1}%", dedup_rate);
+    info!("  累计潜在利润: ${:.2}", total_profit_usd);
+    
+    if blocks_processed > 0 {
+        let blocks_per_minute = blocks_processed as f64 / (total_elapsed.as_secs() as f64 / 60.0);
+        let unique_opportunities_per_hour = unique_opportunities as f64 / (total_elapsed.as_secs() as f64 / 3600.0);
+        
+        info!("  处理速度: {:.1} 区块/分钟", blocks_per_minute);
+        info!("  独特机会发现率: {:.1} 机会/小时", unique_opportunities_per_hour);
+    }
+    
+    if unique_opportunities > 0 {
+        let avg_profit = total_profit_usd / unique_opportunities as f64;
+        info!("  平均单笔利润: ${:.2}", avg_profit);
+    }
+    
+    info!("  去重缓存统计:");
+    info!("    已缓存路径: {} 个", cache_size);
+    info!("    最大缓存大小: {} 个", max_cache_size);
+    info!("    缓存利用率: {:.1}%", (cache_size as f64 / max_cache_size as f64) * 100.0);
 }
 
 /// 离线演示模式
