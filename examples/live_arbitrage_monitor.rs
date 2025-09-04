@@ -476,13 +476,13 @@ fn create_arbitrage_record(
     
     // 构建路径描述
     let path_tokens: Vec<String> = opportunity.path.tokens.iter()
-        .map(|token| get_token_symbol_from_address(token.get_address()))
+        .map(|token| get_full_token_symbol(token.get_address()))
         .collect();
     let path_description = path_tokens.join(" → ");
     
     // 获取输入/输出代币符号
-    let input_token = get_token_symbol_from_address(opportunity.path.tokens[0].get_address());
-    let output_token = get_token_symbol_from_address(
+    let input_token = get_full_token_symbol(opportunity.path.tokens[0].get_address());
+    let output_token = get_full_token_symbol(
         opportunity.path.tokens[opportunity.path.tokens.len() - 1].get_address()
     );
     
@@ -529,18 +529,6 @@ fn create_arbitrage_record(
     })
 }
 
-/// 根据地址获取代币符号
-fn get_token_symbol_from_address(address: Address) -> String {
-    let addr_str = format!("{:?}", address);
-    if addr_str.contains(WMNT) { "WMNT".to_string() }
-    else if addr_str.contains(METH) { "mETH".to_string() }
-    else if addr_str.contains(MOE) { "MOE".to_string() }
-    else if addr_str.contains(PUFF) { "PUFF".to_string() }
-    else if addr_str.contains(MINU) { "MINU".to_string() }
-    else if addr_str.contains(LEND) { "LEND".to_string() }
-    else if addr_str.contains(JOE) { "JOE".to_string() }
-    else { format!("{}...{}", &addr_str[2..6], &addr_str[addr_str.len()-4..]) }
-}
 
 /// 创建测试池子用于实时演示
 fn create_test_pools_for_live_demo() -> Result<Vec<PoolWrapper>> {
@@ -661,7 +649,7 @@ async fn run_live_monitoring(
     // 监控统计
     let mut blocks_processed = 0u64;
     let mut total_opportunities = 0u64;
-    let mut total_profit_usd = 0.0f64;
+    let mut total_profit_mnt = 0.0f64;
     let mut total_unique_opportunities = 0u64; // 新增：独特机会计数
     let start_time = std::time::Instant::now();
     
@@ -686,9 +674,9 @@ async fn run_live_monitoring(
                                     if !new_opportunities.is_empty() {
                                         total_unique_opportunities += new_opportunities.len() as u64;
                                         let block_profit: f64 = new_opportunities.iter()
-                                            .map(|o| o.net_profit_usd)
+                                            .map(|o| calculate_profit_in_mnt(o))
                                             .sum();
-                                        total_profit_usd += block_profit;
+                                        total_profit_mnt += block_profit;
                                         
                                         // 只显示和记录新的套利机会
                                         display_arbitrage_opportunities(&snapshot, &new_opportunities);
@@ -704,7 +692,7 @@ async fn run_live_monitoring(
                                         blocks_processed,
                                         total_opportunities,
                                         total_unique_opportunities,
-                                        total_profit_usd,
+                                        total_profit_mnt,
                                         start_time.elapsed(),
                                         &opportunity_tracker,
                                     );
@@ -735,7 +723,7 @@ async fn run_live_monitoring(
         blocks_processed, 
         total_opportunities, 
         total_unique_opportunities, 
-        total_profit_usd, 
+        total_profit_mnt, 
         start_time.elapsed(),
         &opportunity_tracker
     );
@@ -778,31 +766,30 @@ fn display_arbitrage_opportunities(
     });
     
     for (i, opportunity) in opportunities.iter().take(3).enumerate() {
-        info!("  {}. 净利润: ${:.2} | ROI: {:.1}% | 路径: {}-跳",
+        let profit_mnt = calculate_profit_in_mnt(opportunity);
+        let input_mnt = wei_to_ether_f64(opportunity.optimal_input_amount);
+        let output_mnt = wei_to_ether_f64(opportunity.expected_output_amount);
+        let gas_cost_mnt = opportunity.gas_cost_usd / 1.1; // MNT 价格约为 $1.1
+        let roi_percent = if input_mnt > 0.0 { (profit_mnt / input_mnt) * 100.0 } else { 0.0 };
+        
+        info!("  {}. 净利润: {:.6} MNT | ROI: {:.1}% | 路径: {}-跳",
               i + 1,
-              opportunity.net_profit_usd,
-              calculate_roi(opportunity),
+              profit_mnt,
+              roi_percent,
               opportunity.path.len());
         
         // 显示具体的执行建议
-        info!("     推荐输入: {:.6} WMNT",
-              wei_to_ether_f64(opportunity.optimal_input_amount));
-        info!("     预期产出: {:.6} WMNT",
-              wei_to_ether_f64(opportunity.expected_output_amount));
+        info!("     推荐输入: {:.6} MNT",
+              input_mnt);
+        info!("     预期产出: {:.6} MNT",
+              output_mnt);
+        info!("     Gas成本: {:.6} MNT (${:.2})",
+              gas_cost_mnt,
+              opportunity.gas_cost_usd);
         
-        // 显示路径信息
+        // 显示完整的路径信息
         let path_tokens: Vec<String> = opportunity.path.tokens.iter()
-            .map(|token| {
-                let addr_str = format!("{:?}", token.get_address());
-                if addr_str.contains(WMNT) { "WMNT".to_string() }
-                else if addr_str.contains(METH) { "mETH".to_string() }
-                else if addr_str.contains(MOE) { "MOE".to_string() }
-                else if addr_str.contains(PUFF) { "PUFF".to_string() }
-                else if addr_str.contains(MINU) { "MINU".to_string() }
-                else if addr_str.contains(LEND) { "LEND".to_string() }
-                else if addr_str.contains(JOE) { "JOE".to_string() }
-                else { format!("{}...{}", &addr_str[2..6], &addr_str[addr_str.len()-4..]) }
-            })
+            .map(|token| get_full_token_symbol(token.get_address()))
             .collect();
         info!("     路径: {}", path_tokens.join(" → "));
     }
@@ -860,81 +847,49 @@ fn display_final_stats(
     }
 }
 
-/// 显示带去重信息的监控统计信息
+/// 显示简化的监控统计信息
 fn display_monitoring_stats_with_dedup(
     blocks_processed: u64,
-    total_opportunities: u64,
+    _total_opportunities: u64,
     unique_opportunities: u64,
-    total_profit_usd: f64,
+    total_profit_mnt: f64,
     elapsed: Duration,
-    tracker: &ArbitrageOpportunityTracker,
+    _tracker: &ArbitrageOpportunityTracker,
 ) {
-    let avg_opportunities_per_block = if blocks_processed > 0 {
-        total_opportunities as f64 / blocks_processed as f64
-    } else {
-        0.0
-    };
-    
-    let dedup_rate = if total_opportunities > 0 {
-        ((total_opportunities - unique_opportunities) as f64 / total_opportunities as f64) * 100.0
-    } else {
-        0.0
-    };
-    
-    let (cache_size, max_cache_size) = tracker.get_stats();
-    
     info!("📊 监控统计 (已运行 {:?}):", elapsed);
     info!("  已处理区块: {}", blocks_processed);
-    info!("  总套利机会: {} (去重后: {})", total_opportunities, unique_opportunities);
-    info!("  去重效率: {:.1}%", dedup_rate);
-    info!("  平均机会/区块: {:.2}", avg_opportunities_per_block);
-    info!("  累计潜在利润: ${:.2}", total_profit_usd);
-    info!("  缓存使用率: {}/{}", cache_size, max_cache_size);
+    info!("  套利机会: {}", unique_opportunities);
+    info!("  累计潜在利润: {:.6} MNT", total_profit_mnt);
 }
 
-/// 显示带去重信息的最终统计
+/// 显示简化的最终统计
 fn display_final_stats_with_dedup(
     blocks_processed: u64,
-    total_opportunities: u64,
+    _total_opportunities: u64,
     unique_opportunities: u64,
-    total_profit_usd: f64,
+    total_profit_mnt: f64,
     total_elapsed: Duration,
-    tracker: &ArbitrageOpportunityTracker,
+    _tracker: &ArbitrageOpportunityTracker,
 ) {
-    let dedup_rate = if total_opportunities > 0 {
-        ((total_opportunities - unique_opportunities) as f64 / total_opportunities as f64) * 100.0
-    } else {
-        0.0
-    };
-    
-    let (cache_size, max_cache_size) = tracker.get_stats();
-    
-    info!("📋 最终统计报告 (带去重优化):");
-    info!("{}", "=".repeat(60));
+    info!("📋 最终统计报告:");
+    info!("{}", "=".repeat(40));
     info!("  总运行时间: {:?}", total_elapsed);
     info!("  处理区块数: {}", blocks_processed);
-    info!("  发现套利机会: {} 个", total_opportunities);
-    info!("  独特套利机会: {} 个", unique_opportunities);
-    info!("  去重节省率: {:.1}%", dedup_rate);
-    info!("  累计潜在利润: ${:.2}", total_profit_usd);
+    info!("  套利机会: {} 个", unique_opportunities);
+    info!("  累计潜在利润: {:.6} MNT", total_profit_mnt);
     
     if blocks_processed > 0 {
         let blocks_per_minute = blocks_processed as f64 / (total_elapsed.as_secs() as f64 / 60.0);
-        let unique_opportunities_per_hour = unique_opportunities as f64 / (total_elapsed.as_secs() as f64 / 3600.0);
+        let opportunities_per_hour = unique_opportunities as f64 / (total_elapsed.as_secs() as f64 / 3600.0);
         
         info!("  处理速度: {:.1} 区块/分钟", blocks_per_minute);
-        info!("  独特机会发现率: {:.1} 机会/小时", unique_opportunities_per_hour);
+        info!("  机会发现率: {:.1} 机会/小时", opportunities_per_hour);
     }
     
     if unique_opportunities > 0 {
-        let avg_profit = total_profit_usd / unique_opportunities as f64;
-        info!("  平均单笔利润: ${:.2}", avg_profit);
+        let avg_profit = total_profit_mnt / unique_opportunities as f64;
+        info!("  平均单笔利润: {:.6} MNT", avg_profit);
     }
-    
-    info!("  去重缓存统计:");
-    info!("    已缓存路径: {} 个", cache_size);
-    info!("    最大缓存大小: {} 个", max_cache_size);
-    info!("    缓存利用率: {:.1}%", (cache_size as f64 / max_cache_size as f64) * 100.0);
 }
 
 /// 离线演示模式
@@ -998,7 +953,7 @@ fn create_demo_snapshots() -> Vec<MarketSnapshot> {
 
 /// 辅助函数：计算投资回报率
 fn calculate_roi(opportunity: &swap_path::logic::ArbitrageOpportunity) -> f64 {
-    let input_usd = wei_to_ether_f64(opportunity.optimal_input_amount) * 2.0; // 假设 WMNT 价格 $2
+    let input_usd = wei_to_ether_f64(opportunity.optimal_input_amount) * 1.1; // MNT 价格约为 $1.1
     if input_usd > 0.0 {
         (opportunity.net_profit_usd / input_usd) * 100.0
     } else {
@@ -1009,6 +964,27 @@ fn calculate_roi(opportunity: &swap_path::logic::ArbitrageOpportunity) -> f64 {
 /// 辅助函数：Wei 转 Ether (f64)
 fn wei_to_ether_f64(wei: U256) -> f64 {
     wei.to::<u128>() as f64 / 1e18
+}
+
+/// 计算MNT形式的利润
+fn calculate_profit_in_mnt(opportunity: &ArbitrageOpportunity) -> f64 {
+    // 计算输出与输入的差值（以MNT为单位）
+    let input_mnt = wei_to_ether_f64(opportunity.optimal_input_amount);
+    let output_mnt = wei_to_ether_f64(opportunity.expected_output_amount);
+    output_mnt - input_mnt
+}
+
+/// 获取完整的代币符号
+fn get_full_token_symbol(address: Address) -> String {
+    let addr_str = format!("{:?}", address);
+    if addr_str.contains(WMNT) { "WMNT".to_string() }
+    else if addr_str.contains(METH) { "mETH".to_string() }
+    else if addr_str.contains(MOE) { "MOE".to_string() }
+    else if addr_str.contains(PUFF) { "PUFF".to_string() }
+    else if addr_str.contains(MINU) { "MINU".to_string() }
+    else if addr_str.contains(LEND) { "LEND".to_string() }
+    else if addr_str.contains(JOE) { "JOE".to_string() }
+    else { format!("{}...{}", &addr_str[2..6], &addr_str[addr_str.len()-4..]) }
 }
 
 /// 程序使用说明
