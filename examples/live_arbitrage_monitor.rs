@@ -520,9 +520,9 @@ fn create_arbitrage_record(
         input_amount,
         output_token,
         output_amount,
-        net_profit_usd: opportunity.net_profit_usd,
+        net_profit_usd: opportunity.net_profit_mnt_wei.to_string().parse::<f64>().unwrap_or(0.0) / 1e18 * 1.1, // 转换为USD
         roi_percentage: roi,
-        gas_cost_usd: opportunity.gas_cost_usd,
+        gas_cost_usd: opportunity.gas_cost_mnt_wei.to_string().parse::<f64>().unwrap_or(0.0) / 1e18 * 1.1, // 转换为USD
         pool_addresses: pool_addresses_str,
         hop_count: opportunity.path.tokens.len() - 1,
         execution_priority,
@@ -588,16 +588,17 @@ fn create_live_arbitrage_engine(market: &Market) -> Result<ArbitrageEngine> {
     
     // 生产环境的配置
     let config = ArbitrageConfig {
-        min_profit_threshold_usd: min_profit_threshold,
+        min_profit_threshold_mnt_wei: U256::from_str_radix(&((min_profit_threshold / 1.1 * 1e18) as u64).to_string(), 10).unwrap(), // 转换为MNT Wei
         max_hops,
-        gas_price_gwei,
-        gas_per_hop: 200_000,            // 保守的 gas 估算
+        gas_price_gwei: gas_price_gwei as f64,
+        gas_per_transaction: 700_000_000,    // 700M gas per transaction
         max_precomputed_paths: 1000,     // 平衡内存使用和覆盖度
         enable_parallel_calculation: true,
     };
     
     info!("✅ 套利引擎配置:");
-    info!("  最小利润门槛: ${:.2}", config.min_profit_threshold_usd);
+    let min_profit_mnt = config.min_profit_threshold_mnt_wei.to_string().parse::<f64>().unwrap_or(0.0) / 1e18;
+    info!("  最小利润门槛: {:.6} MNT", min_profit_mnt);
     info!("  最大跳数: {}", config.max_hops);
     info!("  并行计算: {}", config.enable_parallel_calculation);
     
@@ -769,7 +770,7 @@ fn display_arbitrage_opportunities(
         let profit_mnt = calculate_profit_in_mnt(opportunity);
         let input_mnt = wei_to_ether_f64(opportunity.optimal_input_amount);
         let output_mnt = wei_to_ether_f64(opportunity.expected_output_amount);
-        let gas_cost_mnt = opportunity.gas_cost_usd / 1.1; // MNT 价格约为 $1.1
+        let gas_cost_mnt = opportunity.gas_cost_mnt_wei.to_string().parse::<f64>().unwrap_or(0.0) / 1e18;
         let roi_percent = if input_mnt > 0.0 { (profit_mnt / input_mnt) * 100.0 } else { 0.0 };
         
         info!("  {}. 净利润: {:.6} MNT | ROI: {:.1}% | 路径: {}-跳",
@@ -785,7 +786,7 @@ fn display_arbitrage_opportunities(
               output_mnt);
         info!("     Gas成本: {:.6} MNT (${:.2})",
               gas_cost_mnt,
-              opportunity.gas_cost_usd);
+              gas_cost_mnt * 1.1); // 转换为 USD 显示
         
         // 显示完整的路径信息
         let path_tokens: Vec<String> = opportunity.path.tokens.iter()
@@ -925,7 +926,7 @@ fn create_demo_snapshots() -> Vec<MarketSnapshot> {
     let mut snapshots = Vec::new();
     
     for i in 0..5 {
-        let mut snapshot = MarketSnapshot::new(12345 + i, 2000.0 + i as f64 * 50.0);
+        let mut snapshot = MarketSnapshot::new(12345 + i);
         
         // 添加一些模拟的池子数据
             // 使用真实池子地址的演示数据
@@ -953,9 +954,10 @@ fn create_demo_snapshots() -> Vec<MarketSnapshot> {
 
 /// 辅助函数：计算投资回报率
 fn calculate_roi(opportunity: &swap_path::logic::ArbitrageOpportunity) -> f64 {
-    let input_usd = wei_to_ether_f64(opportunity.optimal_input_amount) * 1.1; // MNT 价格约为 $1.1
-    if input_usd > 0.0 {
-        (opportunity.net_profit_usd / input_usd) * 100.0
+    let input_mnt = wei_to_ether_f64(opportunity.optimal_input_amount);
+    if input_mnt > 0.0 {
+        let net_profit_mnt = opportunity.net_profit_mnt_wei.to_string().parse::<f64>().unwrap_or(0.0) / 1e18;
+        (net_profit_mnt / input_mnt) * 100.0
     } else {
         0.0
     }
