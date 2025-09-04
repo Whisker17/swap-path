@@ -11,12 +11,12 @@ pub struct ArbitrageOpportunity {
     pub path: SwapPath,
     /// Optimal input amount (in Wei) that maximizes profit
     pub optimal_input_amount: U256,
-    /// Expected gross profit (before gas costs) in USD
-    pub gross_profit_usd: f64,
-    /// Estimated gas cost in USD
-    pub gas_cost_usd: f64,
-    /// Net profit (gross profit - gas cost) in USD
-    pub net_profit_usd: f64,
+    /// Expected gross profit (before gas costs) in MNT Wei
+    pub gross_profit_mnt_wei: U256,
+    /// Estimated gas cost in MNT Wei
+    pub gas_cost_mnt_wei: U256,
+    /// Net profit (gross profit - gas cost) in MNT Wei
+    pub net_profit_mnt_wei: U256,
     /// Profit margin as percentage
     pub profit_margin_percent: f64,
     /// When this opportunity was discovered
@@ -30,12 +30,19 @@ impl ArbitrageOpportunity {
         path: SwapPath,
         optimal_input_amount: U256,
         expected_output_amount: U256,
-        gross_profit_usd: f64,
-        gas_cost_usd: f64,
+        gross_profit_mnt_wei: U256,
+        gas_cost_mnt_wei: U256,
     ) -> Self {
-        let net_profit_usd = gross_profit_usd - gas_cost_usd;
-        let profit_margin_percent = if gross_profit_usd > 0.0 {
-            (net_profit_usd / gross_profit_usd) * 100.0
+        let net_profit_mnt_wei = if gross_profit_mnt_wei > gas_cost_mnt_wei {
+            gross_profit_mnt_wei - gas_cost_mnt_wei
+        } else {
+            U256::ZERO
+        };
+        
+        let profit_margin_percent = if !gross_profit_mnt_wei.is_zero() {
+            let gross_profit_f64 = gross_profit_mnt_wei.to_string().parse::<f64>().unwrap_or(0.0);
+            let net_profit_f64 = net_profit_mnt_wei.to_string().parse::<f64>().unwrap_or(0.0);
+            (net_profit_f64 / gross_profit_f64) * 100.0
         } else {
             0.0
         };
@@ -43,17 +50,17 @@ impl ArbitrageOpportunity {
         Self {
             path,
             optimal_input_amount,
-            gross_profit_usd,
-            gas_cost_usd,
-            net_profit_usd,
+            gross_profit_mnt_wei,
+            gas_cost_mnt_wei,
+            net_profit_mnt_wei,
             profit_margin_percent,
             discovered_at: Instant::now(),
             expected_output_amount,
         }
     }
 
-    pub fn is_profitable(&self, min_profit_threshold_usd: f64) -> bool {
-        self.net_profit_usd > min_profit_threshold_usd
+    pub fn is_profitable(&self, min_profit_threshold_mnt_wei: U256) -> bool {
+        self.net_profit_mnt_wei > min_profit_threshold_mnt_wei
     }
 }
 
@@ -66,8 +73,6 @@ pub struct MarketSnapshot {
     pub timestamp: u64,
     /// Block number from which this data comes
     pub block_number: u64,
-    /// ETH price in USD (for gas cost calculation)
-    pub eth_price_usd: f64,
     /// Set of enabled pools (optimization to avoid repeated MarketWithoutLock queries)
     pub enabled_pools: std::collections::HashSet<PoolId>,
     /// Total number of pools in the market (for statistics)
@@ -75,7 +80,7 @@ pub struct MarketSnapshot {
 }
 
 impl MarketSnapshot {
-    pub fn new(block_number: u64, eth_price_usd: f64) -> Self {
+    pub fn new(block_number: u64) -> Self {
         Self {
             pool_reserves: HashMap::new(),
             timestamp: std::time::SystemTime::now()
@@ -83,7 +88,6 @@ impl MarketSnapshot {
                 .unwrap_or_default()
                 .as_secs(),
             block_number,
-            eth_price_usd,
             enabled_pools: HashSet::new(),
             total_pools_count: 0,
         }
@@ -140,10 +144,9 @@ pub struct ProfitCalculationResult {
     pub path: SwapPath,
     pub optimal_input_amount: U256,
     pub expected_output_amount: U256,
-    pub gross_profit_wei: U256,
-    pub gross_profit_usd: f64,
-    pub gas_cost_usd: f64,
-    pub net_profit_usd: f64,
+    pub gross_profit_mnt_wei: U256,
+    pub gas_cost_mnt_wei: U256,
+    pub net_profit_mnt_wei: U256,
     pub calculation_successful: bool,
     pub error_message: Option<String>,
 }
@@ -153,18 +156,22 @@ impl ProfitCalculationResult {
         path: SwapPath,
         optimal_input_amount: U256,
         expected_output_amount: U256,
-        gross_profit_wei: U256,
-        gross_profit_usd: f64,
-        gas_cost_usd: f64,
+        gross_profit_mnt_wei: U256,
+        gas_cost_mnt_wei: U256,
     ) -> Self {
+        let net_profit_mnt_wei = if gross_profit_mnt_wei > gas_cost_mnt_wei {
+            gross_profit_mnt_wei - gas_cost_mnt_wei
+        } else {
+            U256::ZERO
+        };
+        
         Self {
             path,
             optimal_input_amount,
             expected_output_amount,
-            gross_profit_wei,
-            gross_profit_usd,
-            gas_cost_usd,
-            net_profit_usd: gross_profit_usd - gas_cost_usd,
+            gross_profit_mnt_wei,
+            gas_cost_mnt_wei,
+            net_profit_mnt_wei,
             calculation_successful: true,
             error_message: None,
         }
@@ -175,23 +182,22 @@ impl ProfitCalculationResult {
             path,
             optimal_input_amount: U256::ZERO,
             expected_output_amount: U256::ZERO,
-            gross_profit_wei: U256::ZERO,
-            gross_profit_usd: 0.0,
-            gas_cost_usd: 0.0,
-            net_profit_usd: 0.0,
+            gross_profit_mnt_wei: U256::ZERO,
+            gas_cost_mnt_wei: U256::ZERO,
+            net_profit_mnt_wei: U256::ZERO,
             calculation_successful: false,
             error_message: Some(error_message),
         }
     }
 
     pub fn to_opportunity(&self) -> Option<ArbitrageOpportunity> {
-        if self.calculation_successful && self.net_profit_usd > 0.0 {
+        if self.calculation_successful && !self.net_profit_mnt_wei.is_zero() {
             Some(ArbitrageOpportunity::new(
                 self.path.clone(),
                 self.optimal_input_amount,
                 self.expected_output_amount,
-                self.gross_profit_usd,
-                self.gas_cost_usd,
+                self.gross_profit_mnt_wei,
+                self.gas_cost_mnt_wei,
             ))
         } else {
             None
@@ -202,14 +208,14 @@ impl ProfitCalculationResult {
 /// Configuration for the arbitrage engine
 #[derive(Debug, Clone)]
 pub struct ArbitrageConfig {
-    /// Minimum profit threshold in USD to consider an opportunity
-    pub min_profit_threshold_usd: f64,
+    /// Minimum profit threshold in MNT Wei to consider an opportunity
+    pub min_profit_threshold_mnt_wei: U256,
     /// Maximum number of hops for arbitrage paths (3-4 as per design)
     pub max_hops: u8,
     /// Gas price in Gwei for cost calculation
-    pub gas_price_gwei: u64,
-    /// Estimated gas usage per hop
-    pub gas_per_hop: u64,
+    pub gas_price_gwei: f64,
+    /// Estimated gas usage per transaction (covers multiple hops)
+    pub gas_per_transaction: u64,
     /// Maximum number of paths to pre-compute
     pub max_precomputed_paths: usize,
     /// Enable parallel profit calculation
@@ -219,10 +225,11 @@ pub struct ArbitrageConfig {
 impl Default for ArbitrageConfig {
     fn default() -> Self {
         Self {
-            min_profit_threshold_usd: 5.0, // $5 minimum profit
+            // Default to 0.01 MNT minimum profit (0.01 * 10^18 wei)
+            min_profit_threshold_mnt_wei: U256::from_str_radix("10000000000000000", 10).unwrap(),
             max_hops: 4, // As per design document
-            gas_price_gwei: 20,
-            gas_per_hop: 150_000, // Rough estimate
+            gas_price_gwei: 0.02, // 0.02 gwei as mentioned by user
+            gas_per_transaction: 700_000_000, // 700M gas as mentioned by user
             max_precomputed_paths: 10_000,
             enable_parallel_calculation: true,
         }

@@ -14,7 +14,6 @@ use tracing::{info, warn, error, debug};
 /// Reuses existing Market infrastructure for better code reuse
 pub struct DataAggregator {
     multicall_manager: MulticallManager,
-    eth_price_usd: f64,
     max_pools_per_batch: usize,
     // Track previous reserves to detect changes
     previous_reserves: HashMap<PoolId, (U256, U256)>,
@@ -28,15 +27,9 @@ impl DataAggregator {
     ) -> Self {
         Self {
             multicall_manager,
-            eth_price_usd: 2000.0, // Default ETH price, should be fetched from oracle
             max_pools_per_batch,
             previous_reserves: HashMap::new(),
         }
-    }
-    
-    /// Set ETH price for gas cost calculations
-    pub fn set_eth_price_usd(&mut self, price: f64) {
-        self.eth_price_usd = price;
     }
     
 
@@ -51,11 +44,11 @@ impl DataAggregator {
         
         if monitored_pools.is_empty() {
             warn!("No pools to monitor");
-            return Ok(MarketSnapshot::new(block_number, self.eth_price_usd));
+            return Ok(MarketSnapshot::new(block_number));
         }
         
         // Create new market snapshot with pool context
-        let mut snapshot = MarketSnapshot::new(block_number, self.eth_price_usd);
+        let mut snapshot = MarketSnapshot::new(block_number);
         
         // Set enabled pools and total count for optimization (avoid repeated MarketWithoutLock queries)
         let enabled_pools_set = monitored_pools.iter().cloned().collect();
@@ -189,9 +182,6 @@ impl DataAggregator {
             return Err(eyre::eyre!("Invalid timestamp: 0"));
         }
         
-        if snapshot.eth_price_usd <= 0.0 {
-            return Err(eyre::eyre!("Invalid ETH price: {}", snapshot.eth_price_usd));
-        }
         
         // Check that we have data for most of our monitored pools
         let received_count = snapshot.pool_reserves.len();
@@ -214,7 +204,6 @@ impl DataAggregator {
         AggregatorStats {
             monitored_pools_count,
             max_pools_per_batch: self.max_pools_per_batch,
-            eth_price_usd: self.eth_price_usd,
         }
     }
 }
@@ -224,7 +213,6 @@ impl DataAggregator {
 pub struct AggregatorStats {
     pub monitored_pools_count: usize,
     pub max_pools_per_batch: usize,
-    pub eth_price_usd: f64,
 }
 
 #[cfg(test)]
@@ -247,7 +235,6 @@ mod tests {
     fn test_aggregator_creation() {
         let aggregator = create_test_aggregator();
         assert_eq!(aggregator.max_pools_per_batch, 50);
-        assert_eq!(aggregator.eth_price_usd, 2000.0);
     }
     
     #[test]
@@ -268,7 +255,7 @@ mod tests {
     #[test]
     fn test_validate_snapshot() {
         let aggregator = create_test_aggregator();
-        let mut snapshot = MarketSnapshot::new(123, 2000.0);
+        let mut snapshot = MarketSnapshot::new(123);
         
         // Valid snapshot should pass
         assert!(aggregator.validate_snapshot(&snapshot, 2).is_ok());
@@ -276,19 +263,8 @@ mod tests {
         // Invalid block number
         snapshot.block_number = 0;
         assert!(aggregator.validate_snapshot(&snapshot, 2).is_err());
-        
-        // Reset and test invalid ETH price
-        snapshot.block_number = 123;
-        snapshot.eth_price_usd = -1.0;
-        assert!(aggregator.validate_snapshot(&snapshot, 2).is_err());
     }
     
-    #[test]
-    fn test_set_eth_price() {
-        let mut aggregator = create_test_aggregator();
-        aggregator.set_eth_price_usd(3000.0);
-        assert_eq!(aggregator.eth_price_usd, 3000.0);
-    }
     
     #[test]
     fn test_get_stats() {
@@ -297,6 +273,5 @@ mod tests {
         
         assert_eq!(stats.monitored_pools_count, 2);
         assert_eq!(stats.max_pools_per_batch, 50);
-        assert_eq!(stats.eth_price_usd, 2000.0);
     }
 }

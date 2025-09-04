@@ -59,8 +59,8 @@ async fn main() -> Result<()> {
             // Print service statistics every 10 snapshots
             if snapshot_count % 10 == 0 {
                 let stats = data_service.get_stats().await;
-                info!("Service stats: monitored_pools={}, eth_price=${:.2}", 
-                      stats.monitored_pools_count, stats.eth_price_usd);
+                info!("Service stats: monitored_pools={}", 
+                      stats.monitored_pools_count);
             }
         }
         
@@ -137,9 +137,8 @@ async fn demonstrate_pool_management(service: &swap_path::data_sync::DataSyncSer
     service.add_pool(mock_pool).await?;
     info!("Added new pool to monitoring: {:?}", pool_address);
     
-    // Update ETH price (would typically come from price oracle)
-    service.set_eth_price_usd(2500.0).await;
-    info!("Updated ETH price to $2500");
+    // Service is running and monitoring pool data
+    info!("Service is monitoring {} pools", service.get_monitored_pools().await.len());
     
     // Get current stats
     let stats = service.get_stats().await;

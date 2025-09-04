@@ -44,7 +44,7 @@ impl ProfitCalculator {
             .collect();
 
         let profitable_count = results.iter()
-            .filter(|r| r.calculation_successful && r.net_profit_usd > self.config.min_profit_threshold_usd)
+            .filter(|r| r.calculation_successful && r.net_profit_mnt_wei > self.config.min_profit_threshold_mnt_wei)
             .count();
 
         debug!("并行利润计算完成，有利可图的路径: {}/{}", profitable_count, results.len());
@@ -97,26 +97,22 @@ impl ProfitCalculator {
         // Find optimal input amount using ternary search
         match self.find_optimal_input_amount(path, market_snapshot) {
             Ok((optimal_input, expected_output)) => {
-                // Calculate gas cost
-                let gas_cost_usd = self.calculate_gas_cost_usd(path, market_snapshot);
+                // Calculate gas cost in MNT Wei
+                let gas_cost_mnt_wei = self.calculate_gas_cost_mnt_wei(path);
                 
-                // Calculate gross profit in Wei (expected output - input)
-                let gross_profit_wei = if expected_output > optimal_input {
+                // Calculate gross profit in MNT Wei (expected output - input)
+                let gross_profit_mnt_wei = if expected_output > optimal_input {
                     expected_output - optimal_input
                 } else {
                     U256::ZERO
                 };
 
-                // Convert to USD (assuming WMNT ~= ETH for price purposes)
-                let gross_profit_usd = self.wei_to_usd(gross_profit_wei, market_snapshot.eth_price_usd);
-
                 ProfitCalculationResult::success(
                     path.clone(),
                     optimal_input,
                     expected_output,
-                    gross_profit_wei,
-                    gross_profit_usd,
-                    gas_cost_usd,
+                    gross_profit_mnt_wei,
+                    gas_cost_mnt_wei,
                 )
             }
             Err(e) => ProfitCalculationResult::failure(
@@ -261,10 +257,9 @@ impl ProfitCalculator {
             return Err(CalculationError::NotImplemented);
         }
 
-        let profit_wei = output_amount - input_amount;
-        let profit_usd = self.wei_to_usd(profit_wei, market_snapshot.eth_price_usd);
+        let profit_mnt_wei = output_amount - input_amount;
         
-        Ok((profit_usd, output_amount))
+        Ok((profit_mnt_wei.to_string().parse::<f64>().unwrap_or(0.0), output_amount))
     }
 
     /// Simulate executing a swap path with given input amount
@@ -300,21 +295,23 @@ impl ProfitCalculator {
         Ok(amount)
     }
 
-    /// Calculate gas cost in USD for executing a path
-    fn calculate_gas_cost_usd(&self, path: &SwapPath, market_snapshot: &MarketSnapshot) -> f64 {
-        let total_gas = (path.len() as u64) * self.config.gas_per_hop;
-        let gas_price_wei = U256::from(self.config.gas_price_gwei) * U256::from(1_000_000_000u64); // Convert Gwei to Wei
-        let gas_cost_wei = U256::from(total_gas) * gas_price_wei;
+    /// Calculate gas cost in MNT Wei for executing a path
+    pub fn calculate_gas_cost_mnt_wei(&self, _path: &SwapPath) -> U256 {
+        // Use the total gas per transaction as configured
+        let total_gas = self.config.gas_per_transaction;
         
-        self.wei_to_usd(gas_cost_wei, market_snapshot.eth_price_usd)
+        // Convert gas price from Gwei to Wei
+        // gas_price_gwei is f64, so we need to handle fractional gwei
+        let gwei_to_wei = 1_000_000_000u64; // 1 Gwei = 10^9 Wei
+        let gas_price_wei_f64 = self.config.gas_price_gwei * (gwei_to_wei as f64);
+        
+        // Calculate total gas cost in Wei
+        let gas_cost_wei_f64 = (total_gas as f64) * gas_price_wei_f64;
+        
+        // Convert to U256 (rounding down)
+        U256::from(gas_cost_wei_f64 as u64)
     }
 
-    /// Convert Wei to USD using ETH price
-    fn wei_to_usd(&self, wei_amount: U256, eth_price_usd: f64) -> f64 {
-        // Convert Wei to ETH (divide by 10^18)
-        let eth_amount = wei_amount.to_string().parse::<f64>().unwrap_or(0.0) / 1e18;
-        eth_amount * eth_price_usd
-    }
 
     /// Simplified constant product formula for AMM calculations
     /// This is a temporary implementation until proper pool-specific calculations are implemented
@@ -382,7 +379,7 @@ mod tests {
     }
 
     fn create_test_market_snapshot() -> MarketSnapshot {
-        let mut snapshot = MarketSnapshot::new(12345, 2000.0); // $2000 ETH
+        let mut snapshot = MarketSnapshot::new(12345);
         
         // Add mock reserves for the test pool
         let pool_id = PoolId::Address(Address::repeat_byte(10));
@@ -405,36 +402,29 @@ mod tests {
     }
 
     #[test]
-    fn test_wei_to_usd_conversion() {
-        let config = ArbitrageConfig::default();
-        let calculator = ProfitCalculator::new(config);
-        
-        // 1 ETH at $2000/ETH should be $2000
-        let one_eth = U256::from_str_radix("1000000000000000000", 10).unwrap();
-        let usd_value = calculator.wei_to_usd(one_eth, 2000.0);
-        
-        assert!((usd_value - 2000.0).abs() < 0.001);
-    }
-
-    #[test]
-    fn test_gas_cost_calculation() {
+    fn test_gas_cost_calculation_mnt_wei() {
         let config = ArbitrageConfig::default();
         let calculator = ProfitCalculator::new(config);
         let path = create_test_path();
-        let snapshot = create_test_market_snapshot();
-
-        let gas_cost = calculator.calculate_gas_cost_usd(&path, &snapshot);
         
-        // Should be positive
-        assert!(gas_cost > 0.0);
+        // Test gas cost calculation returns MNT Wei
+        let gas_cost_wei = calculator.calculate_gas_cost_mnt_wei(&path);
+        
+        // Should be positive (700M gas * 0.02 gwei = 14,000,000 gwei = 14,000,000,000,000,000 wei)
+        assert!(!gas_cost_wei.is_zero());
+        
+        // Expected: 700,000,000 * 0.02 * 10^9 = 14,000,000,000,000,000 wei = 0.014 MNT
+        let expected_wei = U256::from(14_000_000_000_000_000u64);
+        assert_eq!(gas_cost_wei, expected_wei);
     }
+
 
     #[test]
     fn test_profit_calculation_with_missing_reserves() {
         let config = ArbitrageConfig::default();
         let calculator = ProfitCalculator::new(config);
         let path = create_test_path();
-        let empty_snapshot = MarketSnapshot::new(12345, 2000.0); // No reserves
+        let empty_snapshot = MarketSnapshot::new(12345); // No reserves
 
         let result = calculator.calculate_path_profit(&path, &empty_snapshot);
         

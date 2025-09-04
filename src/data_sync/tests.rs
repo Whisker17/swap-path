@@ -134,14 +134,9 @@ mod integration_tests {
     async fn test_eth_price_update() {
         let service = DataSyncService::new(DataSyncConfig::default(), vec![]).await.unwrap();
         
-        // Check initial price
-        let initial_stats = service.get_stats().await;
-        assert_eq!(initial_stats.eth_price_usd, 2000.0);
-        
-        // Update price
-        service.set_eth_price_usd(3500.0).await;
-        let updated_stats = service.get_stats().await;
-        assert_eq!(updated_stats.eth_price_usd, 3500.0);
+        // Check stats
+        let stats = service.get_stats().await;
+        assert_eq!(stats.max_pools_per_batch, 50);
     }
     
     #[tokio::test]
@@ -232,7 +227,7 @@ mod integration_tests {
         
         assert_eq!(stats.monitored_pools_count, 3);
         assert_eq!(stats.max_pools_per_batch, 50); // Default value
-        assert_eq!(stats.eth_price_usd, 2000.0); // Default value
+        // Stats without ETH price
     }
 }
 

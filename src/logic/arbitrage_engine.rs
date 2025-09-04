@@ -2,6 +2,7 @@ use crate::logic::graph::{SwapPath, TokenGraph};
 use super::pathfinder::Pathfinder;
 use super::profit_calculator::ProfitCalculator;
 use super::types::{ArbitrageConfig, ArbitrageOpportunity, MarketSnapshot};
+use alloy_primitives::U256;
 use eyre::{eyre, Result};
 use tokio::sync::mpsc;
 use tracing::{error, info, warn};
@@ -67,11 +68,14 @@ impl ArbitrageEngine {
         self.precomputed_paths = paths;
         self.is_initialized = true;
 
+        // Convert MNT Wei to human readable format for logging
+        let min_profit_mnt = self.config.min_profit_threshold_mnt_wei.to_string().parse::<f64>().unwrap_or(0.0) / 1e18;
+        
         info!(
-            "套利引擎初始化完成！预计算路径数量: {}, 配置: max_hops={}, min_profit=${:.2}",
+            "套利引擎初始化完成！预计算路径数量: {}, 配置: max_hops={}, min_profit={:.4} MNT",
             self.precomputed_paths.len(),
             self.config.max_hops,
-            self.config.min_profit_threshold_usd
+            min_profit_mnt
         );
 
         Ok(())
@@ -108,7 +112,7 @@ impl ArbitrageEngine {
             .into_iter()
             .filter_map(|result| {
                 if result.calculation_successful 
-                    && result.net_profit_usd > self.config.min_profit_threshold_usd 
+                    && result.net_profit_mnt_wei > self.config.min_profit_threshold_mnt_wei 
                 {
                     result.to_opportunity()
                 } else {
@@ -168,7 +172,7 @@ impl ArbitrageEngine {
             is_initialized: self.is_initialized,
             precomputed_paths_count: self.precomputed_paths.len(),
             max_hops: self.config.max_hops,
-            min_profit_threshold_usd: self.config.min_profit_threshold_usd,
+            min_profit_threshold_mnt_wei: self.config.min_profit_threshold_mnt_wei,
             parallel_calculation_enabled: self.config.enable_parallel_calculation,
         }
     }
@@ -200,7 +204,7 @@ pub struct ArbitrageEngineStats {
     pub is_initialized: bool,
     pub precomputed_paths_count: usize,
     pub max_hops: u8,
-    pub min_profit_threshold_usd: f64,
+    pub min_profit_threshold_mnt_wei: U256,
     pub parallel_calculation_enabled: bool,
 }
 
@@ -216,8 +220,8 @@ impl ArbitrageEngineBuilder {
         }
     }
 
-    pub fn with_min_profit_threshold(mut self, threshold_usd: f64) -> Self {
-        self.config.min_profit_threshold_usd = threshold_usd;
+    pub fn with_min_profit_threshold(mut self, threshold_mnt_wei: U256) -> Self {
+        self.config.min_profit_threshold_mnt_wei = threshold_mnt_wei;
         self
     }
 
@@ -226,9 +230,9 @@ impl ArbitrageEngineBuilder {
         self
     }
 
-    pub fn with_gas_settings(mut self, gas_price_gwei: u64, gas_per_hop: u64) -> Self {
+    pub fn with_gas_settings(mut self, gas_price_gwei: f64, gas_per_transaction: u64) -> Self {
         self.config.gas_price_gwei = gas_price_gwei;
-        self.config.gas_per_hop = gas_per_hop;
+        self.config.gas_per_transaction = gas_per_transaction;
         self
     }
 
@@ -291,13 +295,13 @@ mod tests {
     #[test]
     fn test_arbitrage_engine_builder() {
         let engine = ArbitrageEngineBuilder::new()
-            .with_min_profit_threshold(10.0)
+            .with_min_profit_threshold(U256::from_str_radix("10000000000000000000", 10).unwrap())
             .with_max_hops(3)
             .with_parallel_calculation(true)
             .build();
 
         let stats = engine.get_statistics();
-        assert_eq!(stats.min_profit_threshold_usd, 10.0);
+        assert_eq!(stats.min_profit_threshold_mnt_wei, U256::from_str_radix("10000000000000000000", 10).unwrap());
         assert_eq!(stats.max_hops, 3);
         assert_eq!(stats.parallel_calculation_enabled, true);
         assert_eq!(stats.is_initialized, false);
@@ -323,13 +327,13 @@ mod tests {
     async fn test_market_snapshot_processing() -> Result<()> {
         let token_graph = create_test_token_graph()?;
         let mut engine = ArbitrageEngineBuilder::new()
-            .with_min_profit_threshold(1.0) // Lower threshold for testing
+            .with_min_profit_threshold(U256::from_str_radix("1000000000000000000", 10).unwrap()) // 1 MNT threshold for testing
             .build();
 
         engine.initialize(&token_graph)?;
 
         // Create a test market snapshot
-        let mut snapshot = MarketSnapshot::new(12345, 2000.0);
+        let mut snapshot = MarketSnapshot::new(12345);
         
         // Add reserves for all pools
         let reserves = alloy_primitives::U256::from_str_radix("1000000000000000000000", 10).unwrap(); // 1000 tokens
@@ -352,12 +356,12 @@ mod tests {
 
         // Should be able to update non-initialization configs
         let mut new_config = ArbitrageConfig::default();
-        new_config.min_profit_threshold_usd = 20.0;
-        new_config.gas_price_gwei = 30;
+        new_config.min_profit_threshold_mnt_wei = U256::from_str_radix("20000000000000000000", 10).unwrap(); // 20 MNT
+        new_config.gas_price_gwei = 30.0;
 
         engine.update_config(new_config)?;
-        assert_eq!(engine.config.min_profit_threshold_usd, 20.0);
-        assert_eq!(engine.config.gas_price_gwei, 30);
+        assert_eq!(engine.config.min_profit_threshold_mnt_wei, U256::from_str_radix("20000000000000000000", 10).unwrap());
+        assert_eq!(engine.config.gas_price_gwei, 30.0);
 
         Ok(())
     }

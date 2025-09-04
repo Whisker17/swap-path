@@ -1,0 +1,2 @@
+timestamp,block_number,path_description,input_token,input_amount,output_token,output_amount,net_profit_usd,roi_percentage,gas_cost_usd,pool_addresses,hop_count,execution_priority
+2025-09-04 06:11:36 UTC,84417992,78c1...4cb8 → 4515...00c9 → 371c...2f07 → 78c1...4cb8,78c1...4cb8,5.000000,78c1...4cb8,5.019515,15.030006789883949,273.2728507251627,24.0,"0x763868612858358f62b05691db82ad35a9b3e110,0xb670d2b452d0ecc468cccfd532482d45dddde2a1,0xefc38c1b0d60725b824ebee8d431abfbf12bc953",3,HIGH

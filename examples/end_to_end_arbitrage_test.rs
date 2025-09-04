@@ -270,7 +270,6 @@ async fn create_test_market_snapshots() -> Result<Vec<MarketSnapshot>> {
         // 快照1: 正常市场状态
         create_market_snapshot(
             12345,
-            2000.0, // ETH price
             vec![
                 (PoolId::Address(Address::from_slice(&[0x01; 20])), (U256::from(1000000e18 as u64), U256::from(2000000e6 as u64))),
                 (PoolId::Address(Address::from_slice(&[0x02; 20])), (U256::from(1000000e6 as u64), U256::from(1000000e6 as u64))),
@@ -283,7 +282,6 @@ async fn create_test_market_snapshots() -> Result<Vec<MarketSnapshot>> {
         // 快照2: 价格失衡，创造套利机会
         create_market_snapshot(
             12346,
-            2000.0,
             vec![
                 (PoolId::Address(Address::from_slice(&[0x01; 20])), (U256::from(1100000e18 as u64), U256::from(1900000e6 as u64))), // WMNT价格下降
                 (PoolId::Address(Address::from_slice(&[0x02; 20])), (U256::from(1000000e6 as u64), U256::from(1000000e6 as u64))),   // 稳定
@@ -296,7 +294,6 @@ async fn create_test_market_snapshots() -> Result<Vec<MarketSnapshot>> {
         // 快照3: 更大的价格失衡
         create_market_snapshot(
             12347,
-            2000.0,
             vec![
                 (PoolId::Address(Address::from_slice(&[0x01; 20])), (U256::from(1200000e18 as u64), U256::from(1800000e6 as u64))), // 更大价格差
                 (PoolId::Address(Address::from_slice(&[0x02; 20])), (U256::from(1100000e6 as u64), U256::from(900000e6 as u64))),   // USDC溢价
@@ -315,10 +312,9 @@ async fn create_test_market_snapshots() -> Result<Vec<MarketSnapshot>> {
 /// 创建单个市场快照
 fn create_market_snapshot(
     block_number: u64,
-    eth_price_usd: f64,
     pool_reserves: Vec<(PoolId, (U256, U256))>,
 ) -> MarketSnapshot {
-    let mut snapshot = MarketSnapshot::new(block_number, eth_price_usd);
+    let mut snapshot = MarketSnapshot::new(block_number);
     
     let mut enabled_pools = std::collections::HashSet::new();
     
@@ -433,7 +429,6 @@ mod tests {
         // 创建简单的测试快照
         let snapshot = create_market_snapshot(
             12345,
-            2000.0,
             vec![
                 (PoolId::Address(Address::from_slice(&[0x01; 20])), (U256::from(1000000u64), U256::from(2000000u64))),
                 (PoolId::Address(Address::from_slice(&[0x02; 20])), (U256::from(1000000u64), U256::from(1000000u64))),

@@ -164,11 +164,6 @@ impl DataSyncService {
             .collect()
     }
     
-    /// Update ETH price for gas calculations
-    pub async fn set_eth_price_usd(&self, price: f64) {
-        let mut aggregator = self.aggregator.write().await;
-        aggregator.set_eth_price_usd(price);
-    }
     
     /// Get aggregator statistics
     pub async fn get_stats(&self) -> AggregatorStats {
@@ -364,12 +359,4 @@ mod tests {
         assert_eq!(service.get_monitored_pools().await.len(), 1);
     }
     
-    #[tokio::test]
-    async fn test_eth_price_update() {
-        let service = DataSyncService::new(DataSyncConfig::default(), vec![]).await.unwrap();
-        
-        service.set_eth_price_usd(3000.0).await;
-        let stats = service.get_stats().await;
-        assert_eq!(stats.eth_price_usd, 3000.0);
-    }
 }

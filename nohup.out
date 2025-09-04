@@ -2033,3 +2033,993 @@ warning: `swap-path` (example "live_arbitrage_monitor") generated 4 warnings
 [2m2025-09-04T05:59:22.203959Z[0m [32m INFO[0m [2m141:[0m Block 84417625: Reserve fetch completed in 242.835542ms (total: 243.061042ms) - 12 successful, 0 failed pools
 [2m2025-09-04T05:59:23.962786Z[0m [32m INFO[0m [2m69:[0m Block 84417626: Starting reserves fetch for 12 pools
 [2m2025-09-04T05:59:24.213591Z[0m [32m INFO[0m [2m141:[0m Block 84417626: Reserve fetch completed in 250.65225ms (total: 250.853875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:25.970503Z[0m [32m INFO[0m [2m69:[0m Block 84417627: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:26.222900Z[0m [32m INFO[0m [2m141:[0m Block 84417627: Reserve fetch completed in 252.304625ms (total: 252.414ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:27.963382Z[0m [32m INFO[0m [2m69:[0m Block 84417628: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:28.209073Z[0m [32m INFO[0m [2m141:[0m Block 84417628: Reserve fetch completed in 245.656459ms (total: 245.806959ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:29.961756Z[0m [32m INFO[0m [2m69:[0m Block 84417629: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:30.206548Z[0m [32m INFO[0m [2m141:[0m Block 84417629: Reserve fetch completed in 244.691542ms (total: 244.847334ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:31.966358Z[0m [32m INFO[0m [2m69:[0m Block 84417630: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:32.229082Z[0m [32m INFO[0m [2m141:[0m Block 84417630: Reserve fetch completed in 262.565917ms (total: 262.80925ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:33.965053Z[0m [32m INFO[0m [2m69:[0m Block 84417631: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:34.452445Z[0m [32m INFO[0m [2m141:[0m Block 84417631: Reserve fetch completed in 487.321042ms (total: 487.449959ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:35.960112Z[0m [32m INFO[0m [2m69:[0m Block 84417632: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:36.245885Z[0m [32m INFO[0m [2m141:[0m Block 84417632: Reserve fetch completed in 285.608166ms (total: 285.850875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:37.960839Z[0m [32m INFO[0m [2m69:[0m Block 84417633: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:38.223048Z[0m [32m INFO[0m [2m141:[0m Block 84417633: Reserve fetch completed in 262.053459ms (total: 262.299208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:38.225162Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1520.188321458s):
+[2m2025-09-04T05:59:38.225274Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 760
+[2m2025-09-04T05:59:38.225318Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T05:59:38.225357Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T05:59:39.964088Z[0m [32m INFO[0m [2m69:[0m Block 84417634: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:40.205112Z[0m [32m INFO[0m [2m141:[0m Block 84417634: Reserve fetch completed in 240.818916ms (total: 241.034875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:41.958454Z[0m [32m INFO[0m [2m69:[0m Block 84417635: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:42.204614Z[0m [32m INFO[0m [2m141:[0m Block 84417635: Reserve fetch completed in 246.020958ms (total: 246.232208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:44.006625Z[0m [32m INFO[0m [2m69:[0m Block 84417636: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:44.258153Z[0m [32m INFO[0m [2m141:[0m Block 84417636: Reserve fetch completed in 251.344083ms (total: 251.556625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:45.976081Z[0m [32m INFO[0m [2m69:[0m Block 84417637: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:46.222759Z[0m [32m INFO[0m [2m141:[0m Block 84417637: Reserve fetch completed in 246.556958ms (total: 246.791334ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:47.978188Z[0m [32m INFO[0m [2m69:[0m Block 84417638: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:48.221167Z[0m [32m INFO[0m [2m141:[0m Block 84417638: Reserve fetch completed in 242.908459ms (total: 243.00825ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:49.968411Z[0m [32m INFO[0m [2m69:[0m Block 84417639: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:50.228610Z[0m [32m INFO[0m [2m141:[0m Block 84417639: Reserve fetch completed in 260.0825ms (total: 260.22125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:51.959444Z[0m [32m INFO[0m [2m69:[0m Block 84417640: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:52.206631Z[0m [32m INFO[0m [2m141:[0m Block 84417640: Reserve fetch completed in 247.100459ms (total: 247.230958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:53.960572Z[0m [32m INFO[0m [2m69:[0m Block 84417641: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:54.206586Z[0m [32m INFO[0m [2m141:[0m Block 84417641: Reserve fetch completed in 245.835833ms (total: 246.066625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:55.961509Z[0m [32m INFO[0m [2m69:[0m Block 84417642: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:56.224799Z[0m [32m INFO[0m [2m141:[0m Block 84417642: Reserve fetch completed in 263.197042ms (total: 263.326ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:57.961726Z[0m [32m INFO[0m [2m69:[0m Block 84417643: Starting reserves fetch for 12 pools
+[2m2025-09-04T05:59:58.218649Z[0m [32m INFO[0m [2m141:[0m Block 84417643: Reserve fetch completed in 256.753625ms (total: 257.008334ms) - 12 successful, 0 failed pools
+[2m2025-09-04T05:59:58.220819Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1540.18404925s):
+[2m2025-09-04T05:59:58.220930Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 770
+[2m2025-09-04T05:59:58.220969Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T05:59:58.220996Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:00:00.009011Z[0m [32m INFO[0m [2m69:[0m Block 84417644: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:00.257564Z[0m [32m INFO[0m [2m141:[0m Block 84417644: Reserve fetch completed in 248.363291ms (total: 248.566417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:01.963382Z[0m [32m INFO[0m [2m69:[0m Block 84417645: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:02.216094Z[0m [32m INFO[0m [2m141:[0m Block 84417645: Reserve fetch completed in 252.5515ms (total: 252.798041ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:03.991284Z[0m [32m INFO[0m [2m69:[0m Block 84417646: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:04.251228Z[0m [32m INFO[0m [2m141:[0m Block 84417646: Reserve fetch completed in 259.778209ms (total: 260.0255ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:05.961062Z[0m [32m INFO[0m [2m69:[0m Block 84417647: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:06.212826Z[0m [32m INFO[0m [2m141:[0m Block 84417647: Reserve fetch completed in 251.640167ms (total: 251.876167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:07.992429Z[0m [32m INFO[0m [2m69:[0m Block 84417648: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:08.239361Z[0m [32m INFO[0m [2m141:[0m Block 84417648: Reserve fetch completed in 246.775291ms (total: 247.01325ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:10.552019Z[0m [32m INFO[0m [2m69:[0m Block 84417649: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:10.798007Z[0m [32m INFO[0m [2m141:[0m Block 84417649: Reserve fetch completed in 245.828459ms (total: 246.074708ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:11.979096Z[0m [32m INFO[0m [2m69:[0m Block 84417650: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:12.222862Z[0m [32m INFO[0m [2m141:[0m Block 84417650: Reserve fetch completed in 243.573167ms (total: 243.785667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:14.533076Z[0m [32m INFO[0m [2m69:[0m Block 84417651: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:14.795476Z[0m [32m INFO[0m [2m141:[0m Block 84417651: Reserve fetch completed in 262.333708ms (total: 262.445792ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:15.976656Z[0m [32m INFO[0m [2m69:[0m Block 84417652: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:16.219781Z[0m [32m INFO[0m [2m141:[0m Block 84417652: Reserve fetch completed in 242.948042ms (total: 243.205709ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:17.964168Z[0m [32m INFO[0m [2m69:[0m Block 84417653: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:18.203419Z[0m [32m INFO[0m [2m141:[0m Block 84417653: Reserve fetch completed in 239.116792ms (total: 239.320875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:18.205790Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1560.169088375s):
+[2m2025-09-04T06:00:18.205896Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 780
+[2m2025-09-04T06:00:18.205941Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:00:18.205982Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:00:20.041355Z[0m [32m INFO[0m [2m69:[0m Block 84417654: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:20.284765Z[0m [32m INFO[0m [2m141:[0m Block 84417654: Reserve fetch completed in 243.336417ms (total: 243.475292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:22.594858Z[0m [32m INFO[0m [2m69:[0m Block 84417655: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:22.841753Z[0m [32m INFO[0m [2m141:[0m Block 84417655: Reserve fetch completed in 246.858333ms (total: 247.002125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:24.225175Z[0m [32m INFO[0m [2m69:[0m Block 84417656: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:24.475583Z[0m [32m INFO[0m [2m141:[0m Block 84417656: Reserve fetch completed in 250.334542ms (total: 250.504458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:26.038836Z[0m [32m INFO[0m [2m69:[0m Block 84417657: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:26.288035Z[0m [32m INFO[0m [2m141:[0m Block 84417657: Reserve fetch completed in 249.131917ms (total: 249.282792ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:27.983730Z[0m [32m INFO[0m [2m69:[0m Block 84417658: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:28.230676Z[0m [32m INFO[0m [2m141:[0m Block 84417658: Reserve fetch completed in 246.878958ms (total: 247.020417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:29.963455Z[0m [32m INFO[0m [2m69:[0m Block 84417659: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:30.211234Z[0m [32m INFO[0m [2m141:[0m Block 84417659: Reserve fetch completed in 247.644417ms (total: 247.85225ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:31.962395Z[0m [32m INFO[0m [2m69:[0m Block 84417660: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:32.222340Z[0m [32m INFO[0m [2m141:[0m Block 84417660: Reserve fetch completed in 259.76125ms (total: 259.9995ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:33.988040Z[0m [32m INFO[0m [2m69:[0m Block 84417661: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:34.233474Z[0m [32m INFO[0m [2m141:[0m Block 84417661: Reserve fetch completed in 245.25175ms (total: 245.476666ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:35.963124Z[0m [32m INFO[0m [2m69:[0m Block 84417662: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:36.210978Z[0m [32m INFO[0m [2m141:[0m Block 84417662: Reserve fetch completed in 247.761ms (total: 247.88075ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:37.963631Z[0m [32m INFO[0m [2m69:[0m Block 84417663: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:38.224082Z[0m [32m INFO[0m [2m141:[0m Block 84417663: Reserve fetch completed in 260.283208ms (total: 260.501292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:38.226171Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1580.189541s):
+[2m2025-09-04T06:00:38.226284Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 790
+[2m2025-09-04T06:00:38.226331Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:00:38.226368Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:00:39.963760Z[0m [32m INFO[0m [2m69:[0m Block 84417664: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:40.206632Z[0m [32m INFO[0m [2m141:[0m Block 84417664: Reserve fetch completed in 242.713875ms (total: 242.90325ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:41.963627Z[0m [32m INFO[0m [2m69:[0m Block 84417665: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:42.229570Z[0m [32m INFO[0m [2m141:[0m Block 84417665: Reserve fetch completed in 265.771792ms (total: 266.018291ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:43.972106Z[0m [32m INFO[0m [2m69:[0m Block 84417666: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:44.229425Z[0m [32m INFO[0m [2m141:[0m Block 84417666: Reserve fetch completed in 257.263375ms (total: 257.418583ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:45.962504Z[0m [32m INFO[0m [2m69:[0m Block 84417667: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:46.205194Z[0m [32m INFO[0m [2m141:[0m Block 84417667: Reserve fetch completed in 242.618167ms (total: 242.7265ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:47.971673Z[0m [32m INFO[0m [2m69:[0m Block 84417668: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:48.224223Z[0m [32m INFO[0m [2m141:[0m Block 84417668: Reserve fetch completed in 252.396375ms (total: 252.609542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:48.224402Z[0m [32m INFO[0m [2m148:[0m Block 84417668: 1 pools have reserve changes:
+[2m2025-09-04T06:00:48.224458Z[0m [32m INFO[0m [2m150:[0m   Pool Address(0x763868612858358f62b05691db82ad35a9b3e110): reserves 6973104285008961949055934 -> 6973335579441444112204385 | 493967381662337437605045 -> 493951046701897407877945
+[2m2025-09-04T06:00:49.972025Z[0m [32m INFO[0m [2m69:[0m Block 84417669: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:50.217772Z[0m [32m INFO[0m [2m141:[0m Block 84417669: Reserve fetch completed in 245.661ms (total: 245.815916ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:51.960962Z[0m [32m INFO[0m [2m69:[0m Block 84417670: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:52.205728Z[0m [32m INFO[0m [2m141:[0m Block 84417670: Reserve fetch completed in 244.698625ms (total: 244.835541ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:53.999678Z[0m [32m INFO[0m [2m69:[0m Block 84417671: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:54.250030Z[0m [32m INFO[0m [2m141:[0m Block 84417671: Reserve fetch completed in 249.922792ms (total: 250.388708ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:55.973400Z[0m [32m INFO[0m [2m69:[0m Block 84417672: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:56.226627Z[0m [32m INFO[0m [2m141:[0m Block 84417672: Reserve fetch completed in 253.105833ms (total: 253.333292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:58.000181Z[0m [32m INFO[0m [2m69:[0m Block 84417673: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:00:58.302822Z[0m [32m INFO[0m [2m141:[0m Block 84417673: Reserve fetch completed in 302.52875ms (total: 302.680542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:00:58.303982Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1600.267425083s):
+[2m2025-09-04T06:00:58.304047Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 800
+[2m2025-09-04T06:00:58.304070Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:00:58.304089Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:01:00.112072Z[0m [32m INFO[0m [2m69:[0m Block 84417674: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:00.638214Z[0m [32m INFO[0m [2m141:[0m Block 84417674: Reserve fetch completed in 526.088792ms (total: 526.213625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:01.964315Z[0m [32m INFO[0m [2m69:[0m Block 84417675: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:02.220717Z[0m [32m INFO[0m [2m141:[0m Block 84417675: Reserve fetch completed in 256.326875ms (total: 256.493917ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:03.964755Z[0m [32m INFO[0m [2m69:[0m Block 84417676: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:04.211272Z[0m [32m INFO[0m [2m141:[0m Block 84417676: Reserve fetch completed in 246.400041ms (total: 246.615125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:05.992003Z[0m [32m INFO[0m [2m69:[0m Block 84417677: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:06.237495Z[0m [32m INFO[0m [2m141:[0m Block 84417677: Reserve fetch completed in 245.331708ms (total: 245.571834ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:07.963407Z[0m [32m INFO[0m [2m69:[0m Block 84417678: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:08.216475Z[0m [32m INFO[0m [2m141:[0m Block 84417678: Reserve fetch completed in 252.899ms (total: 253.131292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:09.985022Z[0m [32m INFO[0m [2m69:[0m Block 84417679: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:10.225348Z[0m [32m INFO[0m [2m141:[0m Block 84417679: Reserve fetch completed in 240.138542ms (total: 240.330125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:11.961303Z[0m [32m INFO[0m [2m69:[0m Block 84417680: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:12.212179Z[0m [32m INFO[0m [2m141:[0m Block 84417680: Reserve fetch completed in 250.800583ms (total: 250.915167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:13.963363Z[0m [32m INFO[0m [2m69:[0m Block 84417681: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:14.223689Z[0m [32m INFO[0m [2m141:[0m Block 84417681: Reserve fetch completed in 260.244125ms (total: 260.341375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:15.963621Z[0m [32m INFO[0m [2m69:[0m Block 84417682: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:16.210560Z[0m [32m INFO[0m [2m141:[0m Block 84417682: Reserve fetch completed in 246.868875ms (total: 247.000625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:17.965316Z[0m [32m INFO[0m [2m69:[0m Block 84417683: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:18.204560Z[0m [32m INFO[0m [2m141:[0m Block 84417683: Reserve fetch completed in 239.16625ms (total: 239.287084ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:18.205637Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1620.169148833s):
+[2m2025-09-04T06:01:18.205710Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 810
+[2m2025-09-04T06:01:18.205734Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:01:18.205760Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:01:20.153382Z[0m [32m INFO[0m [2m69:[0m Block 84417684: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:20.396292Z[0m [32m INFO[0m [2m141:[0m Block 84417684: Reserve fetch completed in 242.837792ms (total: 242.967709ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:21.999876Z[0m [32m INFO[0m [2m69:[0m Block 84417685: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:22.242601Z[0m [32m INFO[0m [2m141:[0m Block 84417685: Reserve fetch completed in 242.673625ms (total: 242.798625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:23.978568Z[0m [32m INFO[0m [2m69:[0m Block 84417686: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:24.287950Z[0m [32m INFO[0m [2m141:[0m Block 84417686: Reserve fetch completed in 309.317542ms (total: 309.4545ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:26.035468Z[0m [32m INFO[0m [2m69:[0m Block 84417687: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:26.285011Z[0m [32m INFO[0m [2m141:[0m Block 84417687: Reserve fetch completed in 249.453ms (total: 249.580083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:27.965389Z[0m [32m INFO[0m [2m69:[0m Block 84417688: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:28.212142Z[0m [32m INFO[0m [2m141:[0m Block 84417688: Reserve fetch completed in 246.661625ms (total: 246.804458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:29.967484Z[0m [32m INFO[0m [2m69:[0m Block 84417689: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:30.208645Z[0m [32m INFO[0m [2m141:[0m Block 84417689: Reserve fetch completed in 241.074541ms (total: 241.230584ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:31.960538Z[0m [32m INFO[0m [2m69:[0m Block 84417690: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:32.205154Z[0m [32m INFO[0m [2m141:[0m Block 84417690: Reserve fetch completed in 244.546792ms (total: 244.654416ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:33.960630Z[0m [32m INFO[0m [2m69:[0m Block 84417691: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:34.200041Z[0m [32m INFO[0m [2m141:[0m Block 84417691: Reserve fetch completed in 239.327834ms (total: 239.457875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:35.962796Z[0m [32m INFO[0m [2m69:[0m Block 84417692: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:36.205577Z[0m [32m INFO[0m [2m141:[0m Block 84417692: Reserve fetch completed in 242.7585ms (total: 242.862041ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:37.959101Z[0m [32m INFO[0m [2m69:[0m Block 84417693: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:38.204805Z[0m [32m INFO[0m [2m141:[0m Block 84417693: Reserve fetch completed in 245.547209ms (total: 245.728625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:38.206677Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1640.170258208s):
+[2m2025-09-04T06:01:38.206766Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 820
+[2m2025-09-04T06:01:38.206807Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:01:38.206841Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:01:39.958563Z[0m [32m INFO[0m [2m69:[0m Block 84417694: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:40.216773Z[0m [32m INFO[0m [2m141:[0m Block 84417694: Reserve fetch completed in 258.232666ms (total: 258.3345ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:41.957044Z[0m [32m INFO[0m [2m69:[0m Block 84417695: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:42.198251Z[0m [32m INFO[0m [2m141:[0m Block 84417695: Reserve fetch completed in 241.056958ms (total: 241.281166ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:43.960858Z[0m [32m INFO[0m [2m69:[0m Block 84417696: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:44.201518Z[0m [32m INFO[0m [2m141:[0m Block 84417696: Reserve fetch completed in 240.5895ms (total: 240.743ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:45.957578Z[0m [32m INFO[0m [2m69:[0m Block 84417697: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:46.197012Z[0m [32m INFO[0m [2m141:[0m Block 84417697: Reserve fetch completed in 239.412375ms (total: 239.557208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:47.966642Z[0m [32m INFO[0m [2m69:[0m Block 84417698: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:48.205205Z[0m [32m INFO[0m [2m141:[0m Block 84417698: Reserve fetch completed in 238.484917ms (total: 238.585667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:49.958299Z[0m [32m INFO[0m [2m69:[0m Block 84417699: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:50.201762Z[0m [32m INFO[0m [2m141:[0m Block 84417699: Reserve fetch completed in 243.394458ms (total: 243.550208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:51.959767Z[0m [32m INFO[0m [2m69:[0m Block 84417700: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:52.202322Z[0m [32m INFO[0m [2m141:[0m Block 84417700: Reserve fetch completed in 242.507084ms (total: 242.666417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:53.959313Z[0m [32m INFO[0m [2m69:[0m Block 84417701: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:54.199008Z[0m [32m INFO[0m [2m141:[0m Block 84417701: Reserve fetch completed in 239.578292ms (total: 239.699625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:55.983628Z[0m [32m INFO[0m [2m69:[0m Block 84417702: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:56.223467Z[0m [32m INFO[0m [2m141:[0m Block 84417702: Reserve fetch completed in 239.748458ms (total: 239.874208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:57.969854Z[0m [32m INFO[0m [2m69:[0m Block 84417703: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:01:58.217144Z[0m [32m INFO[0m [2m141:[0m Block 84417703: Reserve fetch completed in 247.208083ms (total: 247.337417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:01:58.218167Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1660.181819458s):
+[2m2025-09-04T06:01:58.218251Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 830
+[2m2025-09-04T06:01:58.218274Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:01:58.218289Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:01:59.976094Z[0m [32m INFO[0m [2m69:[0m Block 84417704: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:00.262699Z[0m [32m INFO[0m [2m141:[0m Block 84417704: Reserve fetch completed in 286.507542ms (total: 286.618416ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:02.556729Z[0m [32m INFO[0m [2m69:[0m Block 84417705: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:02.799838Z[0m [32m INFO[0m [2m141:[0m Block 84417705: Reserve fetch completed in 242.869291ms (total: 243.204042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:03.966776Z[0m [32m INFO[0m [2m69:[0m Block 84417706: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:04.211536Z[0m [32m INFO[0m [2m141:[0m Block 84417706: Reserve fetch completed in 244.558084ms (total: 244.823792ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:05.970167Z[0m [32m INFO[0m [2m69:[0m Block 84417707: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:06.211776Z[0m [32m INFO[0m [2m141:[0m Block 84417707: Reserve fetch completed in 241.557416ms (total: 241.675458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:07.960227Z[0m [32m INFO[0m [2m69:[0m Block 84417708: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:08.207104Z[0m [32m INFO[0m [2m141:[0m Block 84417708: Reserve fetch completed in 246.548666ms (total: 246.767083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:09.963180Z[0m [32m INFO[0m [2m69:[0m Block 84417709: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:10.212832Z[0m [32m INFO[0m [2m141:[0m Block 84417709: Reserve fetch completed in 249.495833ms (total: 249.733ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:11.963951Z[0m [32m INFO[0m [2m69:[0m Block 84417710: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:12.259952Z[0m [32m INFO[0m [2m141:[0m Block 84417710: Reserve fetch completed in 295.931542ms (total: 296.0855ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:13.989529Z[0m [32m INFO[0m [2m69:[0m Block 84417711: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:14.231319Z[0m [32m INFO[0m [2m141:[0m Block 84417711: Reserve fetch completed in 241.708417ms (total: 241.855208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:15.963161Z[0m [32m INFO[0m [2m69:[0m Block 84417712: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:16.203186Z[0m [32m INFO[0m [2m141:[0m Block 84417712: Reserve fetch completed in 239.959166ms (total: 240.082333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:17.958598Z[0m [32m INFO[0m [2m69:[0m Block 84417713: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:18.203829Z[0m [32m INFO[0m [2m141:[0m Block 84417713: Reserve fetch completed in 244.792791ms (total: 245.132417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:18.205918Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1680.169642208s):
+[2m2025-09-04T06:02:18.206295Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 840
+[2m2025-09-04T06:02:18.206328Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:02:18.206344Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:02:19.963801Z[0m [32m INFO[0m [2m69:[0m Block 84417714: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:20.206047Z[0m [32m INFO[0m [2m141:[0m Block 84417714: Reserve fetch completed in 242.163125ms (total: 242.273125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:21.959747Z[0m [32m INFO[0m [2m69:[0m Block 84417715: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:22.211127Z[0m [32m INFO[0m [2m141:[0m Block 84417715: Reserve fetch completed in 251.225042ms (total: 251.426584ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:23.967401Z[0m [32m INFO[0m [2m69:[0m Block 84417716: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:24.211349Z[0m [32m INFO[0m [2m141:[0m Block 84417716: Reserve fetch completed in 243.860042ms (total: 244.00525ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:25.965123Z[0m [32m INFO[0m [2m69:[0m Block 84417717: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:26.214146Z[0m [32m INFO[0m [2m141:[0m Block 84417717: Reserve fetch completed in 248.9615ms (total: 249.058584ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:27.965302Z[0m [32m INFO[0m [2m69:[0m Block 84417718: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:28.213368Z[0m [32m INFO[0m [2m141:[0m Block 84417718: Reserve fetch completed in 247.949375ms (total: 248.155042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:29.960582Z[0m [32m INFO[0m [2m69:[0m Block 84417719: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:30.208290Z[0m [32m INFO[0m [2m141:[0m Block 84417719: Reserve fetch completed in 247.629292ms (total: 247.776166ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:31.960931Z[0m [32m INFO[0m [2m69:[0m Block 84417720: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:32.204160Z[0m [32m INFO[0m [2m141:[0m Block 84417720: Reserve fetch completed in 243.121417ms (total: 243.250292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:33.960328Z[0m [32m INFO[0m [2m69:[0m Block 84417721: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:34.205774Z[0m [32m INFO[0m [2m141:[0m Block 84417721: Reserve fetch completed in 245.284416ms (total: 245.49225ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:35.962274Z[0m [32m INFO[0m [2m69:[0m Block 84417722: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:36.202689Z[0m [32m INFO[0m [2m141:[0m Block 84417722: Reserve fetch completed in 240.320875ms (total: 240.475875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:37.960803Z[0m [32m INFO[0m [2m69:[0m Block 84417723: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:38.199703Z[0m [32m INFO[0m [2m141:[0m Block 84417723: Reserve fetch completed in 238.367959ms (total: 238.51175ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:38.200921Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1700.162143833s):
+[2m2025-09-04T06:02:38.201002Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 850
+[2m2025-09-04T06:02:38.201034Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:02:38.201055Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:02:39.978137Z[0m [32m INFO[0m [2m69:[0m Block 84417724: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:40.222974Z[0m [32m INFO[0m [2m141:[0m Block 84417724: Reserve fetch completed in 244.37475ms (total: 244.534375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:41.968109Z[0m [32m INFO[0m [2m69:[0m Block 84417725: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:42.219221Z[0m [32m INFO[0m [2m141:[0m Block 84417725: Reserve fetch completed in 250.588916ms (total: 250.834542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:43.973763Z[0m [32m INFO[0m [2m69:[0m Block 84417726: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:44.213798Z[0m [32m INFO[0m [2m141:[0m Block 84417726: Reserve fetch completed in 239.636708ms (total: 239.829208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:45.968538Z[0m [32m INFO[0m [2m69:[0m Block 84417727: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:46.210364Z[0m [32m INFO[0m [2m141:[0m Block 84417727: Reserve fetch completed in 241.452125ms (total: 241.596375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:47.977437Z[0m [32m INFO[0m [2m69:[0m Block 84417728: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:48.222160Z[0m [32m INFO[0m [2m141:[0m Block 84417728: Reserve fetch completed in 244.383083ms (total: 244.507625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:49.979285Z[0m [32m INFO[0m [2m69:[0m Block 84417729: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:50.235901Z[0m [32m INFO[0m [2m141:[0m Block 84417729: Reserve fetch completed in 256.342875ms (total: 256.498416ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:51.979894Z[0m [32m INFO[0m [2m69:[0m Block 84417730: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:52.220253Z[0m [32m INFO[0m [2m141:[0m Block 84417730: Reserve fetch completed in 240.151667ms (total: 240.272417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:53.978370Z[0m [32m INFO[0m [2m69:[0m Block 84417731: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:54.223440Z[0m [32m INFO[0m [2m141:[0m Block 84417731: Reserve fetch completed in 244.769ms (total: 244.990667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:55.984816Z[0m [32m INFO[0m [2m69:[0m Block 84417732: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:56.227684Z[0m [32m INFO[0m [2m141:[0m Block 84417732: Reserve fetch completed in 242.63375ms (total: 242.744541ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:57.991175Z[0m [32m INFO[0m [2m69:[0m Block 84417733: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:02:58.235360Z[0m [32m INFO[0m [2m141:[0m Block 84417733: Reserve fetch completed in 243.996416ms (total: 244.090667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:02:58.236296Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1720.176473417s):
+[2m2025-09-04T06:02:58.236336Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 860
+[2m2025-09-04T06:02:58.236353Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:02:58.236368Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:02:59.983966Z[0m [32m INFO[0m [2m69:[0m Block 84417734: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:00.220620Z[0m [32m INFO[0m [2m141:[0m Block 84417734: Reserve fetch completed in 236.492417ms (total: 236.582709ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:01.983837Z[0m [32m INFO[0m [2m69:[0m Block 84417735: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:02.228927Z[0m [32m INFO[0m [2m141:[0m Block 84417735: Reserve fetch completed in 244.906875ms (total: 245.077041ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:03.991151Z[0m [32m INFO[0m [2m69:[0m Block 84417736: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:04.234389Z[0m [32m INFO[0m [2m141:[0m Block 84417736: Reserve fetch completed in 243.092875ms (total: 243.218292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:05.984839Z[0m [32m INFO[0m [2m69:[0m Block 84417737: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:06.229538Z[0m [32m INFO[0m [2m141:[0m Block 84417737: Reserve fetch completed in 244.570042ms (total: 244.67975ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:07.989061Z[0m [32m INFO[0m [2m69:[0m Block 84417738: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:08.229371Z[0m [32m INFO[0m [2m141:[0m Block 84417738: Reserve fetch completed in 240.132417ms (total: 240.276667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:09.993324Z[0m [32m INFO[0m [2m69:[0m Block 84417739: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:10.261253Z[0m [32m INFO[0m [2m141:[0m Block 84417739: Reserve fetch completed in 267.809041ms (total: 267.923375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:11.989850Z[0m [32m INFO[0m [2m69:[0m Block 84417740: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:12.232654Z[0m [32m INFO[0m [2m141:[0m Block 84417740: Reserve fetch completed in 242.671ms (total: 242.793291ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:13.987378Z[0m [32m INFO[0m [2m69:[0m Block 84417741: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:14.226186Z[0m [32m INFO[0m [2m141:[0m Block 84417741: Reserve fetch completed in 238.592875ms (total: 238.795666ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:15.989845Z[0m [32m INFO[0m [2m69:[0m Block 84417742: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:16.244145Z[0m [32m INFO[0m [2m141:[0m Block 84417742: Reserve fetch completed in 254.206208ms (total: 254.312833ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:18.000076Z[0m [32m INFO[0m [2m69:[0m Block 84417743: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:18.243085Z[0m [32m INFO[0m [2m141:[0m Block 84417743: Reserve fetch completed in 242.952042ms (total: 243.096875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:18.244307Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1740.178695167s):
+[2m2025-09-04T06:03:18.244368Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 870
+[2m2025-09-04T06:03:18.244391Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:03:18.244409Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:03:20.065506Z[0m [32m INFO[0m [2m69:[0m Block 84417744: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:20.311583Z[0m [32m INFO[0m [2m141:[0m Block 84417744: Reserve fetch completed in 245.916875ms (total: 246.113875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:21.991730Z[0m [32m INFO[0m [2m69:[0m Block 84417745: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:22.234082Z[0m [32m INFO[0m [2m141:[0m Block 84417745: Reserve fetch completed in 242.28675ms (total: 242.396042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:23.992614Z[0m [32m INFO[0m [2m69:[0m Block 84417746: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:24.235703Z[0m [32m INFO[0m [2m141:[0m Block 84417746: Reserve fetch completed in 242.988958ms (total: 243.119916ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:25.991365Z[0m [32m INFO[0m [2m69:[0m Block 84417747: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:26.236402Z[0m [32m INFO[0m [2m141:[0m Block 84417747: Reserve fetch completed in 244.896667ms (total: 245.065291ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:28.004003Z[0m [32m INFO[0m [2m69:[0m Block 84417748: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:28.246714Z[0m [32m INFO[0m [2m141:[0m Block 84417748: Reserve fetch completed in 242.6415ms (total: 242.742791ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:29.997245Z[0m [32m INFO[0m [2m69:[0m Block 84417749: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:30.241469Z[0m [32m INFO[0m [2m141:[0m Block 84417749: Reserve fetch completed in 244.155125ms (total: 244.273208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:32.001170Z[0m [32m INFO[0m [2m69:[0m Block 84417750: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:32.243306Z[0m [32m INFO[0m [2m141:[0m Block 84417750: Reserve fetch completed in 241.984666ms (total: 242.189292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:33.993509Z[0m [32m INFO[0m [2m69:[0m Block 84417751: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:34.234298Z[0m [32m INFO[0m [2m141:[0m Block 84417751: Reserve fetch completed in 240.648833ms (total: 240.8465ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:35.995533Z[0m [32m INFO[0m [2m69:[0m Block 84417752: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:36.234119Z[0m [32m INFO[0m [2m141:[0m Block 84417752: Reserve fetch completed in 238.461833ms (total: 238.601459ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:37.992441Z[0m [32m INFO[0m [2m69:[0m Block 84417753: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:38.235775Z[0m [32m INFO[0m [2m141:[0m Block 84417753: Reserve fetch completed in 243.229542ms (total: 243.374667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:38.237372Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1760.17015525s):
+[2m2025-09-04T06:03:38.237480Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 880
+[2m2025-09-04T06:03:38.237512Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:03:38.237532Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:03:40.052218Z[0m [32m INFO[0m [2m69:[0m Block 84417754: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:40.299360Z[0m [32m INFO[0m [2m141:[0m Block 84417754: Reserve fetch completed in 247.013792ms (total: 247.19575ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:41.991704Z[0m [32m INFO[0m [2m69:[0m Block 84417755: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:42.241255Z[0m [32m INFO[0m [2m141:[0m Block 84417755: Reserve fetch completed in 249.378542ms (total: 249.533417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:43.992046Z[0m [32m INFO[0m [2m69:[0m Block 84417756: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:44.241867Z[0m [32m INFO[0m [2m141:[0m Block 84417756: Reserve fetch completed in 249.712ms (total: 249.876708ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:45.991606Z[0m [32m INFO[0m [2m69:[0m Block 84417757: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:46.238961Z[0m [32m INFO[0m [2m141:[0m Block 84417757: Reserve fetch completed in 247.1845ms (total: 247.37025ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:47.994955Z[0m [32m INFO[0m [2m69:[0m Block 84417758: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:48.235292Z[0m [32m INFO[0m [2m141:[0m Block 84417758: Reserve fetch completed in 240.261291ms (total: 240.383375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:49.993695Z[0m [32m INFO[0m [2m69:[0m Block 84417759: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:50.262062Z[0m [32m INFO[0m [2m141:[0m Block 84417759: Reserve fetch completed in 268.287875ms (total: 268.422417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:51.992540Z[0m [32m INFO[0m [2m69:[0m Block 84417760: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:52.235322Z[0m [32m INFO[0m [2m141:[0m Block 84417760: Reserve fetch completed in 242.657208ms (total: 242.829084ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:53.994163Z[0m [32m INFO[0m [2m69:[0m Block 84417761: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:54.238073Z[0m [32m INFO[0m [2m141:[0m Block 84417761: Reserve fetch completed in 243.811125ms (total: 243.967042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:56.512034Z[0m [32m INFO[0m [2m69:[0m Block 84417762: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:56.755316Z[0m [32m INFO[0m [2m141:[0m Block 84417762: Reserve fetch completed in 243.178709ms (total: 243.339416ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:58.231628Z[0m [32m INFO[0m [2m69:[0m Block 84417763: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:03:58.473785Z[0m [32m INFO[0m [2m141:[0m Block 84417763: Reserve fetch completed in 242.017875ms (total: 242.246875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:03:58.475224Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1780.407561583s):
+[2m2025-09-04T06:03:58.475293Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 890
+[2m2025-09-04T06:03:58.475318Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:03:58.475333Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:04:00.028455Z[0m [32m INFO[0m [2m69:[0m Block 84417764: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:00.275186Z[0m [32m INFO[0m [2m141:[0m Block 84417764: Reserve fetch completed in 246.6575ms (total: 246.76025ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:02.205085Z[0m [32m INFO[0m [2m69:[0m Block 84417765: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:02.445161Z[0m [32m INFO[0m [2m141:[0m Block 84417765: Reserve fetch completed in 240.05325ms (total: 240.127084ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:04.006963Z[0m [32m INFO[0m [2m69:[0m Block 84417766: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:04.270765Z[0m [32m INFO[0m [2m141:[0m Block 84417766: Reserve fetch completed in 263.702625ms (total: 263.849ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:05.999829Z[0m [32m INFO[0m [2m69:[0m Block 84417767: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:06.240187Z[0m [32m INFO[0m [2m141:[0m Block 84417767: Reserve fetch completed in 240.262375ms (total: 240.378ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:08.019146Z[0m [32m INFO[0m [2m69:[0m Block 84417768: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:08.265114Z[0m [32m INFO[0m [2m141:[0m Block 84417768: Reserve fetch completed in 245.909708ms (total: 246.014667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:09.997926Z[0m [32m INFO[0m [2m69:[0m Block 84417769: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:10.242560Z[0m [32m INFO[0m [2m141:[0m Block 84417769: Reserve fetch completed in 244.582042ms (total: 244.697667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:11.993778Z[0m [32m INFO[0m [2m69:[0m Block 84417770: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:12.235196Z[0m [32m INFO[0m [2m141:[0m Block 84417770: Reserve fetch completed in 241.371209ms (total: 241.472167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:13.998362Z[0m [32m INFO[0m [2m69:[0m Block 84417771: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:14.275185Z[0m [32m INFO[0m [2m141:[0m Block 84417771: Reserve fetch completed in 276.553583ms (total: 276.859ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:15.997963Z[0m [32m INFO[0m [2m69:[0m Block 84417772: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:16.241955Z[0m [32m INFO[0m [2m141:[0m Block 84417772: Reserve fetch completed in 243.925125ms (total: 244.030958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:17.989056Z[0m [32m INFO[0m [2m69:[0m Block 84417773: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:18.236540Z[0m [32m INFO[0m [2m141:[0m Block 84417773: Reserve fetch completed in 247.382417ms (total: 247.50725ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:18.237750Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1800.169956375s):
+[2m2025-09-04T06:04:18.237831Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 900
+[2m2025-09-04T06:04:18.237853Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:04:18.237875Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:04:20.003843Z[0m [32m INFO[0m [2m69:[0m Block 84417774: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:20.262699Z[0m [32m INFO[0m [2m141:[0m Block 84417774: Reserve fetch completed in 258.780042ms (total: 258.935708ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:21.997777Z[0m [32m INFO[0m [2m69:[0m Block 84417775: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:22.241333Z[0m [32m INFO[0m [2m141:[0m Block 84417775: Reserve fetch completed in 243.394333ms (total: 243.612125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:23.996407Z[0m [32m INFO[0m [2m69:[0m Block 84417776: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:24.235826Z[0m [32m INFO[0m [2m141:[0m Block 84417776: Reserve fetch completed in 239.346125ms (total: 239.4505ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:26.009117Z[0m [32m INFO[0m [2m69:[0m Block 84417777: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:26.274589Z[0m [32m INFO[0m [2m141:[0m Block 84417777: Reserve fetch completed in 265.425625ms (total: 265.537792ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:27.992892Z[0m [32m INFO[0m [2m69:[0m Block 84417778: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:28.236800Z[0m [32m INFO[0m [2m141:[0m Block 84417778: Reserve fetch completed in 243.820042ms (total: 243.968959ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:29.994812Z[0m [32m INFO[0m [2m69:[0m Block 84417779: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:30.239198Z[0m [32m INFO[0m [2m141:[0m Block 84417779: Reserve fetch completed in 244.30575ms (total: 244.414791ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:32.000548Z[0m [32m INFO[0m [2m69:[0m Block 84417780: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:32.269772Z[0m [32m INFO[0m [2m141:[0m Block 84417780: Reserve fetch completed in 269.149125ms (total: 269.275167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:33.992980Z[0m [32m INFO[0m [2m69:[0m Block 84417781: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:34.238703Z[0m [32m INFO[0m [2m141:[0m Block 84417781: Reserve fetch completed in 245.310333ms (total: 245.747667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:35.991098Z[0m [32m INFO[0m [2m69:[0m Block 84417782: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:36.234099Z[0m [32m INFO[0m [2m141:[0m Block 84417782: Reserve fetch completed in 242.942667ms (total: 243.0665ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:37.991799Z[0m [32m INFO[0m [2m69:[0m Block 84417783: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:38.236193Z[0m [32m INFO[0m [2m141:[0m Block 84417783: Reserve fetch completed in 244.302834ms (total: 244.41175ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:38.237413Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1820.169563042s):
+[2m2025-09-04T06:04:38.237507Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 910
+[2m2025-09-04T06:04:38.237530Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:04:38.237549Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:04:39.995271Z[0m [32m INFO[0m [2m69:[0m Block 84417784: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:40.237164Z[0m [32m INFO[0m [2m141:[0m Block 84417784: Reserve fetch completed in 241.806084ms (total: 241.916ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:41.990497Z[0m [32m INFO[0m [2m69:[0m Block 84417785: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:42.237748Z[0m [32m INFO[0m [2m141:[0m Block 84417785: Reserve fetch completed in 247.402167ms (total: 247.511541ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:43.991334Z[0m [32m INFO[0m [2m69:[0m Block 84417786: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:44.230947Z[0m [32m INFO[0m [2m141:[0m Block 84417786: Reserve fetch completed in 239.43625ms (total: 239.635958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:45.991660Z[0m [32m INFO[0m [2m69:[0m Block 84417787: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:46.235002Z[0m [32m INFO[0m [2m141:[0m Block 84417787: Reserve fetch completed in 243.252083ms (total: 243.382791ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:47.993710Z[0m [32m INFO[0m [2m69:[0m Block 84417788: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:48.234989Z[0m [32m INFO[0m [2m141:[0m Block 84417788: Reserve fetch completed in 241.097792ms (total: 241.304875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:49.992296Z[0m [32m INFO[0m [2m69:[0m Block 84417789: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:50.243324Z[0m [32m INFO[0m [2m141:[0m Block 84417789: Reserve fetch completed in 250.852375ms (total: 251.108333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:51.995704Z[0m [32m INFO[0m [2m69:[0m Block 84417790: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:52.240493Z[0m [32m INFO[0m [2m141:[0m Block 84417790: Reserve fetch completed in 244.742458ms (total: 244.845709ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:53.995944Z[0m [32m INFO[0m [2m69:[0m Block 84417791: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:54.236642Z[0m [32m INFO[0m [2m141:[0m Block 84417791: Reserve fetch completed in 240.614584ms (total: 240.7255ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:56.002469Z[0m [32m INFO[0m [2m69:[0m Block 84417792: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:56.245266Z[0m [32m INFO[0m [2m141:[0m Block 84417792: Reserve fetch completed in 242.750834ms (total: 242.86875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:57.992262Z[0m [32m INFO[0m [2m69:[0m Block 84417793: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:04:58.240549Z[0m [32m INFO[0m [2m141:[0m Block 84417793: Reserve fetch completed in 248.23125ms (total: 248.330292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:04:58.242278Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1840.174419667s):
+[2m2025-09-04T06:04:58.242344Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 920
+[2m2025-09-04T06:04:58.242373Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:04:58.242425Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:04:59.988628Z[0m [32m INFO[0m [2m69:[0m Block 84417794: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:00.228079Z[0m [32m INFO[0m [2m141:[0m Block 84417794: Reserve fetch completed in 239.384791ms (total: 239.47875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:01.991490Z[0m [32m INFO[0m [2m69:[0m Block 84417795: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:02.237525Z[0m [32m INFO[0m [2m141:[0m Block 84417795: Reserve fetch completed in 245.986209ms (total: 246.101166ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:03.989634Z[0m [32m INFO[0m [2m69:[0m Block 84417796: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:04.232419Z[0m [32m INFO[0m [2m141:[0m Block 84417796: Reserve fetch completed in 242.715042ms (total: 242.821417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:05.990077Z[0m [32m INFO[0m [2m69:[0m Block 84417797: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:06.236090Z[0m [32m INFO[0m [2m141:[0m Block 84417797: Reserve fetch completed in 245.918417ms (total: 246.0405ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:07.994484Z[0m [32m INFO[0m [2m69:[0m Block 84417798: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:08.267864Z[0m [32m INFO[0m [2m141:[0m Block 84417798: Reserve fetch completed in 273.334417ms (total: 273.446209ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:09.999633Z[0m [32m INFO[0m [2m69:[0m Block 84417799: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:10.242722Z[0m [32m INFO[0m [2m141:[0m Block 84417799: Reserve fetch completed in 243.033791ms (total: 243.150208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:11.989467Z[0m [32m INFO[0m [2m69:[0m Block 84417800: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:12.233783Z[0m [32m INFO[0m [2m141:[0m Block 84417800: Reserve fetch completed in 244.268417ms (total: 244.375834ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:13.993331Z[0m [32m INFO[0m [2m69:[0m Block 84417801: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:14.251532Z[0m [32m INFO[0m [2m141:[0m Block 84417801: Reserve fetch completed in 258.110209ms (total: 258.239667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:15.996780Z[0m [32m INFO[0m [2m69:[0m Block 84417802: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:16.237813Z[0m [32m INFO[0m [2m141:[0m Block 84417802: Reserve fetch completed in 240.974041ms (total: 241.070541ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:17.993219Z[0m [32m INFO[0m [2m69:[0m Block 84417803: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:18.232441Z[0m [32m INFO[0m [2m141:[0m Block 84417803: Reserve fetch completed in 239.1715ms (total: 239.289083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:18.233825Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1860.165953042s):
+[2m2025-09-04T06:05:18.233896Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 930
+[2m2025-09-04T06:05:18.233918Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:05:18.233931Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:05:19.991650Z[0m [32m INFO[0m [2m69:[0m Block 84417804: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:20.235715Z[0m [32m INFO[0m [2m141:[0m Block 84417804: Reserve fetch completed in 243.891709ms (total: 244.085083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:22.002907Z[0m [32m INFO[0m [2m69:[0m Block 84417805: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:22.246819Z[0m [32m INFO[0m [2m141:[0m Block 84417805: Reserve fetch completed in 243.837833ms (total: 243.969042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:23.990256Z[0m [32m INFO[0m [2m69:[0m Block 84417806: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:24.232844Z[0m [32m INFO[0m [2m141:[0m Block 84417806: Reserve fetch completed in 242.51775ms (total: 242.61525ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:26.001869Z[0m [32m INFO[0m [2m69:[0m Block 84417807: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:26.245994Z[0m [32m INFO[0m [2m141:[0m Block 84417807: Reserve fetch completed in 243.999708ms (total: 244.206042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:28.193697Z[0m [32m INFO[0m [2m69:[0m Block 84417808: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:28.436157Z[0m [32m INFO[0m [2m141:[0m Block 84417808: Reserve fetch completed in 242.40375ms (total: 242.523458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:29.995227Z[0m [32m INFO[0m [2m69:[0m Block 84417809: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:30.237530Z[0m [32m INFO[0m [2m141:[0m Block 84417809: Reserve fetch completed in 242.234083ms (total: 242.336792ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:31.995786Z[0m [32m INFO[0m [2m69:[0m Block 84417810: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:32.237117Z[0m [32m INFO[0m [2m141:[0m Block 84417810: Reserve fetch completed in 241.158291ms (total: 241.36ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:33.990851Z[0m [32m INFO[0m [2m69:[0m Block 84417811: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:34.233685Z[0m [32m INFO[0m [2m141:[0m Block 84417811: Reserve fetch completed in 242.770875ms (total: 242.864083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:35.994381Z[0m [32m INFO[0m [2m69:[0m Block 84417812: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:36.240425Z[0m [32m INFO[0m [2m141:[0m Block 84417812: Reserve fetch completed in 245.976834ms (total: 246.103333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:37.996963Z[0m [32m INFO[0m [2m69:[0m Block 84417813: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:38.239397Z[0m [32m INFO[0m [2m141:[0m Block 84417813: Reserve fetch completed in 242.342583ms (total: 242.457667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:38.240954Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1880.173068667s):
+[2m2025-09-04T06:05:38.241059Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 940
+[2m2025-09-04T06:05:38.241081Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:05:38.241096Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:05:39.991211Z[0m [32m INFO[0m [2m69:[0m Block 84417814: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:40.232811Z[0m [32m INFO[0m [2m141:[0m Block 84417814: Reserve fetch completed in 241.544208ms (total: 241.657542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:41.992982Z[0m [32m INFO[0m [2m69:[0m Block 84417815: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:42.234987Z[0m [32m INFO[0m [2m141:[0m Block 84417815: Reserve fetch completed in 241.943625ms (total: 242.036916ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:43.991529Z[0m [32m INFO[0m [2m69:[0m Block 84417816: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:44.242794Z[0m [32m INFO[0m [2m141:[0m Block 84417816: Reserve fetch completed in 251.198333ms (total: 251.314583ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:45.993603Z[0m [32m INFO[0m [2m69:[0m Block 84417817: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:46.236522Z[0m [32m INFO[0m [2m141:[0m Block 84417817: Reserve fetch completed in 242.739583ms (total: 242.945208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:47.992922Z[0m [32m INFO[0m [2m69:[0m Block 84417818: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:48.238423Z[0m [32m INFO[0m [2m141:[0m Block 84417818: Reserve fetch completed in 245.453541ms (total: 245.578125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:49.999494Z[0m [32m INFO[0m [2m69:[0m Block 84417819: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:50.248783Z[0m [32m INFO[0m [2m141:[0m Block 84417819: Reserve fetch completed in 249.200791ms (total: 249.323375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:51.989052Z[0m [32m INFO[0m [2m69:[0m Block 84417820: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:52.230296Z[0m [32m INFO[0m [2m141:[0m Block 84417820: Reserve fetch completed in 241.184ms (total: 241.305458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:54.016726Z[0m [32m INFO[0m [2m69:[0m Block 84417821: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:54.260448Z[0m [32m INFO[0m [2m141:[0m Block 84417821: Reserve fetch completed in 243.627541ms (total: 243.741292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:55.988419Z[0m [32m INFO[0m [2m69:[0m Block 84417822: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:56.227709Z[0m [32m INFO[0m [2m141:[0m Block 84417822: Reserve fetch completed in 239.201958ms (total: 239.34925ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:57.972827Z[0m [32m INFO[0m [2m69:[0m Block 84417823: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:05:58.214209Z[0m [32m INFO[0m [2m141:[0m Block 84417823: Reserve fetch completed in 241.316875ms (total: 241.450417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:05:58.215389Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1900.1474965s):
+[2m2025-09-04T06:05:58.215470Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 950
+[2m2025-09-04T06:05:58.215495Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:05:58.215509Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:05:59.984732Z[0m [32m INFO[0m [2m69:[0m Block 84417824: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:00.230249Z[0m [32m INFO[0m [2m141:[0m Block 84417824: Reserve fetch completed in 245.447667ms (total: 245.5645ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:01.986433Z[0m [32m INFO[0m [2m69:[0m Block 84417825: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:02.239574Z[0m [32m INFO[0m [2m141:[0m Block 84417825: Reserve fetch completed in 253.056042ms (total: 253.17875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:03.987949Z[0m [32m INFO[0m [2m69:[0m Block 84417826: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:04.229415Z[0m [32m INFO[0m [2m141:[0m Block 84417826: Reserve fetch completed in 241.320916ms (total: 241.525084ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:05.986425Z[0m [32m INFO[0m [2m69:[0m Block 84417827: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:06.227257Z[0m [32m INFO[0m [2m141:[0m Block 84417827: Reserve fetch completed in 240.769583ms (total: 240.899834ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:07.986744Z[0m [32m INFO[0m [2m69:[0m Block 84417828: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:08.227358Z[0m [32m INFO[0m [2m141:[0m Block 84417828: Reserve fetch completed in 240.529125ms (total: 240.659166ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:09.986349Z[0m [32m INFO[0m [2m69:[0m Block 84417829: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:10.229755Z[0m [32m INFO[0m [2m141:[0m Block 84417829: Reserve fetch completed in 243.337791ms (total: 243.48625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:11.987006Z[0m [32m INFO[0m [2m69:[0m Block 84417830: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:12.228087Z[0m [32m INFO[0m [2m141:[0m Block 84417830: Reserve fetch completed in 241.00725ms (total: 241.1365ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:13.985863Z[0m [32m INFO[0m [2m69:[0m Block 84417831: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:14.232760Z[0m [32m INFO[0m [2m141:[0m Block 84417831: Reserve fetch completed in 246.857ms (total: 246.965542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:15.988995Z[0m [32m INFO[0m [2m69:[0m Block 84417832: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:16.230548Z[0m [32m INFO[0m [2m141:[0m Block 84417832: Reserve fetch completed in 241.48025ms (total: 241.585708ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:17.992195Z[0m [32m INFO[0m [2m69:[0m Block 84417833: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:18.240203Z[0m [32m INFO[0m [2m141:[0m Block 84417833: Reserve fetch completed in 247.832666ms (total: 248.04875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:18.242396Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1920.174489458s):
+[2m2025-09-04T06:06:18.242496Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 960
+[2m2025-09-04T06:06:18.242539Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:06:18.242574Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:06:20.013544Z[0m [32m INFO[0m [2m69:[0m Block 84417834: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:20.254504Z[0m [32m INFO[0m [2m141:[0m Block 84417834: Reserve fetch completed in 240.781ms (total: 240.97975ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:21.989795Z[0m [32m INFO[0m [2m69:[0m Block 84417835: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:22.240318Z[0m [32m INFO[0m [2m141:[0m Block 84417835: Reserve fetch completed in 250.376459ms (total: 250.563666ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:24.033816Z[0m [32m INFO[0m [2m69:[0m Block 84417836: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:24.280072Z[0m [32m INFO[0m [2m141:[0m Block 84417836: Reserve fetch completed in 246.102541ms (total: 246.345458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:25.988296Z[0m [32m INFO[0m [2m69:[0m Block 84417837: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:26.230363Z[0m [32m INFO[0m [2m141:[0m Block 84417837: Reserve fetch completed in 242.020125ms (total: 242.168333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:28.520356Z[0m [32m INFO[0m [2m69:[0m Block 84417838: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:28.761322Z[0m [32m INFO[0m [2m141:[0m Block 84417838: Reserve fetch completed in 240.88425ms (total: 241.0315ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:30.231150Z[0m [32m INFO[0m [2m69:[0m Block 84417839: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:30.476760Z[0m [32m INFO[0m [2m141:[0m Block 84417839: Reserve fetch completed in 245.536625ms (total: 245.694459ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:32.029566Z[0m [32m INFO[0m [2m69:[0m Block 84417840: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:32.276624Z[0m [32m INFO[0m [2m141:[0m Block 84417840: Reserve fetch completed in 246.880667ms (total: 247.085333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:34.008321Z[0m [32m INFO[0m [2m69:[0m Block 84417841: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:34.252391Z[0m [32m INFO[0m [2m141:[0m Block 84417841: Reserve fetch completed in 243.900166ms (total: 244.134208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:35.999503Z[0m [32m INFO[0m [2m69:[0m Block 84417842: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:36.239071Z[0m [32m INFO[0m [2m141:[0m Block 84417842: Reserve fetch completed in 239.482459ms (total: 239.592584ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:37.997208Z[0m [32m INFO[0m [2m69:[0m Block 84417843: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:38.240107Z[0m [32m INFO[0m [2m141:[0m Block 84417843: Reserve fetch completed in 242.826875ms (total: 242.957083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:38.241519Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1940.173601833s):
+[2m2025-09-04T06:06:38.241595Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 970
+[2m2025-09-04T06:06:38.241620Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:06:38.241636Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:06:39.992670Z[0m [32m INFO[0m [2m69:[0m Block 84417844: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:40.232422Z[0m [32m INFO[0m [2m141:[0m Block 84417844: Reserve fetch completed in 239.701291ms (total: 239.830459ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:41.998118Z[0m [32m INFO[0m [2m69:[0m Block 84417845: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:42.238954Z[0m [32m INFO[0m [2m141:[0m Block 84417845: Reserve fetch completed in 240.755791ms (total: 240.922834ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:44.002423Z[0m [32m INFO[0m [2m69:[0m Block 84417846: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:44.257611Z[0m [32m INFO[0m [2m141:[0m Block 84417846: Reserve fetch completed in 255.085125ms (total: 255.284ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:45.991574Z[0m [32m INFO[0m [2m69:[0m Block 84417847: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:46.234400Z[0m [32m INFO[0m [2m141:[0m Block 84417847: Reserve fetch completed in 242.706833ms (total: 242.934667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:47.995282Z[0m [32m INFO[0m [2m69:[0m Block 84417848: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:48.238216Z[0m [32m INFO[0m [2m141:[0m Block 84417848: Reserve fetch completed in 242.824041ms (total: 243.028583ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:50.042851Z[0m [32m INFO[0m [2m69:[0m Block 84417849: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:50.282846Z[0m [32m INFO[0m [2m141:[0m Block 84417849: Reserve fetch completed in 239.932666ms (total: 240.045541ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:51.992598Z[0m [32m INFO[0m [2m69:[0m Block 84417850: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:52.233076Z[0m [32m INFO[0m [2m141:[0m Block 84417850: Reserve fetch completed in 240.320667ms (total: 240.674167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:53.993007Z[0m [32m INFO[0m [2m69:[0m Block 84417851: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:54.246877Z[0m [32m INFO[0m [2m141:[0m Block 84417851: Reserve fetch completed in 253.77825ms (total: 253.952667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:55.994693Z[0m [32m INFO[0m [2m69:[0m Block 84417852: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:56.236331Z[0m [32m INFO[0m [2m141:[0m Block 84417852: Reserve fetch completed in 241.5695ms (total: 241.669333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:58.033278Z[0m [32m INFO[0m [2m69:[0m Block 84417853: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:06:58.275359Z[0m [32m INFO[0m [2m141:[0m Block 84417853: Reserve fetch completed in 242.022375ms (total: 242.150916ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:06:58.276274Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1960.208349833s):
+[2m2025-09-04T06:06:58.276328Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 980
+[2m2025-09-04T06:06:58.276346Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:06:58.276360Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:07:00.060072Z[0m [32m INFO[0m [2m69:[0m Block 84417854: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:00.302290Z[0m [32m INFO[0m [2m141:[0m Block 84417854: Reserve fetch completed in 242.0355ms (total: 242.272042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:01.991094Z[0m [32m INFO[0m [2m69:[0m Block 84417855: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:02.236551Z[0m [32m INFO[0m [2m141:[0m Block 84417855: Reserve fetch completed in 245.312958ms (total: 245.549417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:03.992485Z[0m [32m INFO[0m [2m69:[0m Block 84417856: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:04.237261Z[0m [32m INFO[0m [2m141:[0m Block 84417856: Reserve fetch completed in 244.705041ms (total: 244.833167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:05.987793Z[0m [32m INFO[0m [2m69:[0m Block 84417857: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:06.229975Z[0m [32m INFO[0m [2m141:[0m Block 84417857: Reserve fetch completed in 242.147875ms (total: 242.263375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:07.998381Z[0m [32m INFO[0m [2m69:[0m Block 84417858: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:08.239271Z[0m [32m INFO[0m [2m141:[0m Block 84417858: Reserve fetch completed in 240.820333ms (total: 240.9145ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:09.990649Z[0m [32m INFO[0m [2m69:[0m Block 84417859: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:10.234912Z[0m [32m INFO[0m [2m141:[0m Block 84417859: Reserve fetch completed in 244.107041ms (total: 244.353542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:12.005957Z[0m [32m INFO[0m [2m69:[0m Block 84417860: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:12.248523Z[0m [32m INFO[0m [2m141:[0m Block 84417860: Reserve fetch completed in 242.4015ms (total: 242.64725ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:13.992361Z[0m [32m INFO[0m [2m69:[0m Block 84417861: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:14.243877Z[0m [32m INFO[0m [2m141:[0m Block 84417861: Reserve fetch completed in 251.346375ms (total: 251.598041ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:15.989447Z[0m [32m INFO[0m [2m69:[0m Block 84417862: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:16.235290Z[0m [32m INFO[0m [2m141:[0m Block 84417862: Reserve fetch completed in 245.754583ms (total: 245.932125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:17.999455Z[0m [32m INFO[0m [2m69:[0m Block 84417863: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:18.244750Z[0m [32m INFO[0m [2m141:[0m Block 84417863: Reserve fetch completed in 245.127833ms (total: 245.385042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:18.247220Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 1980.179275958s):
+[2m2025-09-04T06:07:18.247358Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 990
+[2m2025-09-04T06:07:18.247414Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:07:18.247450Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:07:19.989034Z[0m [32m INFO[0m [2m69:[0m Block 84417864: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:20.229158Z[0m [32m INFO[0m [2m141:[0m Block 84417864: Reserve fetch completed in 240.046458ms (total: 240.211333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:21.996086Z[0m [32m INFO[0m [2m69:[0m Block 84417865: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:22.242457Z[0m [32m INFO[0m [2m141:[0m Block 84417865: Reserve fetch completed in 246.21825ms (total: 246.464125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:23.993815Z[0m [32m INFO[0m [2m69:[0m Block 84417866: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:24.238127Z[0m [32m INFO[0m [2m141:[0m Block 84417866: Reserve fetch completed in 244.143084ms (total: 244.387958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:26.088905Z[0m [32m INFO[0m [2m69:[0m Block 84417867: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:26.331691Z[0m [32m INFO[0m [2m141:[0m Block 84417867: Reserve fetch completed in 242.616042ms (total: 242.862958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:27.995678Z[0m [32m INFO[0m [2m69:[0m Block 84417868: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:28.242243Z[0m [32m INFO[0m [2m141:[0m Block 84417868: Reserve fetch completed in 246.445709ms (total: 246.645125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:30.002750Z[0m [32m INFO[0m [2m69:[0m Block 84417869: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:30.251502Z[0m [32m INFO[0m [2m141:[0m Block 84417869: Reserve fetch completed in 248.61025ms (total: 248.820875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:31.987502Z[0m [32m INFO[0m [2m69:[0m Block 84417870: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:32.237911Z[0m [32m INFO[0m [2m141:[0m Block 84417870: Reserve fetch completed in 250.245958ms (total: 250.493917ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:33.987947Z[0m [32m INFO[0m [2m69:[0m Block 84417871: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:34.232782Z[0m [32m INFO[0m [2m141:[0m Block 84417871: Reserve fetch completed in 244.66625ms (total: 244.916042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:36.062642Z[0m [32m INFO[0m [2m69:[0m Block 84417872: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:36.313062Z[0m [32m INFO[0m [2m141:[0m Block 84417872: Reserve fetch completed in 250.252875ms (total: 250.501084ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:40.421520Z[0m [32m INFO[0m [2m69:[0m Block 84417873: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:40.663697Z[0m [32m INFO[0m [2m141:[0m Block 84417873: Reserve fetch completed in 242.060375ms (total: 242.317042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:40.664164Z[0m [32m INFO[0m [2m69:[0m Block 84417874: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:40.666716Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2002.5987595s):
+[2m2025-09-04T06:07:40.666849Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1000
+[2m2025-09-04T06:07:40.666903Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:07:40.666943Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:07:40.909371Z[0m [32m INFO[0m [2m141:[0m Block 84417874: Reserve fetch completed in 244.999834ms (total: 245.234167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:45.236950Z[0m [32m INFO[0m [2m69:[0m Block 84417875: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:45.482802Z[0m [32m INFO[0m [2m141:[0m Block 84417875: Reserve fetch completed in 245.688042ms (total: 245.934167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:45.483286Z[0m [32m INFO[0m [2m69:[0m Block 84417876: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:45.754437Z[0m [32m INFO[0m [2m141:[0m Block 84417876: Reserve fetch completed in 270.922209ms (total: 271.180875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:46.277720Z[0m [32m INFO[0m [2m69:[0m Block 84417877: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:46.530816Z[0m [32m INFO[0m [2m141:[0m Block 84417877: Reserve fetch completed in 252.929792ms (total: 253.137417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:54.474274Z[0m [32m INFO[0m [2m69:[0m Block 84417878: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:54.714913Z[0m [32m INFO[0m [2m141:[0m Block 84417878: Reserve fetch completed in 240.596833ms (total: 240.7455ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:54.715137Z[0m [32m INFO[0m [2m69:[0m Block 84417879: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:54.965742Z[0m [32m INFO[0m [2m141:[0m Block 84417879: Reserve fetch completed in 250.490709ms (total: 250.60425ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:54.966105Z[0m [32m INFO[0m [2m69:[0m Block 84417880: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:55.205355Z[0m [32m INFO[0m [2m141:[0m Block 84417880: Reserve fetch completed in 239.156417ms (total: 239.267458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:55.205596Z[0m [32m INFO[0m [2m69:[0m Block 84417881: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:55.451135Z[0m [32m INFO[0m [2m141:[0m Block 84417881: Reserve fetch completed in 245.451375ms (total: 245.547958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:07:58.133258Z[0m [32m INFO[0m [2m69:[0m Block 84417882: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:58.370257Z[0m [31mERROR[0m [2m97:[0m Block 84417882: Batch 1 failed after 236.766875ms: RPC error: {"code":-32000,"message":"header not found"}
+[2m2025-09-04T06:07:58.370533Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0xb670d2b452d0ecc468cccfd532482d45dddde2a1)
+[2m2025-09-04T06:07:58.370610Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0xd27492c12826187a804b52d16ee4f74479563cc4)
+[2m2025-09-04T06:07:58.370650Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0xefc38c1b0d60725b824ebee8d431abfbf12bc953)
+[2m2025-09-04T06:07:58.370682Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0xa375ea3e1f92d62e3a71b668bab09f7155267fa3)
+[2m2025-09-04T06:07:58.370719Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0xae9a0d9b1c9cd31d60fdbfe270ccb8c878bb15c8)
+[2m2025-09-04T06:07:58.370747Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0x05c53a5233e7105cae6c37ee5a7bc7d43131625b)
+[2m2025-09-04T06:07:58.370775Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0x5126ac4145ed84ebe28cfb34bb6300bcef492bb7)
+[2m2025-09-04T06:07:58.370803Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0xb70f7b25fe962eab2dbd634c756b6f8251764609)
+[2m2025-09-04T06:07:58.370829Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0x763868612858358f62b05691db82ad35a9b3e110)
+[2m2025-09-04T06:07:58.370855Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0xfb16b5ccc62dc125834c33bf6b063c87e6e6f581)
+[2m2025-09-04T06:07:58.370880Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0xace7a42c030759ea903e9c39ad26a0f9b4a11927)
+[2m2025-09-04T06:07:58.370905Z[0m [33m WARN[0m [2m133:[0m Block 84417882: Failed to get reserves for pool Address(0x30ac02b4c99d140cde2a212ca807cbda35d4f6b5)
+[2m2025-09-04T06:07:58.370934Z[0m [32m INFO[0m [2m141:[0m Block 84417882: Reserve fetch completed in 237.303292ms (total: 237.760791ms) - 0 successful, 12 failed pools
+[2m2025-09-04T06:07:58.370978Z[0m [33m WARN[0m [2m202:[0m Low success rate for pool data: 0/12 (0.0%)
+[2m2025-09-04T06:07:58.371188Z[0m [32m INFO[0m [2m69:[0m Block 84417883: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:07:58.609741Z[0m [31mERROR[0m [2m97:[0m Block 84417883: Batch 1 failed after 238.480416ms: RPC error: {"code":-32000,"message":"header not found"}
+[2m2025-09-04T06:07:58.610005Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0xb670d2b452d0ecc468cccfd532482d45dddde2a1)
+[2m2025-09-04T06:07:58.610085Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0x763868612858358f62b05691db82ad35a9b3e110)
+[2m2025-09-04T06:07:58.610123Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0xefc38c1b0d60725b824ebee8d431abfbf12bc953)
+[2m2025-09-04T06:07:58.610156Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0xae9a0d9b1c9cd31d60fdbfe270ccb8c878bb15c8)
+[2m2025-09-04T06:07:58.610186Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0x05c53a5233e7105cae6c37ee5a7bc7d43131625b)
+[2m2025-09-04T06:07:58.610215Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0x5126ac4145ed84ebe28cfb34bb6300bcef492bb7)
+[2m2025-09-04T06:07:58.610246Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0xace7a42c030759ea903e9c39ad26a0f9b4a11927)
+[2m2025-09-04T06:07:58.610277Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0xfb16b5ccc62dc125834c33bf6b063c87e6e6f581)
+[2m2025-09-04T06:07:58.610305Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0x30ac02b4c99d140cde2a212ca807cbda35d4f6b5)
+[2m2025-09-04T06:07:58.610333Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0xa375ea3e1f92d62e3a71b668bab09f7155267fa3)
+[2m2025-09-04T06:07:58.610363Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0xd27492c12826187a804b52d16ee4f74479563cc4)
+[2m2025-09-04T06:07:58.610390Z[0m [33m WARN[0m [2m133:[0m Block 84417883: Failed to get reserves for pool Address(0xb70f7b25fe962eab2dbd634c756b6f8251764609)
+[2m2025-09-04T06:07:58.610430Z[0m [32m INFO[0m [2m141:[0m Block 84417883: Reserve fetch completed in 238.811042ms (total: 239.288792ms) - 0 successful, 12 failed pools
+[2m2025-09-04T06:07:58.610475Z[0m [33m WARN[0m [2m202:[0m Low success rate for pool data: 0/12 (0.0%)
+[2m2025-09-04T06:07:58.611127Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2020.543169375s):
+[2m2025-09-04T06:07:58.611175Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1010
+[2m2025-09-04T06:07:58.611195Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:07:58.611212Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:08:03.054517Z[0m [32m INFO[0m [2m69:[0m Block 84417884: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:03.301012Z[0m [32m INFO[0m [2m141:[0m Block 84417884: Reserve fetch completed in 246.323042ms (total: 246.544667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:03.301488Z[0m [32m INFO[0m [2m69:[0m Block 84417885: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:03.559722Z[0m [31mERROR[0m [2m97:[0m Block 84417885: Batch 1 failed after 258.098083ms: RPC error: {"code":-32000,"message":"header not found"}
+[2m2025-09-04T06:08:03.559994Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0xae9a0d9b1c9cd31d60fdbfe270ccb8c878bb15c8)
+[2m2025-09-04T06:08:03.560076Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0xb70f7b25fe962eab2dbd634c756b6f8251764609)
+[2m2025-09-04T06:08:03.560117Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0xa375ea3e1f92d62e3a71b668bab09f7155267fa3)
+[2m2025-09-04T06:08:03.560156Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0xefc38c1b0d60725b824ebee8d431abfbf12bc953)
+[2m2025-09-04T06:08:03.560186Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0xb670d2b452d0ecc468cccfd532482d45dddde2a1)
+[2m2025-09-04T06:08:03.560215Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0x05c53a5233e7105cae6c37ee5a7bc7d43131625b)
+[2m2025-09-04T06:08:03.560244Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0x763868612858358f62b05691db82ad35a9b3e110)
+[2m2025-09-04T06:08:03.560274Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0x30ac02b4c99d140cde2a212ca807cbda35d4f6b5)
+[2m2025-09-04T06:08:03.560303Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0xfb16b5ccc62dc125834c33bf6b063c87e6e6f581)
+[2m2025-09-04T06:08:03.560332Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0xd27492c12826187a804b52d16ee4f74479563cc4)
+[2m2025-09-04T06:08:03.560361Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0x5126ac4145ed84ebe28cfb34bb6300bcef492bb7)
+[2m2025-09-04T06:08:03.560390Z[0m [33m WARN[0m [2m133:[0m Block 84417885: Failed to get reserves for pool Address(0xace7a42c030759ea903e9c39ad26a0f9b4a11927)
+[2m2025-09-04T06:08:03.560424Z[0m [32m INFO[0m [2m141:[0m Block 84417885: Reserve fetch completed in 258.503542ms (total: 259.005083ms) - 0 successful, 12 failed pools
+[2m2025-09-04T06:08:03.560472Z[0m [33m WARN[0m [2m202:[0m Low success rate for pool data: 0/12 (0.0%)
+[2m2025-09-04T06:08:04.974621Z[0m [32m INFO[0m [2m69:[0m Block 84417886: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:05.221849Z[0m [32m INFO[0m [2m141:[0m Block 84417886: Reserve fetch completed in 247.160458ms (total: 247.260791ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:11.981457Z[0m [32m INFO[0m [2m69:[0m Block 84417887: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:12.229915Z[0m [32m INFO[0m [2m141:[0m Block 84417887: Reserve fetch completed in 248.34075ms (total: 248.559542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:12.230336Z[0m [32m INFO[0m [2m69:[0m Block 84417888: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:12.476791Z[0m [32m INFO[0m [2m141:[0m Block 84417888: Reserve fetch completed in 246.300166ms (total: 246.474875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:12.477208Z[0m [32m INFO[0m [2m69:[0m Block 84417889: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:12.720535Z[0m [32m INFO[0m [2m141:[0m Block 84417889: Reserve fetch completed in 243.205583ms (total: 243.367959ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:12.720804Z[0m [32m INFO[0m [2m69:[0m Block 84417890: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:12.958266Z[0m [31mERROR[0m [2m97:[0m Block 84417890: Batch 1 failed after 237.363625ms: RPC error: {"code":-32000,"message":"header not found"}
+[2m2025-09-04T06:08:12.958683Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0x30ac02b4c99d140cde2a212ca807cbda35d4f6b5)
+[2m2025-09-04T06:08:12.958798Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0x5126ac4145ed84ebe28cfb34bb6300bcef492bb7)
+[2m2025-09-04T06:08:12.958849Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0xae9a0d9b1c9cd31d60fdbfe270ccb8c878bb15c8)
+[2m2025-09-04T06:08:12.958896Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0x05c53a5233e7105cae6c37ee5a7bc7d43131625b)
+[2m2025-09-04T06:08:12.958940Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0xefc38c1b0d60725b824ebee8d431abfbf12bc953)
+[2m2025-09-04T06:08:12.958981Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0xa375ea3e1f92d62e3a71b668bab09f7155267fa3)
+[2m2025-09-04T06:08:12.959022Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0xb70f7b25fe962eab2dbd634c756b6f8251764609)
+[2m2025-09-04T06:08:12.959062Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0xfb16b5ccc62dc125834c33bf6b063c87e6e6f581)
+[2m2025-09-04T06:08:12.959103Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0xd27492c12826187a804b52d16ee4f74479563cc4)
+[2m2025-09-04T06:08:12.959144Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0xace7a42c030759ea903e9c39ad26a0f9b4a11927)
+[2m2025-09-04T06:08:12.959182Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0xb670d2b452d0ecc468cccfd532482d45dddde2a1)
+[2m2025-09-04T06:08:12.959221Z[0m [33m WARN[0m [2m133:[0m Block 84417890: Failed to get reserves for pool Address(0x763868612858358f62b05691db82ad35a9b3e110)
+[2m2025-09-04T06:08:12.959268Z[0m [32m INFO[0m [2m141:[0m Block 84417890: Reserve fetch completed in 237.854583ms (total: 238.504292ms) - 0 successful, 12 failed pools
+[2m2025-09-04T06:08:12.959328Z[0m [33m WARN[0m [2m202:[0m Low success rate for pool data: 0/12 (0.0%)
+[2m2025-09-04T06:08:15.855879Z[0m [32m INFO[0m [2m69:[0m Block 84417891: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:16.096716Z[0m [32m INFO[0m [2m141:[0m Block 84417891: Reserve fetch completed in 240.724ms (total: 240.864708ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:17.098509Z[0m [32m INFO[0m [2m69:[0m Block 84417892: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:17.352545Z[0m [32m INFO[0m [2m141:[0m Block 84417892: Reserve fetch completed in 253.903458ms (total: 254.089375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:18.228115Z[0m [32m INFO[0m [2m69:[0m Block 84417893: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:18.487644Z[0m [32m INFO[0m [2m141:[0m Block 84417893: Reserve fetch completed in 259.409833ms (total: 259.591083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:18.489625Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2040.421651917s):
+[2m2025-09-04T06:08:18.489734Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1020
+[2m2025-09-04T06:08:18.489783Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:08:18.489819Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:08:19.957561Z[0m [32m INFO[0m [2m69:[0m Block 84417894: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:20.202626Z[0m [32m INFO[0m [2m141:[0m Block 84417894: Reserve fetch completed in 244.992208ms (total: 245.12725ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:21.964003Z[0m [32m INFO[0m [2m69:[0m Block 84417895: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:22.212646Z[0m [32m INFO[0m [2m141:[0m Block 84417895: Reserve fetch completed in 248.475541ms (total: 248.704ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:23.989309Z[0m [32m INFO[0m [2m69:[0m Block 84417896: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:24.241038Z[0m [32m INFO[0m [2m141:[0m Block 84417896: Reserve fetch completed in 251.620166ms (total: 251.796875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:25.957577Z[0m [32m INFO[0m [2m69:[0m Block 84417897: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:26.208318Z[0m [32m INFO[0m [2m141:[0m Block 84417897: Reserve fetch completed in 250.570583ms (total: 250.796833ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:27.958351Z[0m [32m INFO[0m [2m69:[0m Block 84417898: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:28.212859Z[0m [32m INFO[0m [2m141:[0m Block 84417898: Reserve fetch completed in 254.38175ms (total: 254.594333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:29.957881Z[0m [32m INFO[0m [2m69:[0m Block 84417899: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:30.202151Z[0m [32m INFO[0m [2m141:[0m Block 84417899: Reserve fetch completed in 244.10425ms (total: 244.335375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:31.958413Z[0m [32m INFO[0m [2m69:[0m Block 84417900: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:32.208124Z[0m [32m INFO[0m [2m141:[0m Block 84417900: Reserve fetch completed in 249.539ms (total: 249.775916ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:33.985110Z[0m [32m INFO[0m [2m69:[0m Block 84417901: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:34.233503Z[0m [32m INFO[0m [2m141:[0m Block 84417901: Reserve fetch completed in 248.239958ms (total: 248.444625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:35.970435Z[0m [32m INFO[0m [2m69:[0m Block 84417902: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:36.213016Z[0m [32m INFO[0m [2m141:[0m Block 84417902: Reserve fetch completed in 242.42425ms (total: 242.654ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:37.974537Z[0m [32m INFO[0m [2m69:[0m Block 84417903: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:38.229299Z[0m [32m INFO[0m [2m141:[0m Block 84417903: Reserve fetch completed in 254.639666ms (total: 254.829042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:38.231430Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2060.163442167s):
+[2m2025-09-04T06:08:38.231560Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1030
+[2m2025-09-04T06:08:38.231609Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:08:38.231637Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:08:40.022246Z[0m [32m INFO[0m [2m69:[0m Block 84417904: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:40.264332Z[0m [32m INFO[0m [2m141:[0m Block 84417904: Reserve fetch completed in 241.990833ms (total: 242.170375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:41.964044Z[0m [32m INFO[0m [2m69:[0m Block 84417905: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:42.207180Z[0m [32m INFO[0m [2m141:[0m Block 84417905: Reserve fetch completed in 243.009041ms (total: 243.18825ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:43.977889Z[0m [32m INFO[0m [2m69:[0m Block 84417906: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:44.221762Z[0m [32m INFO[0m [2m141:[0m Block 84417906: Reserve fetch completed in 243.7345ms (total: 243.9545ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:45.962394Z[0m [32m INFO[0m [2m69:[0m Block 84417907: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:46.207779Z[0m [32m INFO[0m [2m141:[0m Block 84417907: Reserve fetch completed in 245.211791ms (total: 245.450167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:47.973467Z[0m [32m INFO[0m [2m69:[0m Block 84417908: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:48.227873Z[0m [32m INFO[0m [2m141:[0m Block 84417908: Reserve fetch completed in 254.282042ms (total: 254.467958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:49.981736Z[0m [32m INFO[0m [2m69:[0m Block 84417909: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:50.227992Z[0m [32m INFO[0m [2m141:[0m Block 84417909: Reserve fetch completed in 246.177166ms (total: 246.313334ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:51.995471Z[0m [32m INFO[0m [2m69:[0m Block 84417910: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:52.243463Z[0m [32m INFO[0m [2m141:[0m Block 84417910: Reserve fetch completed in 247.863958ms (total: 248.058125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:53.967989Z[0m [32m INFO[0m [2m69:[0m Block 84417911: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:54.215852Z[0m [32m INFO[0m [2m141:[0m Block 84417911: Reserve fetch completed in 247.68975ms (total: 247.912625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:56.000351Z[0m [32m INFO[0m [2m69:[0m Block 84417912: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:56.241480Z[0m [32m INFO[0m [2m141:[0m Block 84417912: Reserve fetch completed in 241.046875ms (total: 241.218125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:57.963072Z[0m [32m INFO[0m [2m69:[0m Block 84417913: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:08:58.203051Z[0m [32m INFO[0m [2m141:[0m Block 84417913: Reserve fetch completed in 239.923958ms (total: 240.04125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:08:58.204040Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2080.1360475s):
+[2m2025-09-04T06:08:58.204091Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1040
+[2m2025-09-04T06:08:58.204108Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:08:58.204122Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:08:59.983309Z[0m [32m INFO[0m [2m69:[0m Block 84417914: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:00.232948Z[0m [32m INFO[0m [2m141:[0m Block 84417914: Reserve fetch completed in 249.56725ms (total: 249.707708ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:02.039514Z[0m [32m INFO[0m [2m69:[0m Block 84417915: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:02.286787Z[0m [32m INFO[0m [2m141:[0m Block 84417915: Reserve fetch completed in 247.107ms (total: 247.357458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:03.989851Z[0m [32m INFO[0m [2m69:[0m Block 84417916: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:04.238223Z[0m [32m INFO[0m [2m141:[0m Block 84417916: Reserve fetch completed in 248.280583ms (total: 248.460542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:06.032680Z[0m [32m INFO[0m [2m69:[0m Block 84417917: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:06.278890Z[0m [32m INFO[0m [2m141:[0m Block 84417917: Reserve fetch completed in 246.022833ms (total: 246.232542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:07.958956Z[0m [32m INFO[0m [2m69:[0m Block 84417918: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:08.202922Z[0m [32m INFO[0m [2m141:[0m Block 84417918: Reserve fetch completed in 243.801583ms (total: 244.04725ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:09.959798Z[0m [32m INFO[0m [2m69:[0m Block 84417919: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:10.202599Z[0m [32m INFO[0m [2m141:[0m Block 84417919: Reserve fetch completed in 242.643709ms (total: 242.862084ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:11.958526Z[0m [32m INFO[0m [2m69:[0m Block 84417920: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:12.212321Z[0m [32m INFO[0m [2m141:[0m Block 84417920: Reserve fetch completed in 253.703ms (total: 253.858083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:13.960881Z[0m [32m INFO[0m [2m69:[0m Block 84417921: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:14.210193Z[0m [32m INFO[0m [2m141:[0m Block 84417921: Reserve fetch completed in 249.14375ms (total: 249.369ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:15.960918Z[0m [32m INFO[0m [2m69:[0m Block 84417922: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:16.214870Z[0m [32m INFO[0m [2m141:[0m Block 84417922: Reserve fetch completed in 253.89475ms (total: 254.014834ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:17.958703Z[0m [32m INFO[0m [2m69:[0m Block 84417923: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:18.211925Z[0m [32m INFO[0m [2m141:[0m Block 84417923: Reserve fetch completed in 253.061791ms (total: 253.310958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:18.213961Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2100.145954333s):
+[2m2025-09-04T06:09:18.214054Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1050
+[2m2025-09-04T06:09:18.214100Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:09:18.214135Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:09:19.961574Z[0m [32m INFO[0m [2m69:[0m Block 84417924: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:20.205630Z[0m [32m INFO[0m [2m141:[0m Block 84417924: Reserve fetch completed in 243.893291ms (total: 244.137542ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:21.961204Z[0m [32m INFO[0m [2m69:[0m Block 84417925: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:22.214875Z[0m [32m INFO[0m [2m141:[0m Block 84417925: Reserve fetch completed in 253.536458ms (total: 253.747792ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:23.965203Z[0m [32m INFO[0m [2m69:[0m Block 84417926: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:24.206785Z[0m [32m INFO[0m [2m141:[0m Block 84417926: Reserve fetch completed in 241.413417ms (total: 241.663167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:25.965236Z[0m [32m INFO[0m [2m69:[0m Block 84417927: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:26.209601Z[0m [32m INFO[0m [2m141:[0m Block 84417927: Reserve fetch completed in 244.308209ms (total: 244.445958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:27.986338Z[0m [32m INFO[0m [2m69:[0m Block 84417928: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:28.233712Z[0m [32m INFO[0m [2m141:[0m Block 84417928: Reserve fetch completed in 247.285292ms (total: 247.447458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:29.999109Z[0m [32m INFO[0m [2m69:[0m Block 84417929: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:30.242751Z[0m [32m INFO[0m [2m141:[0m Block 84417929: Reserve fetch completed in 243.571541ms (total: 243.724417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:31.963756Z[0m [32m INFO[0m [2m69:[0m Block 84417930: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:32.204976Z[0m [32m INFO[0m [2m141:[0m Block 84417930: Reserve fetch completed in 241.05625ms (total: 241.26275ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:33.961546Z[0m [32m INFO[0m [2m69:[0m Block 84417931: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:34.208500Z[0m [32m INFO[0m [2m141:[0m Block 84417931: Reserve fetch completed in 246.895542ms (total: 247.050667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:35.958274Z[0m [32m INFO[0m [2m69:[0m Block 84417932: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:36.198173Z[0m [32m INFO[0m [2m141:[0m Block 84417932: Reserve fetch completed in 239.841208ms (total: 239.963458ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:38.016295Z[0m [32m INFO[0m [2m69:[0m Block 84417933: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:38.258555Z[0m [32m INFO[0m [2m141:[0m Block 84417933: Reserve fetch completed in 242.084042ms (total: 242.3185ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:38.260597Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2120.19258s):
+[2m2025-09-04T06:09:38.260705Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1060
+[2m2025-09-04T06:09:38.260753Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:09:38.260787Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:09:40.028839Z[0m [32m INFO[0m [2m69:[0m Block 84417934: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:40.276162Z[0m [32m INFO[0m [2m141:[0m Block 84417934: Reserve fetch completed in 247.2275ms (total: 247.34075ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:41.963067Z[0m [32m INFO[0m [2m69:[0m Block 84417935: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:42.208900Z[0m [32m INFO[0m [2m141:[0m Block 84417935: Reserve fetch completed in 245.743041ms (total: 245.896166ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:43.959824Z[0m [32m INFO[0m [2m69:[0m Block 84417936: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:44.200529Z[0m [32m INFO[0m [2m141:[0m Block 84417936: Reserve fetch completed in 240.640833ms (total: 240.793416ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:45.968295Z[0m [32m INFO[0m [2m69:[0m Block 84417937: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:46.220235Z[0m [32m INFO[0m [2m141:[0m Block 84417937: Reserve fetch completed in 251.86875ms (total: 252.013917ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:47.955565Z[0m [32m INFO[0m [2m69:[0m Block 84417938: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:48.197184Z[0m [32m INFO[0m [2m141:[0m Block 84417938: Reserve fetch completed in 241.468625ms (total: 241.733208ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:49.963642Z[0m [32m INFO[0m [2m69:[0m Block 84417939: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:50.213112Z[0m [32m INFO[0m [2m141:[0m Block 84417939: Reserve fetch completed in 249.384833ms (total: 249.554667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:51.958863Z[0m [32m INFO[0m [2m69:[0m Block 84417940: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:52.206877Z[0m [32m INFO[0m [2m141:[0m Block 84417940: Reserve fetch completed in 247.856708ms (total: 248.097042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:53.961272Z[0m [32m INFO[0m [2m69:[0m Block 84417941: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:54.207792Z[0m [32m INFO[0m [2m141:[0m Block 84417941: Reserve fetch completed in 246.450042ms (total: 246.605834ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:55.961142Z[0m [32m INFO[0m [2m69:[0m Block 84417942: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:56.213704Z[0m [32m INFO[0m [2m141:[0m Block 84417942: Reserve fetch completed in 252.407917ms (total: 252.651ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:57.982065Z[0m [32m INFO[0m [2m69:[0m Block 84417943: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:09:58.231564Z[0m [32m INFO[0m [2m141:[0m Block 84417943: Reserve fetch completed in 249.335959ms (total: 249.586417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:09:58.233574Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2140.165546667s):
+[2m2025-09-04T06:09:58.233669Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1070
+[2m2025-09-04T06:09:58.233715Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:09:58.233751Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:10:00.055584Z[0m [32m INFO[0m [2m69:[0m Block 84417944: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:00.311370Z[0m [32m INFO[0m [2m141:[0m Block 84417944: Reserve fetch completed in 255.599792ms (total: 255.8205ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:02.023177Z[0m [32m INFO[0m [2m69:[0m Block 84417945: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:02.334185Z[0m [32m INFO[0m [2m141:[0m Block 84417945: Reserve fetch completed in 310.886583ms (total: 311.087792ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:03.991586Z[0m [32m INFO[0m [2m69:[0m Block 84417946: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:04.253095Z[0m [32m INFO[0m [2m141:[0m Block 84417946: Reserve fetch completed in 261.3595ms (total: 261.601375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:06.037534Z[0m [32m INFO[0m [2m69:[0m Block 84417947: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:06.278156Z[0m [32m INFO[0m [2m141:[0m Block 84417947: Reserve fetch completed in 240.43175ms (total: 240.655875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:07.984832Z[0m [32m INFO[0m [2m69:[0m Block 84417948: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:08.227489Z[0m [32m INFO[0m [2m141:[0m Block 84417948: Reserve fetch completed in 242.564792ms (total: 242.744041ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:09.956060Z[0m [32m INFO[0m [2m69:[0m Block 84417949: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:10.214445Z[0m [32m INFO[0m [2m141:[0m Block 84417949: Reserve fetch completed in 258.22925ms (total: 258.466084ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:11.962762Z[0m [32m INFO[0m [2m69:[0m Block 84417950: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:12.208602Z[0m [32m INFO[0m [2m141:[0m Block 84417950: Reserve fetch completed in 245.683125ms (total: 245.9375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:14.176639Z[0m [32m INFO[0m [2m69:[0m Block 84417951: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:14.424114Z[0m [32m INFO[0m [2m141:[0m Block 84417951: Reserve fetch completed in 247.420958ms (total: 247.507166ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:15.962961Z[0m [32m INFO[0m [2m69:[0m Block 84417952: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:16.212340Z[0m [32m INFO[0m [2m141:[0m Block 84417952: Reserve fetch completed in 249.251833ms (total: 249.446709ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:17.984475Z[0m [32m INFO[0m [2m69:[0m Block 84417953: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:18.228091Z[0m [32m INFO[0m [2m141:[0m Block 84417953: Reserve fetch completed in 243.551458ms (total: 243.659792ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:18.228830Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2160.160797792s):
+[2m2025-09-04T06:10:18.228879Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1080
+[2m2025-09-04T06:10:18.228897Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:10:18.228912Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:10:19.965243Z[0m [32m INFO[0m [2m69:[0m Block 84417954: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:20.204328Z[0m [32m INFO[0m [2m141:[0m Block 84417954: Reserve fetch completed in 238.969584ms (total: 239.10625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:21.968958Z[0m [32m INFO[0m [2m69:[0m Block 84417955: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:22.221529Z[0m [32m INFO[0m [2m141:[0m Block 84417955: Reserve fetch completed in 252.47275ms (total: 252.622417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:24.327425Z[0m [32m INFO[0m [2m69:[0m Block 84417956: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:24.574341Z[0m [32m INFO[0m [2m141:[0m Block 84417956: Reserve fetch completed in 246.845042ms (total: 246.946667ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:25.961335Z[0m [32m INFO[0m [2m69:[0m Block 84417957: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:26.317459Z[0m [32m INFO[0m [2m141:[0m Block 84417957: Reserve fetch completed in 356.066583ms (total: 356.200125ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:27.978230Z[0m [32m INFO[0m [2m69:[0m Block 84417958: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:28.226122Z[0m [32m INFO[0m [2m141:[0m Block 84417958: Reserve fetch completed in 247.806083ms (total: 247.922291ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:29.963336Z[0m [32m INFO[0m [2m69:[0m Block 84417959: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:30.208028Z[0m [32m INFO[0m [2m141:[0m Block 84417959: Reserve fetch completed in 244.612666ms (total: 244.755875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:31.961132Z[0m [32m INFO[0m [2m69:[0m Block 84417960: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:32.207982Z[0m [32m INFO[0m [2m141:[0m Block 84417960: Reserve fetch completed in 246.669417ms (total: 246.889375ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:33.958138Z[0m [32m INFO[0m [2m69:[0m Block 84417961: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:34.273624Z[0m [32m INFO[0m [2m141:[0m Block 84417961: Reserve fetch completed in 315.434083ms (total: 315.548333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:36.058347Z[0m [32m INFO[0m [2m69:[0m Block 84417962: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:36.307280Z[0m [32m INFO[0m [2m141:[0m Block 84417962: Reserve fetch completed in 248.856333ms (total: 248.982291ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:37.956985Z[0m [32m INFO[0m [2m69:[0m Block 84417963: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:38.198544Z[0m [32m INFO[0m [2m141:[0m Block 84417963: Reserve fetch completed in 241.492583ms (total: 241.589708ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:38.200077Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2180.13202725s):
+[2m2025-09-04T06:10:38.200160Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1090
+[2m2025-09-04T06:10:38.200189Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:10:38.200204Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:10:39.967526Z[0m [32m INFO[0m [2m69:[0m Block 84417964: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:40.215093Z[0m [32m INFO[0m [2m141:[0m Block 84417964: Reserve fetch completed in 247.530125ms (total: 247.669833ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:41.956013Z[0m [32m INFO[0m [2m69:[0m Block 84417965: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:42.200225Z[0m [32m INFO[0m [2m141:[0m Block 84417965: Reserve fetch completed in 244.03325ms (total: 244.259459ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:43.973272Z[0m [32m INFO[0m [2m69:[0m Block 84417966: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:44.215132Z[0m [32m INFO[0m [2m141:[0m Block 84417966: Reserve fetch completed in 241.776208ms (total: 242.041167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:45.976311Z[0m [32m INFO[0m [2m69:[0m Block 84417967: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:46.218976Z[0m [32m INFO[0m [2m141:[0m Block 84417967: Reserve fetch completed in 242.628ms (total: 242.767ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:48.024344Z[0m [32m INFO[0m [2m69:[0m Block 84417968: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:48.265568Z[0m [32m INFO[0m [2m141:[0m Block 84417968: Reserve fetch completed in 241.192792ms (total: 241.40075ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:49.959717Z[0m [32m INFO[0m [2m69:[0m Block 84417969: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:50.204915Z[0m [32m INFO[0m [2m141:[0m Block 84417969: Reserve fetch completed in 245.111208ms (total: 245.221583ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:51.958942Z[0m [32m INFO[0m [2m69:[0m Block 84417970: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:52.210921Z[0m [32m INFO[0m [2m141:[0m Block 84417970: Reserve fetch completed in 251.920125ms (total: 252.027209ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:53.961888Z[0m [32m INFO[0m [2m69:[0m Block 84417971: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:54.227739Z[0m [32m INFO[0m [2m141:[0m Block 84417971: Reserve fetch completed in 265.782667ms (total: 265.892416ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:55.959809Z[0m [32m INFO[0m [2m69:[0m Block 84417972: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:56.203742Z[0m [32m INFO[0m [2m141:[0m Block 84417972: Reserve fetch completed in 243.87625ms (total: 244.007584ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:57.960714Z[0m [32m INFO[0m [2m69:[0m Block 84417973: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:10:58.201049Z[0m [32m INFO[0m [2m141:[0m Block 84417973: Reserve fetch completed in 240.268834ms (total: 240.394042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:10:58.202447Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2200.134388583s):
+[2m2025-09-04T06:10:58.202518Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1100
+[2m2025-09-04T06:10:58.202540Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:10:58.202555Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:10:59.959694Z[0m [32m INFO[0m [2m69:[0m Block 84417974: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:00.199820Z[0m [32m INFO[0m [2m141:[0m Block 84417974: Reserve fetch completed in 240.047833ms (total: 240.156875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:01.962503Z[0m [32m INFO[0m [2m69:[0m Block 84417975: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:02.203437Z[0m [32m INFO[0m [2m141:[0m Block 84417975: Reserve fetch completed in 240.8765ms (total: 240.969917ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:03.961154Z[0m [32m INFO[0m [2m69:[0m Block 84417976: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:04.204250Z[0m [32m INFO[0m [2m141:[0m Block 84417976: Reserve fetch completed in 243.037667ms (total: 243.135875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:05.957057Z[0m [32m INFO[0m [2m69:[0m Block 84417977: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:06.199554Z[0m [32m INFO[0m [2m141:[0m Block 84417977: Reserve fetch completed in 242.336042ms (total: 242.576084ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:07.965426Z[0m [32m INFO[0m [2m69:[0m Block 84417978: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:08.207664Z[0m [32m INFO[0m [2m141:[0m Block 84417978: Reserve fetch completed in 242.202125ms (total: 242.448958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:09.962071Z[0m [32m INFO[0m [2m69:[0m Block 84417979: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:10.203169Z[0m [32m INFO[0m [2m141:[0m Block 84417979: Reserve fetch completed in 241.025083ms (total: 241.154417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:12.010134Z[0m [32m INFO[0m [2m69:[0m Block 84417980: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:12.264841Z[0m [32m INFO[0m [2m141:[0m Block 84417980: Reserve fetch completed in 254.648917ms (total: 254.746417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:13.962016Z[0m [32m INFO[0m [2m69:[0m Block 84417981: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:14.203523Z[0m [32m INFO[0m [2m141:[0m Block 84417981: Reserve fetch completed in 241.445875ms (total: 241.546875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:16.162934Z[0m [32m INFO[0m [2m69:[0m Block 84417982: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:16.404646Z[0m [32m INFO[0m [2m141:[0m Block 84417982: Reserve fetch completed in 241.617708ms (total: 241.728916ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:18.038153Z[0m [32m INFO[0m [2m69:[0m Block 84417983: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:18.280623Z[0m [32m INFO[0m [2m141:[0m Block 84417983: Reserve fetch completed in 242.384208ms (total: 242.498958ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:18.281708Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2220.213640417s):
+[2m2025-09-04T06:11:18.281776Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1110
+[2m2025-09-04T06:11:18.281802Z[0m [32m INFO[0m [2m861:[0m   套利机会: 0
+[2m2025-09-04T06:11:18.281834Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.000000 MNT
+[2m2025-09-04T06:11:20.210888Z[0m [32m INFO[0m [2m69:[0m Block 84417984: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:20.459294Z[0m [32m INFO[0m [2m141:[0m Block 84417984: Reserve fetch completed in 248.189625ms (total: 248.414292ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:22.007113Z[0m [32m INFO[0m [2m69:[0m Block 84417985: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:22.256620Z[0m [32m INFO[0m [2m141:[0m Block 84417985: Reserve fetch completed in 249.4695ms (total: 249.611666ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:24.069616Z[0m [32m INFO[0m [2m69:[0m Block 84417986: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:24.312494Z[0m [32m INFO[0m [2m141:[0m Block 84417986: Reserve fetch completed in 242.791541ms (total: 242.911583ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:25.995438Z[0m [32m INFO[0m [2m69:[0m Block 84417987: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:26.266562Z[0m [32m INFO[0m [2m141:[0m Block 84417987: Reserve fetch completed in 270.941208ms (total: 271.136167ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:27.994854Z[0m [32m INFO[0m [2m69:[0m Block 84417988: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:28.274775Z[0m [32m INFO[0m [2m141:[0m Block 84417988: Reserve fetch completed in 279.842333ms (total: 279.969ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:29.999408Z[0m [32m INFO[0m [2m69:[0m Block 84417989: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:30.251270Z[0m [32m INFO[0m [2m141:[0m Block 84417989: Reserve fetch completed in 251.787625ms (total: 251.912916ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:31.994704Z[0m [32m INFO[0m [2m69:[0m Block 84417990: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:32.264190Z[0m [32m INFO[0m [2m141:[0m Block 84417990: Reserve fetch completed in 269.394458ms (total: 269.616833ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:33.992296Z[0m [32m INFO[0m [2m69:[0m Block 84417991: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:34.240614Z[0m [32m INFO[0m [2m141:[0m Block 84417991: Reserve fetch completed in 248.268875ms (total: 248.390209ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:36.013494Z[0m [32m INFO[0m [2m69:[0m Block 84417992: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:36.255826Z[0m [32m INFO[0m [2m141:[0m Block 84417992: Reserve fetch completed in 242.216ms (total: 242.374417ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:36.256048Z[0m [32m INFO[0m [2m148:[0m Block 84417992: 1 pools have reserve changes:
+[2m2025-09-04T06:11:36.256099Z[0m [32m INFO[0m [2m150:[0m   Pool Address(0x763868612858358f62b05691db82ad35a9b3e110): reserves 6973335579441444112204385 -> 6975533278138178824521199 | 493951046701897407877945 -> 493795890116059443428321
+[2m2025-09-04T06:11:36.257678Z[0m [32m INFO[0m [2m755:[0m 🎯 区块 84417992 - 发现 1 个新套利机会
+[2m2025-09-04T06:11:36.257830Z[0m [32m INFO[0m [2m775:[0m   1. 净利润: 0.019515 MNT | ROI: 0.4% | 路径: 3-跳
+[2m2025-09-04T06:11:36.257893Z[0m [32m INFO[0m [2m782:[0m      推荐输入: 5.000000 MNT
+[2m2025-09-04T06:11:36.257928Z[0m [32m INFO[0m [2m784:[0m      预期产出: 5.019515 MNT
+[2m2025-09-04T06:11:36.257950Z[0m [32m INFO[0m [2m786:[0m      Gas成本: 21.818182 MNT ($24.00)
+[2m2025-09-04T06:11:36.258023Z[0m [32m INFO[0m [2m794:[0m      路径: 78c1...4cb8 → 4515...00c9 → 371c...2f07 → 78c1...4cb8
+[2m2025-09-04T06:11:36.259661Z[0m [32m INFO[0m [2m465:[0m 📝 已将 1 个套利机会记录到 arbitrage_opportunities.csv
+[2m2025-09-04T06:11:37.993110Z[0m [32m INFO[0m [2m69:[0m Block 84417993: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:38.279683Z[0m [32m INFO[0m [2m141:[0m Block 84417993: Reserve fetch completed in 286.529208ms (total: 286.647333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:38.280916Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2240.212836333s):
+[2m2025-09-04T06:11:38.280977Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1120
+[2m2025-09-04T06:11:38.280995Z[0m [32m INFO[0m [2m861:[0m   套利机会: 1
+[2m2025-09-04T06:11:38.281009Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.019515 MNT
+[2m2025-09-04T06:11:39.995262Z[0m [32m INFO[0m [2m69:[0m Block 84417994: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:40.254546Z[0m [32m INFO[0m [2m141:[0m Block 84417994: Reserve fetch completed in 259.246541ms (total: 259.361291ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:41.993096Z[0m [32m INFO[0m [2m69:[0m Block 84417995: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:42.234565Z[0m [32m INFO[0m [2m141:[0m Block 84417995: Reserve fetch completed in 241.3995ms (total: 241.525625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:44.021161Z[0m [32m INFO[0m [2m69:[0m Block 84417996: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:44.278686Z[0m [32m INFO[0m [2m141:[0m Block 84417996: Reserve fetch completed in 257.4565ms (total: 257.579875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:45.995128Z[0m [32m INFO[0m [2m69:[0m Block 84417997: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:46.236107Z[0m [32m INFO[0m [2m141:[0m Block 84417997: Reserve fetch completed in 240.915667ms (total: 241.012083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:48.054365Z[0m [32m INFO[0m [2m69:[0m Block 84417998: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:48.296530Z[0m [32m INFO[0m [2m141:[0m Block 84417998: Reserve fetch completed in 242.109833ms (total: 242.227334ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:50.000176Z[0m [32m INFO[0m [2m69:[0m Block 84417999: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:50.241361Z[0m [32m INFO[0m [2m141:[0m Block 84417999: Reserve fetch completed in 241.125458ms (total: 241.219875ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:51.990545Z[0m [32m INFO[0m [2m69:[0m Block 84418000: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:52.235915Z[0m [32m INFO[0m [2m141:[0m Block 84418000: Reserve fetch completed in 245.280542ms (total: 245.408042ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:53.992160Z[0m [32m INFO[0m [2m69:[0m Block 84418001: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:54.236404Z[0m [32m INFO[0m [2m141:[0m Block 84418001: Reserve fetch completed in 244.198292ms (total: 244.31225ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:55.996029Z[0m [32m INFO[0m [2m69:[0m Block 84418002: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:56.239658Z[0m [32m INFO[0m [2m141:[0m Block 84418002: Reserve fetch completed in 243.55475ms (total: 243.684833ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:58.048402Z[0m [32m INFO[0m [2m69:[0m Block 84418003: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:11:58.288174Z[0m [32m INFO[0m [2m141:[0m Block 84418003: Reserve fetch completed in 239.666708ms (total: 239.791584ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:11:58.289525Z[0m [32m INFO[0m [2m859:[0m 📊 监控统计 (已运行 2260.221432167s):
+[2m2025-09-04T06:11:58.289619Z[0m [32m INFO[0m [2m860:[0m   已处理区块: 1130
+[2m2025-09-04T06:11:58.289661Z[0m [32m INFO[0m [2m861:[0m   套利机会: 1
+[2m2025-09-04T06:11:58.289683Z[0m [32m INFO[0m [2m862:[0m   累计潜在利润: 0.019515 MNT
+[2m2025-09-04T06:12:00.043461Z[0m [32m INFO[0m [2m69:[0m Block 84418004: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:12:00.285516Z[0m [32m INFO[0m [2m141:[0m Block 84418004: Reserve fetch completed in 241.898333ms (total: 242.112083ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:12:01.994849Z[0m [32m INFO[0m [2m69:[0m Block 84418005: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:12:02.245678Z[0m [32m INFO[0m [2m141:[0m Block 84418005: Reserve fetch completed in 250.734209ms (total: 250.844625ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:12:07.029044Z[0m [32m INFO[0m [2m69:[0m Block 84418006: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:12:07.286056Z[0m [32m INFO[0m [2m141:[0m Block 84418006: Reserve fetch completed in 257.285ms (total: 257.412959ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:12:07.286267Z[0m [32m INFO[0m [2m69:[0m Block 84418007: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:12:07.528049Z[0m [32m INFO[0m [2m141:[0m Block 84418007: Reserve fetch completed in 241.707542ms (total: 241.797959ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:12:08.000489Z[0m [32m INFO[0m [2m69:[0m Block 84418008: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:12:08.244387Z[0m [32m INFO[0m [2m141:[0m Block 84418008: Reserve fetch completed in 243.792917ms (total: 243.912333ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:12:10.002273Z[0m [32m INFO[0m [2m69:[0m Block 84418009: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:12:10.250139Z[0m [32m INFO[0m [2m141:[0m Block 84418009: Reserve fetch completed in 247.82825ms (total: 247.952916ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:12:12.100790Z[0m [32m INFO[0m [2m69:[0m Block 84418010: Starting reserves fetch for 12 pools
+[2m2025-09-04T06:12:12.361175Z[0m [32m INFO[0m [2m141:[0m Block 84418010: Reserve fetch completed in 260.299709ms (total: 260.428583ms) - 12 successful, 0 failed pools
+[2m2025-09-04T06:13:15.282891Z[0m [32m INFO[0m [2m177:[0m WebSocket closed by server
+[2m2025-09-04T06:13:15.284054Z[0m [32m INFO[0m [2m87:[0m WebSocket subscription ended normally
+[2m2025-09-04T06:13:15.284294Z[0m [32m INFO[0m [2m240:[0m Aggregation task ended
