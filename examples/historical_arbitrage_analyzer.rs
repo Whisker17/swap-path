@@ -109,12 +109,22 @@ async fn main() -> Result<()> {
         .await?;
     
     // 创建套利引擎
-    let arbitrage_engine = create_live_arbitrage_engine(&market)?;
+    let mut arbitrage_engine = create_live_arbitrage_engine(&market)?;
+    
+    // 设置详细记录器（默认启用）
+    if std::env::var("DISABLE_DETAILED_LOGGING").is_err() {
+        info!("📊 启用详细区块记录器...");
+        let detail_logger = swap_path::utils::BlockDetailLogger::new("./logs");
+        arbitrage_engine.set_detail_logger(detail_logger);
+        info!("  详细记录将保存到 ./logs/ 目录");
+    } else {
+        info!("🔇 详细记录已禁用（设置了 DISABLE_DETAILED_LOGGING）");
+    }
     
     // 分析指定区块范围的套利机会
     let analysis_results = analyze_block_range(
         &data_service,
-        &arbitrage_engine, 
+        &mut arbitrage_engine, 
         block_range
     ).await?;
     
@@ -577,7 +587,7 @@ fn create_live_arbitrage_engine(market: &Market) -> Result<ArbitrageEngine> {
 /// 分析指定区块范围的套利机会
 async fn analyze_block_range(
     data_service: &swap_path::data_sync::DataSyncService,
-    arbitrage_engine: &ArbitrageEngine,
+    arbitrage_engine: &mut ArbitrageEngine,
     block_range: BlockRangeConfig,
 ) -> Result<Vec<ArbitrageAnalysisResult>> {
     info!("🔬 开始分析区块范围套利机会...");
@@ -595,7 +605,7 @@ async fn analyze_block_range(
         match get_block_pool_states(data_service, block_number).await {
             Ok(snapshot) => {
                 // 分析套利机会
-                match arbitrage_engine.process_market_snapshot(&snapshot) {
+                match arbitrage_engine.process_market_snapshot(&snapshot).await {
                     Ok(opportunities) => {
                         let best_opportunity = find_best_opportunity(&opportunities);
                         let total_potential_profit: f64 = opportunities.iter()

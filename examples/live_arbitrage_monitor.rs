@@ -158,6 +158,16 @@ async fn main() -> Result<()> {
     // 创建套利引擎
     let mut arbitrage_engine = create_live_arbitrage_engine(&market)?;
     
+    // 设置详细记录器（默认启用）
+    if std::env::var("DISABLE_DETAILED_LOGGING").is_err() {
+        info!("📊 启用详细区块记录器...");
+        let detail_logger = swap_path::utils::BlockDetailLogger::new("./logs");
+        arbitrage_engine.set_detail_logger(detail_logger);
+        info!("  详细记录将保存到 ./logs/ 目录");
+    } else {
+        info!("🔇 详细记录已禁用（设置了 DISABLE_DETAILED_LOGGING）");
+    }
+    
     // 启动实时监控
     run_live_monitoring(&mut data_service, &mut arbitrage_engine).await?;
     
@@ -197,7 +207,7 @@ fn validate_environment() -> Result<()> {
         warn!("或设置环境变量 POOL_ADDRESSES (逗号分隔)");
     } else {
         info!("✅ 找到池子数据文件: data/selected/poolLists.csv");
-    }
+    }   
     
     info!("✅ 环境验证完成");
     Ok(())
@@ -734,12 +744,12 @@ async fn run_live_monitoring(
 
 /// 分析套利机会
 async fn analyze_arbitrage_opportunities(
-    engine: &ArbitrageEngine,
+    engine: &mut ArbitrageEngine,
     snapshot: &MarketSnapshot,
 ) -> Result<Vec<swap_path::logic::ArbitrageOpportunity>> {
     debug!("分析区块 {} 的套利机会", snapshot.block_number);
     
-    let opportunities = engine.process_market_snapshot(snapshot)?;
+    let opportunities = engine.process_market_snapshot(snapshot).await?;
     
     if !opportunities.is_empty() {
         debug!("区块 {} 发现 {} 个套利机会", snapshot.block_number, opportunities.len());
@@ -894,7 +904,7 @@ fn display_final_stats_with_dedup(
 }
 
 /// 离线演示模式
-async fn run_offline_demo(arbitrage_engine: &ArbitrageEngine) -> Result<()> {
+async fn run_offline_demo(arbitrage_engine: &mut ArbitrageEngine) -> Result<()> {
     warn!("🔄 启动离线演示模式...");
     
     // 创建一些模拟的市场快照
@@ -903,7 +913,7 @@ async fn run_offline_demo(arbitrage_engine: &ArbitrageEngine) -> Result<()> {
     for (i, snapshot) in demo_snapshots.iter().enumerate() {
         info!("📊 处理演示快照 {} (区块 {})", i + 1, snapshot.block_number);
         
-        let opportunities = arbitrage_engine.process_market_snapshot(snapshot)?;
+        let opportunities = arbitrage_engine.process_market_snapshot(snapshot).await?;
         
         if !opportunities.is_empty() {
             display_arbitrage_opportunities(snapshot, &opportunities);

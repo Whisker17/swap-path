@@ -1,11 +1,13 @@
 use crate::logic::graph::{SwapPath, TokenGraph};
+use crate::utils::block_detail_logger::BlockDetailLogger;
 use super::pathfinder::Pathfinder;
 use super::profit_calculator::ProfitCalculator;
 use super::types::{ArbitrageConfig, ArbitrageOpportunity, MarketSnapshot};
 use alloy_primitives::U256;
 use eyre::{eyre, Result};
+use std::time::Instant;
 use tokio::sync::mpsc;
-use tracing::{error, info, warn};
+use tracing::{debug, error, info, warn};
 
 /// ArbitrageEngine is the core component of the Logic Layer
 /// 
@@ -24,6 +26,8 @@ pub struct ArbitrageEngine {
     profit_calculator: ProfitCalculator,
     /// Channel receiver for market data updates
     market_data_receiver: Option<mpsc::Receiver<MarketSnapshot>>,
+    /// Optional detailed block logger for analysis
+    detail_logger: Option<BlockDetailLogger>,
     /// Engine state
     is_initialized: bool,
 }
@@ -38,6 +42,7 @@ impl ArbitrageEngine {
             precomputed_paths: Vec::new(),
             profit_calculator,
             market_data_receiver: None,
+            detail_logger: None,
             is_initialized: false,
         }
     }
@@ -89,27 +94,44 @@ impl ArbitrageEngine {
         self.market_data_receiver = Some(receiver);
     }
 
+    /// Set up the detailed block logger for comprehensive analysis
+    /// 
+    /// This enables detailed logging of each block processing to CSV files for later analysis
+    pub fn set_detail_logger(&mut self, logger: BlockDetailLogger) {
+        info!("设置详细区块记录器");
+        self.detail_logger = Some(logger);
+    }
+
+    /// Check if detailed logging is enabled
+    pub fn is_detail_logging_enabled(&self) -> bool {
+        self.detail_logger.is_some()
+    }
+
     /// Process a single market snapshot and find arbitrage opportunities
     /// 
     /// This is the core "Profit Calculation" phase that runs on every new market data update.
     /// It performs high-speed mathematical calculations on all pre-computed paths in parallel.
-    pub fn process_market_snapshot(
-        &self,
+    pub async fn process_market_snapshot(
+        &mut self,
         market_snapshot: &MarketSnapshot,
     ) -> Result<Vec<ArbitrageOpportunity>> {
         if !self.is_initialized {
             return Err(eyre!("引擎未初始化，请先调用 initialize()"));
         }
 
+        let processing_start = Instant::now();
+
         // Calculate profits for all pre-computed paths in parallel
+        let calculation_start = Instant::now();
         let profit_results = self.profit_calculator.calculate_profits_parallel(
             &self.precomputed_paths,
             market_snapshot,
         );
+        let calculation_duration = calculation_start.elapsed();
 
         // Filter and convert successful calculations to opportunities
         let opportunities: Vec<ArbitrageOpportunity> = profit_results
-            .into_iter()
+            .iter()
             .filter_map(|result| {
                 if result.calculation_successful 
                     && result.net_profit_mnt_wei > self.config.min_profit_threshold_mnt_wei 
@@ -120,6 +142,24 @@ impl ArbitrageEngine {
                 }
             })
             .collect();
+
+        // Log detailed information if logger is enabled
+        if let Some(logger) = &mut self.detail_logger {
+            if let Err(e) = logger.log_block_processing(
+                market_snapshot,
+                &self.precomputed_paths,
+                &profit_results,
+                &opportunities,
+                processing_start,
+                calculation_duration,
+            ).await {
+                // Don't fail the processing due to logging errors, just warn
+                warn!("详细记录失败: {}", e);
+            }
+        }
+
+        debug!("区块 {} 处理完成: {} 个机会, 用时 {:?}", 
+               market_snapshot.block_number, opportunities.len(), processing_start.elapsed());
 
         Ok(opportunities)
     }
@@ -143,7 +183,7 @@ impl ArbitrageEngine {
         info!("启动套利引擎实时处理循环...");
 
         while let Some(market_snapshot) = receiver.recv().await {
-            match self.process_market_snapshot(&market_snapshot) {
+            match self.process_market_snapshot(&market_snapshot).await {
                 Ok(opportunities) => {
                     if !opportunities.is_empty() {
                         info!("发现 {} 个套利机会，区块: {}", opportunities.len(), market_snapshot.block_number);
