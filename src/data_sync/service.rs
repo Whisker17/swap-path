@@ -69,10 +69,13 @@ impl DataSyncService {
         let market = Arc::new(RwLock::new(market));
         
         // Create data aggregator
-        let aggregator = Arc::new(RwLock::new(DataAggregator::new(
+        let mut data_aggregator = DataAggregator::new(
             multicall_manager,
             config.max_pools_per_batch,
-        )));
+        );
+        // Set market reference for enhanced logging
+        data_aggregator.set_market(Arc::clone(&market));
+        let aggregator = Arc::new(RwLock::new(data_aggregator));
         
         // Create market data channel
         let (market_data_tx, market_data_rx) = mpsc::channel(config.channel_buffer_size);

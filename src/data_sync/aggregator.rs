@@ -2,12 +2,13 @@ use crate::logic::types::MarketSnapshot;
 use crate::logic::pools::PoolId;
 use crate::data_sync::multicall::MulticallManager;
 use crate::data_sync::websocket::BlockHeader;
-// use crate::data_sync::markets::{Market, MarketWithoutLock}; // Removed unused imports
+use crate::data_sync::markets::Market;
 use alloy_primitives::U256;
 use eyre::Result;
 use std::collections::HashMap;
 use std::time::Instant;
-// use std::sync::Arc; // Removed unused import
+use std::sync::Arc;
+use tokio::sync::RwLock;
 use tracing::{info, warn, error, debug};
 
 /// Data aggregator that combines pool data into market snapshots
@@ -17,6 +18,8 @@ pub struct DataAggregator {
     max_pools_per_batch: usize,
     // Track previous reserves to detect changes
     previous_reserves: HashMap<PoolId, (U256, U256)>,
+    // Reference to market for pool/token information (for enhanced logging)
+    market: Option<Arc<RwLock<Market>>>,
 }
 
 impl DataAggregator {
@@ -29,7 +32,13 @@ impl DataAggregator {
             multicall_manager,
             max_pools_per_batch,
             previous_reserves: HashMap::new(),
+            market: None,
         }
+    }
+    
+    /// Set market reference for enhanced logging
+    pub fn set_market(&mut self, market: Arc<RwLock<Market>>) {
+        self.market = Some(market);
     }
     
 
@@ -136,15 +145,14 @@ impl DataAggregator {
             block_number, fetch_elapsed, total_elapsed, total_successful, total_failed
         );
         
-        // Log reserve changes
+        // Log reserve changes with enhanced formatting
         if !changed_pools.is_empty() {
-            info!("Block {}: {} pools have reserve changes:", block_number, changed_pools.len());
+            info!("🔄 Block {}: {} pools have reserve changes:", block_number, changed_pools.len());
             for (pool_id, (prev_r0, prev_r1), (new_r0, new_r1)) in &changed_pools {
-                info!("  Pool {:?}: reserves {} -> {} | {} -> {}", 
-                      pool_id, prev_r0, new_r0, prev_r1, new_r1);
+                self.log_reserve_change_detailed(pool_id, (prev_r0, prev_r1), (new_r0, new_r1)).await;
             }
         } else {
-            debug!("Block {}: No reserve changes detected", block_number);
+            debug!("✅ Block {}: No reserve changes detected", block_number);
         }
         
         // Update timestamp to reflect actual aggregation time
@@ -205,6 +213,70 @@ impl DataAggregator {
             monitored_pools_count,
             max_pools_per_batch: self.max_pools_per_batch,
         }
+    }
+    
+    /// Log detailed reserve changes with token information and human-readable format
+    async fn log_reserve_change_detailed(&self, pool_id: &PoolId, prev_reserves: (&U256, &U256), new_reserves: (&U256, &U256)) {
+        if let Some(market) = &self.market {
+            let market_guard = market.read().await;
+            if let Some(pool) = market_guard.get_pool(pool_id) {
+                let tokens = pool.get_tokens();
+                if tokens.len() >= 2 {
+                    let token0_addr = tokens[0];
+                    let token1_addr = tokens[1];
+                    
+                    // Get token information from market
+                    let token0_info = market_guard.token_graph.tokens.get(&token0_addr);
+                    let token1_info = market_guard.token_graph.tokens.get(&token1_addr);
+                    
+                    let token0_symbol = token0_info.map(|t| t.get_symbol()).unwrap_or_else(|| format!("{:#x}", token0_addr));
+                    let token1_symbol = token1_info.map(|t| t.get_symbol()).unwrap_or_else(|| format!("{:#x}", token1_addr));
+                    
+                    // Format reserves with decimals
+                    let (prev_r0_formatted, new_r0_formatted) = if let Some(token0) = token0_info {
+                        let prev_f = token0.to_float(*prev_reserves.0);
+                        let new_f = token0.to_float(*new_reserves.0);
+                        (format!("{:.3}", prev_f), format!("{:.3}", new_f))
+                    } else {
+                        (prev_reserves.0.to_string(), new_reserves.0.to_string())
+                    };
+                    
+                    let (prev_r1_formatted, new_r1_formatted) = if let Some(token1) = token1_info {
+                        let prev_f = token1.to_float(*prev_reserves.1);
+                        let new_f = token1.to_float(*new_reserves.1);
+                        (format!("{:.3}", prev_f), format!("{:.3}", new_f))
+                    } else {
+                        (prev_reserves.1.to_string(), new_reserves.1.to_string())
+                    };
+                    
+                    // Determine change direction emojis
+                    let r0_emoji = if new_reserves.0 > prev_reserves.0 { "📈" } else if new_reserves.0 < prev_reserves.0 { "📉" } else { "➡️" };
+                    let r1_emoji = if new_reserves.1 > prev_reserves.1 { "📈" } else if new_reserves.1 < prev_reserves.1 { "📉" } else { "➡️" };
+                    
+                    info!("  💧 Pool {}: {} {} -> {} {} | {} {} -> {} {}",
+                        pool_id,
+                        token0_symbol, 
+                        prev_r0_formatted,
+                        r0_emoji,
+                        new_r0_formatted,
+                        token1_symbol,
+                        prev_r1_formatted,
+                        r1_emoji,
+                        new_r1_formatted
+                    );
+                    
+                    // Also log raw values for debugging if needed
+                    debug!("    Raw: {} -> {} | {} -> {}", 
+                           prev_reserves.0, new_reserves.0, prev_reserves.1, new_reserves.1);
+                    
+                    return;
+                }
+            }
+        }
+        
+        // Fallback to basic logging if market info unavailable
+        info!("  Pool {:?}: reserves {} -> {} | {} -> {}", 
+              pool_id, prev_reserves.0, new_reserves.0, prev_reserves.1, new_reserves.1);
     }
 }
 
