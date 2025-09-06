@@ -4,12 +4,12 @@ use crate::logic::pools::PoolId;
 use alloy_primitives::U256;
 use eyre::Result;
 use serde::Serialize;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::path::Path;
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 use tokio::fs::OpenOptions;
 use tokio::io::AsyncWriteExt;
-use tracing::{debug, info};
+use tracing::{debug, info, warn};
 
 /// 区块处理详细信息记录
 #[derive(Debug, Clone, Serialize)]
@@ -107,6 +107,8 @@ pub struct BlockDetailLogger {
     last_pool_reserves: HashMap<PoolId, (U256, U256)>,
     /// 是否已初始化文件头
     headers_written: bool,
+    /// 已记录的套利机会（用于去重）
+    recorded_opportunities: HashSet<String>,
 }
 
 impl BlockDetailLogger {
@@ -123,6 +125,7 @@ impl BlockDetailLogger {
             pool_reserves_file: format!("{}/pool_reserves_{}.csv", output_dir, timestamp),
             last_pool_reserves: HashMap::new(),
             headers_written: false,
+            recorded_opportunities: HashSet::new(),
         }
     }
 
@@ -185,8 +188,17 @@ impl BlockDetailLogger {
         // 写入区块总览
         self.write_block_summary_record(&block_record).await?;
 
-        // 写入所有套利机会详情
+        // 写入所有套利机会详情（去重）
+        let mut new_opportunities_count = 0;
         for opportunity in opportunities {
+            // 创建套利机会的唯一标识
+            let opportunity_key = self.create_opportunity_key(opportunity);
+            
+            // 检查是否已经记录过这个套利机会
+            if self.recorded_opportunities.contains(&opportunity_key) {
+                continue; // 跳过重复的机会
+            }
+            
             let opportunity_record = OpportunityDetailRecord {
                 block_number: market_snapshot.block_number,
                 timestamp: market_snapshot.timestamp,
@@ -203,7 +215,20 @@ impl BlockDetailLogger {
                 liquidity_score: self.calculate_liquidity_score(&opportunity.path, market_snapshot),
             };
             
+            // 写入新的套利机会记录
             self.write_opportunity_detail_record(&opportunity_record).await?;
+            
+            // 标记为已记录
+            self.recorded_opportunities.insert(opportunity_key);
+            new_opportunities_count += 1;
+        }
+        
+        if opportunities.len() > new_opportunities_count {
+            debug!("区块 {} - 发现 {} 个套利机会，其中 {} 个为新机会，跳过了 {} 个重复机会",
+                   market_snapshot.block_number,
+                   opportunities.len(),
+                   new_opportunities_count,
+                   opportunities.len() - new_opportunities_count);
         }
 
         // 写入所有池子储备详情
@@ -518,5 +543,58 @@ impl BlockDetailLogger {
     /// 格式化池子地址
     fn format_pool_address(&self, pool_id: &crate::logic::pools::PoolId) -> String {
         pool_id.to_string()
+    }
+
+    /// 为套利机会创建唯一标识键
+    /// 
+    /// 基于以下关键字段生成唯一键：
+    /// - 路径描述（包含池子序列）
+    /// - 代币路径
+    /// - 最优输入金额
+    /// - 预期输出金额
+    /// - 总利润和净利润
+    /// 
+    /// 这确保只有当套利机会的核心参数发生变化时才被视为新机会
+    fn create_opportunity_key(&self, opportunity: &ArbitrageOpportunity) -> String {
+        let path_description = self.format_swap_path(&opportunity.path);
+        let path_tokens = self.format_path_tokens(&opportunity.path);
+        let gross_profit = format!("{:.6}", self.u256_to_mnt_f64(opportunity.gross_profit_mnt_wei));
+        let net_profit = format!("{:.6}", self.u256_to_mnt_f64(opportunity.net_profit_mnt_wei));
+        
+        // 创建复合键，用 "|" 分隔各个字段
+        format!(
+            "{}|{}|{}|{}|{}|{}",
+            path_description,
+            path_tokens,
+            opportunity.optimal_input_amount.to_string(),
+            opportunity.expected_output_amount.to_string(),
+            gross_profit,
+            net_profit
+        )
+    }
+
+    /// 获取当前会话中已记录的套利机会数量
+    pub fn get_recorded_opportunities_count(&self) -> usize {
+        self.recorded_opportunities.len()
+    }
+
+    /// 清理记录的套利机会缓存（可选择性地保留最近的N个记录以避免内存无限增长）
+    pub fn cleanup_opportunity_cache(&mut self, keep_recent: usize) {
+        if self.recorded_opportunities.len() > keep_recent * 2 {
+            warn!("套利机会缓存过大 ({} 项)，清理中...", self.recorded_opportunities.len());
+            // 简单的清理策略：保留一半的记录
+            // 在实际应用中，可能需要更复杂的策略，如基于时间的清理
+            let keys_to_remove: Vec<String> = self.recorded_opportunities
+                .iter()
+                .take(self.recorded_opportunities.len() / 2)
+                .cloned()
+                .collect();
+            
+            for key in keys_to_remove {
+                self.recorded_opportunities.remove(&key);
+            }
+            
+            info!("已清理套利机会缓存，保留 {} 项记录", self.recorded_opportunities.len());
+        }
     }
 }
